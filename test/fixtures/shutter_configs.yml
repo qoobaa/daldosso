@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  window_config_id: 1
+  shutter_id: 1
+  name: MyString
+  width: 1
+  height: 1
+  sashes_number: 1
+  description: MyString
+  shutter_cost: 1.5
+
+two:
+  window_config_id: 1
+  shutter_id: 1
+  name: MyString
+  width: 1
+  height: 1
+  sashes_number: 1
+  description: MyString
+  shutter_cost: 1.5

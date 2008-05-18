@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  additional_product_id: 1
+  window_config_id: 1
+  description: MyString
+  additional_cost: 1.5
+  cost_type: MyString
+
+two:
+  additional_product_id: 1
+  window_config_id: 1
+  description: MyString
+  additional_cost: 1.5
+  cost_type: MyString

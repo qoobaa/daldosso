@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  additional_feature_id: 1
+  window_config_id: 1
+  config_notes: MyString
+
+two:
+  additional_feature_id: 1
+  window_config_id: 1
+  config_notes: MyString

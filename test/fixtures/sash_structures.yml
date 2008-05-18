@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  structure_id: 1
+  sashes_number: 1
+  minimum: 1.5
+
+two:
+  structure_id: 1
+  sashes_number: 1
+  minimum: 1.5

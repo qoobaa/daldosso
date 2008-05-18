@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  min_thickness: 1
+  max_thickness: 1
+
+two:
+  min_thickness: 1
+  max_thickness: 1

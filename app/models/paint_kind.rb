@@ -1,0 +1,2 @@
+class PaintKind < WindowFeature
+end

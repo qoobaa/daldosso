@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  customer_id: 1
+  order_id: 1
+  employee_id: 1
+  date: 2008-05-12 20:26:54
+  description: MyString
+  call_status_id: 1
+
+two:
+  customer_id: 1
+  order_id: 1
+  employee_id: 1
+  date: 2008-05-12 20:26:54
+  description: MyString
+  call_status_id: 1

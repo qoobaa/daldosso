@@ -37,8 +37,8 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_daldosso_session',
-    :secret      => '826045043677d07c57644077e8a09684ad6573c17a4286c2d47906f4057029d58357f62f0cfba0dcd6ff39e1131fe51e133015a0e511e500d60729cd4655bcd9'
+    :session_key => '_WindowsExpertise_session',
+    :secret      => '036084c0d3214e4c21df4644628fb75584fd2a4f2b8abff4dec1c8e630bf679f691bd1f9495f272d8ff59900e96406eee681f57b1ec932c025a0f2c0cb803975'
   }
 
   # Use the database for sessions instead of the cookie-based default,

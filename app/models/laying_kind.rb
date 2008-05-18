@@ -1,0 +1,2 @@
+class LayingKind < WindowFeature
+end

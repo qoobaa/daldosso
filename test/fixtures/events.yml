@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  due_date: 2008-05-12 20:44:49
+  added_date: 2008-05-12 20:44:49
+  employee_id: 1
+  order_id: 1
+  event_type_id: 1
+  description: MyString
+
+two:
+  due_date: 2008-05-12 20:44:49
+  added_date: 2008-05-12 20:44:49
+  employee_id: 1
+  order_id: 1
+  event_type_id: 1
+  description: MyString
