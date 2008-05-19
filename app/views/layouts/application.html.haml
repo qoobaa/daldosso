@@ -1,0 +1,21 @@
+!!! XML
+%html
+  %head
+    %title Dal Dosso Company
+    %link{:rel=>"stylesheet",:type=>"text/css",:href=>"stylesheets/style.css"}
+  %body
+    %h1 Welcome        
+    #menu
+      %h2 Menu
+      - unless(logged_in?)
+        = render :partial => 'session/new'
+        %br
+        %a{:href=>"/signup"} Signup
+      - if(logged_in?)
+        %h5 Logged as:
+        = current_user.login
+        %br
+        = link_to "Logout", logout_path
+    #content
+      = yield
+        
