@@ -1,20 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
-  # customer part
-  map.resources :customers
+  map.resources :users
 
   map.resource :session, :controller => 'session'
   
-  map.signup '/signup', :controller => 'customers', :action => 'new'
+  map.signup '/signup', :controller => 'users', :action => 'new'
   map.login '/login', :controller => 'session', :action => 'new'
   map.logout '/logout', :controller => 'session', :action => 'destroy'
 
-  # admin part
-  map.resources :employees, :controller => 'admin/employees', :path_prefix => 'admin'
-
-  map.resource :admin_session, :controller => 'admin/session', :path_prefix => 'admin'
-
-  map.admin_login '/admin/login', :controller => 'admin/session', :action => 'new'
-  map.admin_logout '/admin/logout', :controller => 'admin/session', :action => 'destroy'
   
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -48,5 +40,4 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-
 end

@@ -1,5 +1,4 @@
-class EmployeesController < AdminApplicationController
-  # render new.rhtml
+class UsersController < ApplicationController
   def new
   end
 
@@ -9,15 +8,14 @@ class EmployeesController < AdminApplicationController
     # request forgery protection.
     # uncomment at your own risk
     # reset_session
-    @employee = Employee.new(params[:employee])
-    @employee.save
-    if @employee.errors.empty?
-      self.current_employee = @employee
+    @user = User.new(params[:user])
+    @user.save
+    if @user.errors.empty?
+      self.current_user = @user
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!"
     else
       render :action => 'new'
     end
   end
-
 end

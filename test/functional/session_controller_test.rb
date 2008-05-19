@@ -1,38 +1,38 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'sessions_controller'
+require 'session_controller'
 
 # Re-raise errors caught by the controller.
-class SessionsController; def rescue_action(e) raise e end; end
+class SessionController; def rescue_action(e) raise e end; end
 
-class SessionsControllerTest < Test::Unit::TestCase
+class SessionControllerTest < Test::Unit::TestCase
   # Be sure to include AuthenticatedTestHelper in test/test_helper.rb instead
   # Then, you can remove it from this and the units test.
   include AuthenticatedTestHelper
 
-  fixtures :customers
+  fixtures :users
 
   def setup
-    @controller = SessionsController.new
+    @controller = SessionController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end
 
   def test_should_login_and_redirect
     post :create, :login => 'quentin', :password => 'test'
-    assert session[:customer_id]
+    assert session[:user_id]
     assert_response :redirect
   end
 
   def test_should_fail_login_and_not_redirect
     post :create, :login => 'quentin', :password => 'bad password'
-    assert_nil session[:customer_id]
+    assert_nil session[:user_id]
     assert_response :success
   end
 
   def test_should_logout
     login_as :quentin
     get :destroy
-    assert_nil session[:customer_id]
+    assert_nil session[:user_id]
     assert_response :redirect
   end
 
@@ -53,22 +53,22 @@ class SessionsControllerTest < Test::Unit::TestCase
   end
 
   def test_should_login_with_cookie
-    customers(:quentin).remember_me
+    users(:quentin).remember_me
     @request.cookies["auth_token"] = cookie_for(:quentin)
     get :new
     assert @controller.send(:logged_in?)
   end
 
   def test_should_fail_expired_cookie_login
-    customers(:quentin).remember_me
-    customers(:quentin).update_attribute :remember_token_expires_at, 5.minutes.ago
+    users(:quentin).remember_me
+    users(:quentin).update_attribute :remember_token_expires_at, 5.minutes.ago
     @request.cookies["auth_token"] = cookie_for(:quentin)
     get :new
     assert !@controller.send(:logged_in?)
   end
 
   def test_should_fail_cookie_login
-    customers(:quentin).remember_me
+    users(:quentin).remember_me
     @request.cookies["auth_token"] = auth_token('invalid_auth_token')
     get :new
     assert !@controller.send(:logged_in?)
@@ -79,7 +79,7 @@ class SessionsControllerTest < Test::Unit::TestCase
       CGI::Cookie.new('name' => 'auth_token', 'value' => token)
     end
     
-    def cookie_for(customer)
-      auth_token customers(customer).remember_token
+    def cookie_for(user)
+      auth_token users(user).remember_token
     end
 end
