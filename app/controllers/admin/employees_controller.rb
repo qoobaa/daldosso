@@ -1,5 +1,4 @@
-class CustomersController < CustomerApplicationController
-
+class EmployeesController < AdminApplicationController
   # render new.rhtml
   def new
   end
@@ -10,10 +9,10 @@ class CustomersController < CustomerApplicationController
     # request forgery protection.
     # uncomment at your own risk
     # reset_session
-    @customer = Customer.new(params[:customer])
-    @customer.save
-    if @customer.errors.empty?
-      self.current_customer = @customer
+    @employee = Employee.new(params[:employee])
+    @employee.save
+    if @employee.errors.empty?
+      self.current_employee = @employee
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!"
     else

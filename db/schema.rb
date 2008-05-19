@@ -76,14 +76,14 @@ ActiveRecord::Schema.define(:version => 26) do
     t.string   "email"
     t.string   "crypted_password",          :limit => 40
     t.string   "salt",                      :limit => 40
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
     t.string   "name"
     t.string   "address"
     t.string   "phone_no"
     t.string   "info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "dependencies", :force => true do |t|
@@ -96,10 +96,13 @@ ActiveRecord::Schema.define(:version => 26) do
 
   create_table "employees", :force => true do |t|
     t.string   "login"
-    t.string   "password"
+    t.string   "email"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
     t.string   "name"
     t.string   "address"
-    t.string   "email"
     t.string   "phone_no"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,4 +1,4 @@
-module AuthenticatedSystem
+module CustomerAuthenticatedSystem
   protected
     # Returns true or false if the customer is logged in.
     # Preloads @current_customer with the customer model if they're logged in.

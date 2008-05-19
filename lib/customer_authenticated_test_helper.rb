@@ -1,4 +1,4 @@
-module AuthenticatedTestHelper
+module CustomerAuthenticatedTestHelper
   # Sets the current customer in the session from the customer fixtures.
   def login_as(customer)
     @request.session[:customer_id] = customer ? customers(customer).id : nil

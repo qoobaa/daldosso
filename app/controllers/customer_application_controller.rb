@@ -1,0 +1,3 @@
+class CustomerApplicationController < ApplicationController
+  include CustomerAuthenticatedSystem
+end

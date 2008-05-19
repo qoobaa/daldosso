@@ -1,9 +1,0 @@
-%a.menu{:href=>"../sessions/new"} login
-%br
-%a.menu{:href=>"../customers/new"} register
-%br
-- if(@user)
-  %h5 Logged as:
-  = @user
-  %br
-  = link_to "log out",:controller=>"session",:action=>"destroy"
