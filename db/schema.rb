@@ -186,6 +186,9 @@ ActiveRecord::Schema.define(:version => 24) do
     t.string   "login"
     t.string   "email"
     t.string   "type"
+    t.string   "address"
+    t.string   "phone_no"
+    t.string   "description"
     t.string   "crypted_password",          :limit => 40
     t.string   "salt",                      :limit => 40
     t.string   "remember_token"
