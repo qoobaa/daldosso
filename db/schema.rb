@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 26) do
+ActiveRecord::Schema.define(:version => 24) do
 
   create_table "additional_configs", :force => true do |t|
     t.integer  "additional_product_id"
@@ -71,46 +71,10 @@ ActiveRecord::Schema.define(:version => 26) do
     t.datetime "updated_at"
   end
 
-  create_table "customers", :force => true do |t|
-    t.string   "login"
-    t.string   "email"
-    t.string   "crypted_password",          :limit => 40
-    t.string   "salt",                      :limit => 40
-    t.string   "remember_token"
-    t.datetime "remember_token_expires_at"
-    t.string   "name"
-    t.string   "address"
-    t.string   "phone_no"
-    t.string   "info"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "dependencies", :force => true do |t|
     t.integer  "feature_one_id"
     t.integer  "feature_two_id"
     t.float    "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "employees", :force => true do |t|
-    t.string   "login"
-    t.string   "email"
-    t.string   "crypted_password",          :limit => 40
-    t.string   "salt",                      :limit => 40
-    t.string   "remember_token"
-    t.datetime "remember_token_expires_at"
-    t.string   "name"
-    t.string   "address"
-    t.string   "phone_no"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "employees_roles", :force => true do |t|
-    t.integer  "employee_id"
-    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -183,13 +147,6 @@ ActiveRecord::Schema.define(:version => 26) do
     t.datetime "updated_at"
   end
 
-  create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "sash_structures", :force => true do |t|
     t.integer  "structure_id"
     t.integer  "sashes_number"
@@ -221,6 +178,18 @@ ActiveRecord::Schema.define(:version => 26) do
   create_table "structures", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.string   "email"
+    t.string   "type"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
