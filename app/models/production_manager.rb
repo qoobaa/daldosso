@@ -1,0 +1,3 @@
+class ProductionManager < User
+
+end
