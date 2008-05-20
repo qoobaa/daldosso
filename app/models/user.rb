@@ -33,6 +33,11 @@ class User < ActiveRecord::Base
     self.class.encrypt(password, salt)
   end
 
+  def self.types
+    # TODO: array should be created dynamically
+    ["Admin", "Customer", "ProductionManager", "Seller"]
+  end
+
   def authenticated?(password)
     crypted_password == encrypt(password)
   end
