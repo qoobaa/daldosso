@@ -233,3 +233,4 @@ ActiveRecord::Schema.define(:version => 24) do
   end
 
 end
+

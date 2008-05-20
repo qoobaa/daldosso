@@ -52,6 +52,18 @@ module AuthenticatedSystem
       authorized? || access_denied
     end
 
+    def admin_required
+      current_user.kind_of?(Admin) || access_denied
+    end
+
+    def seller_required
+      current_user.kind_of?(Seller) || access_denied
+    end
+
+    def production_manager_required
+      current_user.kind_of?(ProductionManager) || access_denied
+    end
+
     # Redirect as appropriate when an access request fails.
     #
     # The default action is to redirect to the login screen.
@@ -64,7 +76,8 @@ module AuthenticatedSystem
       respond_to do |format|
         format.html do
           store_location
-          redirect_to new_session_path
+          flash[:error] = 'Access denied.'
+          redirect_to login_path
         end
         format.any do
           request_http_basic_authentication 'Web Password'

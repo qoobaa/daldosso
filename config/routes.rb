@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :customers
+  map.resource :user, :controller => 'user'
 
   map.resource :session, :controller => 'session'
   

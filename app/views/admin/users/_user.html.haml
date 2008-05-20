@@ -1,4 +1,7 @@
 %p
+  %strong Name
+  =h user.name
+%p
   %strong Login
   =h user.login
 %p
@@ -16,3 +19,5 @@
 %p
   %strong Description
   =h user.description
+%p
+  = link_to 'Edit', edit_admin_user_path(user)

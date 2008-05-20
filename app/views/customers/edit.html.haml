@@ -5,7 +5,6 @@
 = error_messages_for :customer
 
 - form_for :customer, :url => update_customer_path do |f|
-
   %p
     = f.label :name
     = f.text_field :name
@@ -26,7 +25,7 @@
 
   %hr
 = error_messages_for :change_password
-- form_for :change_password, :url => edit_customer_path do |f|
+- form_for :change_password, :url => change_password_path do |f|
   %p
     =f.label :old_password
     =f.password_field :old_password
