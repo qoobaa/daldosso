@@ -18,4 +18,8 @@ class CustomersController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  def profile
+    @user = Customer.find(params[:id])
+  end
 end
