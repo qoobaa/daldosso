@@ -1,4 +1,5 @@
 require 'digest/sha1'
+
 class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
   attr_accessor :password
@@ -11,11 +12,17 @@ class User < ActiveRecord::Base
   validates_length_of       :login,    :within => 3..40
   validates_length_of       :email,    :within => 3..100
   validates_uniqueness_of   :login, :email, :case_sensitive => false
+
   before_save :encrypt_password
+
+  validates_presence_of     :type
+
+  # TODO: use array from self.types instead of fixed one
+  validates_inclusion_of    :type, :in => %w(Admin Customer ProductionManager Seller)
   
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation
+  attr_accessible :login, :email, :password, :password_confirmation, :name, :address, :phone_no, :description, :type
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
@@ -35,7 +42,7 @@ class User < ActiveRecord::Base
 
   def self.types
     # TODO: array should be created dynamically
-    ["Admin", "Customer", "ProductionManager", "Seller"]
+    %w(Admin Customer ProductionManager Seller)
   end
 
   def authenticated?(password)
