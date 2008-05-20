@@ -1,0 +1,9 @@
+%p
+  %strong Customer:
+  = order.customer.name if order.customer
+%p
+  %strong Employee:
+  = order.employee.name if order.employee
+%p
+  %strong Status:
+  = order.order_status.name if order.order_status
