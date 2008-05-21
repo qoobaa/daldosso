@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :customers
-  map.resource :user, :controller => 'user'
+  map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
 
   map.resource :session, :controller => 'session'
   
