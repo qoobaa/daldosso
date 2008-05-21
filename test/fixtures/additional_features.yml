@@ -4,22 +4,22 @@ feature_1:
   id: 1
   name: additional feature nr 1
   description: iporntant
-  price_per_unit: 4.23
+  unit_price: 4.23
 
 feature_2:
   id: 2
   name: feature nr 2
   description: MyString
-  price_per_unit: 3.6
+  unit_price: 3.6
 
 feature_3:
   id: 3
   name: feature nr 3
   description: MyStrin
-  price_per_square_meter: 34
+  meter_price: 34
 
 feature_4:
   id: 4
   name: feature nr 4
   description: MyString
-  price_per_square_meter: 34
+  meter_price: 34

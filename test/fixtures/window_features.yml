@@ -57,7 +57,7 @@ typo2:
   next_step_type: LyingKind
 
 typo3:
-  id: 8
+  id: 9
   name: monoblocco
   description: some moel
   type: Typology

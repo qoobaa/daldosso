@@ -1,7 +1,8 @@
 class CreateEvents < ActiveRecord::Migration
   def self.up
     create_table :events do |t|
-      t.datetime :due_date, :added_date, :description
+      t.text :description
+      t.datetime :due_date, :added_date
       t.integer :employee_id, :order_id, :event_type_id
       t.timestamps
     end
