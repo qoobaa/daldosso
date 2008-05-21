@@ -1,15 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
+additional_config_1:
+  id: 1
   additional_product_id: 1
   window_config_id: 1
-  description: MyString
-  additional_cost: 1.5
-  cost_type: MyString
+  description: some config
+  price_per_unit: 34.23
+  price_per_square_meter: 34
 
-two:
-  additional_product_id: 1
-  window_config_id: 1
-  description: MyString
-  additional_cost: 1.5
-  cost_type: MyString
+additional_config_2:
+  id: 2
+  additional_product_id: 2
+  window_config_id: 2
+  description: lba
+  price_per_unit: 12.23
+  price_per_square_meter: 23

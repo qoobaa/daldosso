@@ -4,7 +4,7 @@ class WindowConfig < ActiveRecord::Base
 	has_many :additional_features, :through => :additional_feature_configs
 	has_many :additional_configs
 	has_many :shutter_configs
-	has_many :shutters, :through => :shutter_configs
+	has_many :shutter_types, :through => :shutter_configs
 	belongs_to :glass_type
 	belongs_to :sash_structure
 	belongs_to :handle_type

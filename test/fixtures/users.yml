@@ -1,19 +1,86 @@
-quentin:
+# 123 - customers
+# 45 - sellers
+# 67 - pms
+user_1:
   id: 1
   login: quentin
   email: quentin@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
   created_at: <%= 5.days.ago.to_s :db %>
+  type: Customer
+  address: some address
+  name: Jan Kowalski
+  description: desc
 
-
-
-aaron:
+user_2:
   id: 2
   login: aaron
   email: aaron@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
   created_at: <%= 1.days.ago.to_s :db %>
+  type: Customer
+  address: some other address
+  name: Jhony bravo
+  description: desc
 
+user_3:
+  id: 3
+  login: gal
+  email: gal@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  type: Customer
+  address: some address
+  name: Gal Anonim
+  description: desc
 
+user_4:
+  id: 4
+  login: henryk
+  email: henio@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 1.days.ago.to_s :db %>
+  type: Seller
+  address: some address
+  name: Henryk Sienkiewicz
+  description: desc
+
+user_5:
+  id: 5
+  login: john
+  email: john@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 1.days.ago.to_s :db %>
+  type: Seller
+  address: some address somewhere
+  name: John Travolta
+  description: actor
+
+user_6:
+  id: 6
+  login: cezary
+  email: cezary@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 1.days.ago.to_s :db %>
+  type: ProductionManager
+  address: some address somewhere
+  name: Cezary Pazura
+  description: actor
+
+user_7:
+  id: 7
+  login: Arnlod
+  email: arnie@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 1.days.ago.to_s :db %>
+  type: ProductionManager
+  address: some address somewhere
+  name: Arnlod Szwarzeneger
+  description: actor also
