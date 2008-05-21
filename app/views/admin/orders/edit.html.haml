@@ -1,0 +1,6 @@
+%h1= "Editing Order"
+= error_messages_for :order
+
+- form_for @order, :url => admin_orders_path do |f|
+  = render :partial => 'form', :locals => { :f => f, :view => :edit }
+  = submit_tag 'Update'

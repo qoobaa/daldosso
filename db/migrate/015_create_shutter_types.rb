@@ -1,6 +1,6 @@
-class CreatePriceTypes < ActiveRecord::Migration
+class CreateShutterTypes < ActiveRecord::Migration
   def self.up
-    create_table :price_types do |t|
+    create_table :shutter_types do |t|
       t.string :name
       t.string :description
 
@@ -9,6 +9,6 @@ class CreatePriceTypes < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :price_types
+    drop_table :shutter_types
   end
 end

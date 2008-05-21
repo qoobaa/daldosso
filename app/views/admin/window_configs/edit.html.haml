@@ -1,0 +1,12 @@
+<h1>Editing window_config</h1>
+
+<%= error_messages_for :window_config %>
+
+<% form_for(@window_config) do |f| %>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @window_config %> |
+<%= link_to 'Back', window_configs_path %>

@@ -4,14 +4,14 @@ one:
   due_date: 2008-05-12 20:44:49
   added_date: 2008-05-12 20:44:49
   employee_id: 1
-  order_id: 1
-  event_type_id: 1
-  description: MyString
+  order_id: 2
+  event_type_id: 2
+  description: Important event
 
 two:
   due_date: 2008-05-12 20:44:49
   added_date: 2008-05-12 20:44:49
-  employee_id: 1
+  employee_id: 2
   order_id: 1
   event_type_id: 1
-  description: MyString
+  description: Nice event

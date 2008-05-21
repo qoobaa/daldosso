@@ -12,9 +12,10 @@ class CreateWindowConfigs < ActiveRecord::Migration
 			t.string :height_medium_rail
 			t.float :window_cost
 			t.string :finish_quality
-      t.timestamps	
+      t.integer :user_id
+      t.timestamps
     end
-		
+
 		create_table :window_configs_window_features do |t|
 			t.integer :window_config_id
 			t.integer :window_feature_id

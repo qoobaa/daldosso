@@ -4,9 +4,8 @@ class CreateAdditionalConfigs < ActiveRecord::Migration
       t.integer :additional_product_id
       t.integer :window_config_id
       t.string :description
-      t.float :additional_cost
-      t.integer :price_type_id
-
+      t.float :price_per_unit
+      t.float :price_per_square_meter
       t.timestamps
     end
   end
