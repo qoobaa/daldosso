@@ -1,11 +1,8 @@
 class CreateOrders < ActiveRecord::Migration
   def self.up
     create_table :orders do |t|
-			t.integer :customer_id
-			t.integer :employee_id
-			t.float :percentual_discount
-			t.float :total_amount
-			t.integer :order_status_id
+      t.integer :customer_id, :employee_id, :percentual_discount, :order_status_id
+      t.decimal :total_amount, :precision => 9, :scale => 2
       t.timestamps
     end
   end
