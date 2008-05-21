@@ -1,11 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :customers
-<<<<<<< HEAD:config/routes.rb
   map.resources :window_configs
   
-=======
   map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
->>>>>>> kuba/master:config/routes.rb
+
   map.resource :session, :controller => 'session'
 
   map.signup '/signup', :controller => 'customers', :action => 'new'

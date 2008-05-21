@@ -1,0 +1,21 @@
+%h1 created  configuration 
+- form_for :window_config,@winconfig, :url => {:controller=> 'window_configs',:action => 'save'} do |f|
+  - @winconfig.window_features.each do |fc|
+    %p
+      = fc.name
+      = fc.description
+  %p
+    Height:
+    = @winconfig.height
+  %p
+    Width:
+    = @winconfig.width
+
+  %p
+    Overall cost: 
+    = @cost
+
+  %p
+    = f.submit "Save" if logged_in?
+    - unless logged_in?
+      %p You are not logged in. If you want to save or send your configuration you must be logged.
