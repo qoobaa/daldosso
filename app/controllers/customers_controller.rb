@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+
   def new
   end
 
@@ -18,4 +19,5 @@ class CustomersController < ApplicationController
       render :action => 'new'
     end
   end
+
 end
