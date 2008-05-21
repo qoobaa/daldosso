@@ -13,29 +13,10 @@ class CustomersController < ApplicationController
     if @customer.errors.empty?
       self.current_user = @customer
       #redirect_back_or_default('/')
-      redirect_to @customer
+      redirect_to user_path
       flash[:notice] = "Thanks for signing up!"
     else
       render :action => 'new'
-    end
-  end
-  
-  def show
-    @customer = self.current_user
-  end
-  
-  def edit
-    @customer = self.current_user
-  end
-  
-  def update
-    @customer = params[:customer]
-    if @customererrors.empty?
-        @customer.save
-        redirect_to @customer
-        flash[:notice] = "Profile edited successfully!"
-    else
-      redirect_to edit_customer_path(current_user)
     end
   end
 end
