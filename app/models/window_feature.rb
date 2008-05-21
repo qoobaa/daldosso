@@ -9,4 +9,9 @@ class WindowFeature < ActiveRecord::Base
   has_many  :after_features, :through => :dependencies_before
   
   has_and_belongs_to_many :window_configs
+  
+  def long_name
+    return type.to_s+" :: "+name.to_s
+  end
+  
 end

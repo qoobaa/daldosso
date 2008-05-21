@@ -3,7 +3,7 @@ class CreateOrderItems < ActiveRecord::Migration
     create_table :order_items do |t|
       t.integer :quantity
       t.integer :order_id
-			t.references :item, :polymorphic => true
+      t.references :item, :polymorphic => true
       t.timestamps
     end
   end

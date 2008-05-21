@@ -1,5 +1,5 @@
 class CreatePriceTypes < ActiveRecord::Migration
-  def self.up
+    def self.up
     create_table :price_types do |t|
       t.string :name
       t.string :description

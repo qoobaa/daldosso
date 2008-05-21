@@ -3,7 +3,7 @@ class CreateAdditionalProducts < ActiveRecord::Migration
     create_table :additional_products do |t|
       t.string :name
       t.string :description
-			t.integer :additional_group_id
+      t.integer :additional_group_id
       t.timestamps
     end
   end

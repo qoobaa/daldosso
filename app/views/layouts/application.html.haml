@@ -10,7 +10,7 @@
       - unless(logged_in?)
         = render :partial => 'session/new'
         %br
-        %a{:href=>"/signup"} Signup
+        = link_to 'Singup',signup_path
       - if(logged_in?)
         %h5 Logged as:
         = current_user.login
