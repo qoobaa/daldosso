@@ -1,13 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  description: MyString
+glass_type_1:
+  name: regular glass
+  description: blaa
   thickness: 1
-  price: 1.5
+  price: 20
 
-two:
-  name: MyString
-  description: MyString
-  thickness: 1
-  price: 1.5
+glass_type_2:
+  name: strong glass
+  description: glass for strong people
+  thickness: 3
+  price: 130

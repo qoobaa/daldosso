@@ -1,6 +1,17 @@
+%h1 Signing up
+
 = error_messages_for :customer
 
 - form_for :customer, :url => customers_path do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.label :address
+    = f.text_area :address
+  %p
+    = f.label :phone_no
+    = f.text_field :phone_no
   %p
     = f.label :login
     = f.text_field :login
@@ -13,7 +24,11 @@
   %p
     = f.label :password_confirmation
     = f.password_field :password_confirmation
+<<<<<<< HEAD:app/views/customers/new.html.haml
   %p
     = f.label :address
     = f.text_field :address
+=======
+
+>>>>>>> kuba/master:app/views/customers/new.html.haml
   %p= submit_tag 'Sign up'

@@ -1,0 +1,27 @@
+%p
+  = f.label :name
+  = f.text_field :name
+%p
+  = f.label :address
+  = f.text_area :address
+%p
+  = f.label :phone_no
+  = f.text_field :phone_no
+%p
+  = f.label :description
+  = f.text_area :description
+%p
+  = f.label :login
+  = f.text_field :login
+%p
+  = f.label :email
+  = f.text_field :email
+%p
+  = f.label :type
+  = f.select :type, User.types, { :include_blank => true, :selected => @user.type }
+%p
+  = f.label :password
+  = f.password_field :password
+%p
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation

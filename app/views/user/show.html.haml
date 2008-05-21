@@ -1,0 +1,21 @@
+%h1 Viewing user profile
+
+%p
+  %strong Name
+  =h @user.name
+%p
+  %strong Login
+  =h @user.login
+%p
+  %strong E-mail
+  = mail_to @user.email
+%p
+  %strong Phone number
+  =h @user.phone_no
+%p
+  %strong Address
+  =h @user.address
+%p
+  = link_to 'Edit profile', edit_user_path
+  |
+  = link_to 'Change password', change_password_user_path

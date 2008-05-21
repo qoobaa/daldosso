@@ -1,12 +1,8 @@
 class CreateWindowFeatures < ActiveRecord::Migration
   def self.up
     create_table :window_features do |t|
-      t.string :name
-      t.string :description
-			t.integer :min_thickness
-      t.integer :max_thickness
-			t.string :next_step_type
-			t.string :type
+      t.string :name, :description, :next_step_type, :type
+      t.integer :min_thickness, :max_thickness
       t.timestamps
     end
   end

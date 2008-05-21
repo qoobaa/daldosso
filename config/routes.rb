@@ -1,17 +1,22 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :customers
+<<<<<<< HEAD:config/routes.rb
   map.resources :window_configs
   
+=======
+  map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
+>>>>>>> kuba/master:config/routes.rb
   map.resource :session, :controller => 'session'
-  
+
   map.signup '/signup', :controller => 'customers', :action => 'new'
   map.login '/login', :controller => 'session', :action => 'new'
   map.logout '/logout', :controller => 'session', :action => 'destroy'
   
   map.namespace :admin do |admin|
-    admin.resources :users
+       admin.resources :orders
+       admin.resources :users
+       admin.resources :window_configs	   
   end
-  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -32,10 +37,6 @@ ActionController::Routing::Routes.draw do |map|
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
 
   # Sample resource route within a namespace:
-  #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
-  #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"
