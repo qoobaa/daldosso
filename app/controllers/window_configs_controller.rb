@@ -59,6 +59,7 @@ class WindowConfigsController < ApplicationController
       @msg = "Error"
     end
     session[:wconf]=nil
+    session[:winconf]=nil
   end
   
 end
