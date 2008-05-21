@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  description: MyString
+event_type_1:
+  name: Apointment with customer
+  description: just that
 
-two:
-  name: MyString
-  description: MyString
+event_type_2:
+  name: Changing measures
+  description: yeah

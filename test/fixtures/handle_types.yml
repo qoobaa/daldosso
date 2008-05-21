@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  description: MyString
-  price: 1.5
+handle_type_1:
+  name: golden handle
+  description: really expensive golden handle
+  price: 300
 
-two:
-  name: MyString
-  description: MyString
-  price: 1.5
+handle_type_2:
+  name: regular handle
+  description: blbaba
+  price: 10
