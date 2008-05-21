@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  description: MyString
+call_status_1:
+  name: Important Call
+  description: Very imprtant call
 
-two:
-  name: MyString
-  description: MyString
+call_status_2:
+  name: Call about production
+  description: blabla

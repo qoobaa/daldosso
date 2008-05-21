@@ -3,8 +3,8 @@ class CreateAdditionalFeatures < ActiveRecord::Migration
     create_table :additional_features do |t|
       t.string :name
       t.string :description
-      t.float :price
-      t.integer :price_type_id
+      t.float :price_per_unit
+      t.float :price_per_square_meter
 
       t.timestamps
     end

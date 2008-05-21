@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 24) do
     t.integer  "additional_product_id"
     t.integer  "window_config_id"
     t.string   "description"
-    t.float    "additional_cost"
-    t.integer  "price_type_id"
+    t.float    "price_per_unit"
+    t.float    "price_per_square_meter"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 24) do
   create_table "additional_features", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.float    "price"
-    t.integer  "price_type_id"
+    t.float    "price_per_unit"
+    t.float    "price_per_square_meter"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,10 +71,46 @@ ActiveRecord::Schema.define(:version => 24) do
     t.datetime "updated_at"
   end
 
+  create_table "customers", :force => true do |t|
+    t.string   "login"
+    t.string   "email"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone_no"
+    t.string   "info"
+  end
+
   create_table "dependencies", :force => true do |t|
     t.integer  "feature_one_id"
     t.integer  "feature_two_id"
     t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "employees", :force => true do |t|
+    t.string   "login"
+    t.string   "email"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone_no"
+  end
+
+  create_table "employees_roles", :force => true do |t|
+    t.integer  "employee_id"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -168,6 +204,13 @@ ActiveRecord::Schema.define(:version => 24) do
     t.datetime "updated_at"
   end
 
+  create_table "shutter_types", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "shutters", :force => true do |t|
     t.string   "name"
     t.string   "description"
@@ -210,6 +253,7 @@ ActiveRecord::Schema.define(:version => 24) do
     t.string   "height_medium_rail"
     t.float    "window_cost"
     t.string   "finish_quality"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
