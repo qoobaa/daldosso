@@ -1,9 +1,26 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 call_status_1:
+  id: 1
   name: Important Call
   description: Very imprtant call
 
 call_status_2:
+  id: 2
   name: Call about production
+  description: blabla
+
+call_status_3:
+  id: 3
+  name: Canceling order
+  description: blabla
+
+call_status_4:
+  id: 4
+  name: Changing order
+  description: blabla
+
+call_status_5:
+  id: 5
+  name: Supplies
   description: blabla

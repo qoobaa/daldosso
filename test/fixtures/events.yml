@@ -1,17 +1,37 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  id: 1
   due_date: 2008-05-12 20:44:49
   added_date: 2008-05-12 20:44:49
-  employee_id: 1
+  employee_id: 4
   order_id: 2
   event_type_id: 2
   description: Important event
 
 two:
+  id: 2
   due_date: 2008-05-12 20:44:49
   added_date: 2008-05-12 20:44:49
-  employee_id: 2
+  employee_id: 4
   order_id: 1
+  event_type_id: 1
+  description: Nice event
+
+three:
+  id: 3
+  due_date: 2008-05-12 20:44:49
+  added_date: 2008-05-12 20:44:49
+  employee_id: 5
+  order_id: 3
+  event_type_id: 2
+  description: Important event about something
+
+four:
+  id: 4
+  due_date: 2008-05-12 20:44:49
+  added_date: 2008-05-12 20:44:49
+  employee_id: 5
+  order_id: 3
   event_type_id: 1
   description: Nice event
