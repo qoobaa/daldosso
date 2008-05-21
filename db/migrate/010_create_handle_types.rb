@@ -1,10 +1,8 @@
 class CreateHandleTypes < ActiveRecord::Migration
   def self.up
     create_table :handle_types do |t|
-      t.string :name
-      t.string :description
-      t.float :price
-
+      t.string :name, :description
+      t.decimal :price, :precition => 9, :scale => 2
       t.timestamps
     end
   end

@@ -1,15 +1,9 @@
 class CreateShutterConfigs < ActiveRecord::Migration
   def self.up
     create_table :shutter_configs do |t|
-      t.integer :window_config_id
-      t.integer :shutter_id
-      t.string :name
-      t.integer :width
-      t.integer :height
-      t.integer :sashes_number
-      t.string :description
-      t.float :shutter_cost
-
+      t.integer :window_config_id, :shutter_id, :width, :height, :sashes_number
+      t.string :name, :description
+      t.decimal :shutter_cost, :precision => 9, :scale => 2
       t.timestamps
     end
   end

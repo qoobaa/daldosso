@@ -1,9 +1,7 @@
 class CreateStructures < ActiveRecord::Migration
   def self.up
     create_table :structures do |t|
-      t.string :name
-      t.string :description
-
+      t.string :name, :description
       t.timestamps
     end
   end
