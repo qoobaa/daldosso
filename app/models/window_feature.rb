@@ -12,4 +12,8 @@ class WindowFeature < ActiveRecord::Base
   def self.types
     %w(Edge LayingKind Model PaintKind Typology Wood)
   end
+
+  def to_s
+    "#{self.type} #{self.name}"
+  end
 end
