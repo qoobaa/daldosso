@@ -1,0 +1,7 @@
+%h1 New window feature
+
+= error_messages_for :window_feature
+
+- form_for :window_feature, :url => admin_window_features_path do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Create'

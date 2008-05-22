@@ -8,10 +8,13 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'session', :action => 'destroy'
 
   map.namespace :admin do |admin|
-       admin.resources :orders
-       admin.resources :users
-       admin.resources :window_configs	   
+    admin.resources :orders
+    admin.resources :users
+    admin.resources :window_configs
+    admin.resources :window_features
+    admin.resources :dependencies
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

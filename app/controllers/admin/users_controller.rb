@@ -17,9 +17,8 @@ class Admin::UsersController < ApplicationController
     @user = User.new(params[:user])
 
     @user.type = params[:user][:type]
-
-    @user.save
-    if @user.errors.empty?
+    
+    if @user.save
       redirect_to admin_user_path(@user)
       flash[:notice] = "Thanks for signing up!"
     else
@@ -52,6 +51,5 @@ class Admin::UsersController < ApplicationController
 
     redirect_to(admin_users_url)
   end
-
 
 end
