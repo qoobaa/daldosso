@@ -1,0 +1,7 @@
+%h1 Editing dependency
+
+= error_messages_for :dependency
+
+- form_for @dependency, :url => admin_dependency_path(@dependency), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Edit'

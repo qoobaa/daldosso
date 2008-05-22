@@ -6,10 +6,10 @@
   = f.text_area :description
 %p
   = f.label :type
-  = f.select :type, WindowFeature.types, { :include_blank => true }
+  = f.select :type, WindowFeature.types, { :include_blank => 'None' }
 %p
   = f.label :next_step_type
-  = f.select :next_step_type, WindowFeature.types, { :include_blank => true }
+  = f.select :next_step_type, WindowFeature.types, { :include_blank => 'None' }
 %p
   = f.label :min_thickness
   = f.text_field :min_thickness
