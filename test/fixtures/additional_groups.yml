@@ -23,4 +23,14 @@ additional_group_4:
 additional_group_5:
   id: 5
   name: Mosquito Nets
-  description: bla
+  description: blafsfdsfs
+
+additional_group_6:
+  id: 6
+  name: Lockers
+  description: blafsfdsfs
+
+additional_group_7:
+  id: 7
+  name: Openings
+  description: blafdsfdsfs

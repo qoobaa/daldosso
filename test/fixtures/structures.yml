@@ -1,13 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 structure_1:
+  id: 1
   name: Window
   description: code F
 
 structure_2:
+  id: 2
   name: Door Window
   description: code PF
 
 structure_3:
+  id: 3
   name: Slidding Door Window
   description: code HS

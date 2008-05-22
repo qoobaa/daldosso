@@ -8,5 +8,7 @@ class WindowConfig < ActiveRecord::Base
 	belongs_to :glass_type
 	belongs_to :sash_structure
 	belongs_to :handle_type
+  belongs_to :user
 	has_one :order_item, :as => :item
 end
+
