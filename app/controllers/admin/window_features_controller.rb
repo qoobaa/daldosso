@@ -6,51 +6,49 @@ class Admin::WindowFeaturesController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @window_feature = WindowFeature.new
   end
 
   def edit
-    @user = User.find(params[:id])
+    @window_feature = WindowFeature.find(params[:id])
   end
 
   def create
-    @user = User.new(params[:user])
-
-    @user.type = params[:user][:type]
-
-    @user.save
-    if @user.errors.empty?
-      redirect_to admin_user_path(@user)
-      flash[:notice] = "Thanks for signing up!"
+    @window_feature = WindowFeature.new
+    
+    @window_feature.type = params[:window_feature][:type]
+    
+    if @window_feature.save
+      redirect_to admin_window_feature_path(@window_feature)
+      flash[:notice] = "Window feature was successfully created."
     else
-      @user.password = @user.password_confirmation = nil
       render :action => 'new'
     end
   end
 
   def update
-    @user = User.find(params[:id])
-
-    @user.type = params[:user][:type]
-
-    if @user.update_attributes(params[:user])
-      flash[:notice] = 'User was successfully updated.'
-      redirect_to admin_user_path(@user)
+    @window_feature = WindowFeature.find(params[:id])
+    
+    @window_feature.type = params[:window_feature][:type]
+    
+    if @window_feature.update_attributes(params[:window_feature])
+      flash[:notice] = 'Window feature was successfully updated.'
+      redirect_to admin_window_feature_path(@window_feature)
     else
-      @user.password = @user.password_confirmation = nil
       render :action => 'edit'
     end
+
   end
 
   def show
-    @user = User.find(params[:id])
+    @window_feature = WindowFeature.find(params[:id])
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-
-    redirect_to(admin_users_url)
+    @window_feature = WindowFeature.find(params[:id])
+    @window_feature.destroy
+    
+    redirect_to admin_window_features_path
   end
 
 end

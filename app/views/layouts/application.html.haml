@@ -3,7 +3,9 @@
   %head
     %title DalDosso Windows Selling System
   %body
-    = flash[:error]
-    = flash[:notice]
+    - unless flash[:error].nil?
+      = flash[:error]
+    - unless flash[:notice].nil?
+      = flash[:notice]
     #content
       = yield
