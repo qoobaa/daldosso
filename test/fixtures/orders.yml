@@ -1,7 +1,33 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+order_1:
+  id: 1
+  customer_id: 1
+  employee_id: 4
+  percentual_discount: 12
+  total_amount: 23000
+  order_status: 2
+
+order_2:
+  id: 2
+  customer_id: 2
+  employee_id: 4
+  percentual_discount: 2
+  total_amount: 3000
+  order_status: 1
+
+order_3:
+  id: 3
+  customer_id: 3
+  employee_id: 4
+  percentual_discount: 20
+  total_amount: 6000
+  order_status: 2
+
+order_4:
+  id: 4
+  customer_id: 3
+  employee_id: 5
+  percentual_discount: 11
+  total_amount: 7000
+  order_status: 3

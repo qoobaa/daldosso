@@ -1,9 +1,21 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+shutter_1:
+  id: 1
+  name: nice expensive shutters
   description: MyString
 
-two:
-  name: MyString
+shutter_2:
+  id: 2
+  name: some shutters
+  description: MyString
+
+shutter_3:
+  id: 3
+  name: cheap shutters
+  description: MyString
+
+shutter_4:
+  id: 4
+  name: big shutters
   description: MyString

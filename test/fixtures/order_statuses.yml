@@ -1,0 +1,19 @@
+order_status_1:
+  id: 1
+  name: In production
+
+order_status_2:
+  id: 2
+  name: Begining
+
+order_status_3:
+  id: 3
+  name: Changing
+
+order_status_4:
+  id: 4
+  name: Complete
+
+order_status_5:
+  id: 5
+  name: Canceled
