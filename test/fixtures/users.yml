@@ -1,9 +1,11 @@
 # 123 - customers
 # 45 - sellers
 # 67 - pms
+# 89 - admins
+# 10... other customers
 user_1:
   id: 1
-  login: quentin
+  login: customer1
   email: quentin@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
@@ -15,7 +17,7 @@ user_1:
 
 user_2:
   id: 2
-  login: aaron
+  login: customer2
   email: aaron@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
@@ -27,7 +29,7 @@ user_2:
 
 user_3:
   id: 3
-  login: gal
+  login: customer3
   email: gal@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
@@ -39,7 +41,7 @@ user_3:
 
 user_4:
   id: 4
-  login: henryk
+  login: seller1
   email: henio@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
@@ -51,7 +53,7 @@ user_4:
 
 user_5:
   id: 5
-  login: john
+  login: seller2
   email: john@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
@@ -63,7 +65,7 @@ user_5:
 
 user_6:
   id: 6
-  login: cezary
+  login: pm1
   email: cezary@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
@@ -75,8 +77,8 @@ user_6:
 
 user_7:
   id: 7
-  login: Arnlod
-  email: arnie@example.com
+  login: pm2
+  email: pm@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
   created_at: <%= 1.days.ago.to_s :db %>
@@ -84,3 +86,40 @@ user_7:
   address: some address somewhere
   name: Arnlod Szwarzeneger
   description: actor also
+
+user_8:
+  id: 8
+  login: admin1
+  email: admin1@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 1.days.ago.to_s :db %>
+  type: Admin
+  address: some address somewhere of this crazy admin
+  name: Admin Admin
+  description: secret
+
+user_9:
+  id: 9
+  login: admin2
+  email: a2@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 1.days.ago.to_s :db %>
+  type: Admin
+  address: secret
+  name: Window Master
+  description: none
+#---------------------------------------
+<% for i in 10..100 %>user_<%= i %>:
+  id: <%= i %>
+  login: customer<%= i %>
+  email: cusotmer_<%= i %>@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 3.days.ago.to_s :db %>
+  type: Customer
+  address: street <%= i+22 %>
+  name: Customer<%= i %>
+  description: desc for customer<%= i %>
+<% end %>
