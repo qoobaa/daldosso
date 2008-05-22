@@ -2,7 +2,7 @@ class Admin::WindowFeaturesController < ApplicationController
   before_filter :admin_required
 
   def index
-    @window_features = WindowFeatures.find(:all)
+    @window_features = WindowFeature.find(:all)
   end
 
   def new
