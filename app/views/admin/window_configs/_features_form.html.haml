@@ -1,1 +1,6 @@
-= f.select_tag :feature1, select_options_for(WindowFeature)
+- @current_features.each do |cf|
+  %strong
+    = cf.type
+  = f.select :window_config[window_feature_ids][], cf.from_my_type
+  %br
+%hr

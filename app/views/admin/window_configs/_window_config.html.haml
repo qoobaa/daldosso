@@ -34,7 +34,6 @@
 %p
   %strong User:
   = h window_config.user.name
-
 = link_to 'Edit', edit_admin_window_config_path(window_config)
 |
 = link_to 'Destroy', admin_window_config_path(window_config), :confirm => 'Are you sure?', :method => :delete
