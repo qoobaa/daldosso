@@ -1,13 +1,29 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 glass_type_1:
+  id: 1
   name: regular glass
   description: blaa
   thickness: 1
   price: 20
 
 glass_type_2:
+  id: 2
   name: strong glass
   description: glass for strong people
   thickness: 3
   price: 130
+
+glass_type_3:
+  id: 3
+  name: regular glass with some shit
+  description: blaa
+  thickness: 1
+  price: 20
+
+glass_type_4:
+  id: 4
+  name: very very strong glass
+  description: glass for strong people
+  thickness: 20
+  price: 1430

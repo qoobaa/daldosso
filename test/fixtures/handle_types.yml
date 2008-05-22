@@ -1,11 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 handle_type_1:
+  id: 1
   name: golden handle
   description: really expensive golden handle
   price: 300
 
 handle_type_2:
+  id: 2
   name: regular handle
   description: blbaba
   price: 10

@@ -1,15 +1,15 @@
 %p
   %strong Glass Type:
-  = f.select :glass_type_id, select_options_for(GlassType)
-%p
-  %strong Handle Type:
-  = f.select :handle_type_id, select_options_for(HandleType)
-%p
-  %strong Sash number and Structure Type:
-  = f.select :handle_type_id, select_options_for(HandleType)
+  = f.select :glass_type_id, select_options_for(GlassType), :include_blank => :true
 %p
   %strong Glass Color:
   = f.text_field :glass_color
+%p
+  %strong Handle Type:
+  = f.select :handle_type_id, select_options_for(HandleType), :include_blank => :true
+%p
+  %strong Sash and Structure Type:
+  = f.select :sash_structure_id, select_options_for(SashStructure), :include_blank => :true
 %p
   %strong Height:
   = f.text_field :height
@@ -31,3 +31,7 @@
 %p
   %strong Additional information:
   = f.text_field :finish_quality
+%hr
+%p
+  %strong User
+  = f.select :user_id, select_options_for(Customer), :include_blank => :true
