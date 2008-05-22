@@ -1,3 +1,10 @@
+- WindowFeature.types.each do |type|
+  %strong
+    = type
+  = select_tag 'window_config[window_feature_ids][]', window_features_for_select(type, @window_config.window_features.find_by_type(type))
+  %br
+%hr
+
 %p
   %strong Glass Type:
   = f.select :glass_type_id, select_options_for(GlassType), :include_blank => :true

@@ -2,6 +2,5 @@
 = error_messages_for :window_config
 
 - form_for @window_config, :url => admin_window_config_path(@window_config), :html => { :method => :put } do |f|
-  = render :partial => 'features_form', :locals => { :f => f }
   = render :partial => 'form', :locals => { :f => f }
   %p= submit_tag 'Update other features'

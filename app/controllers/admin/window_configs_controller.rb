@@ -29,7 +29,6 @@ before_filter :admin_required
 
   def update
     @window_config = WindowConfig.find(params[:id])
-    @current_features = @window_config.window_features
 
     if @window_config.update_attributes(params[:window_config])
       flash[:notice] = 'WindowConfig was successfully updated.'
