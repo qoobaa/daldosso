@@ -53,5 +53,4 @@ class Admin::UsersController < ApplicationController
     redirect_to(admin_users_url)
   end
 
-
 end
