@@ -1,7 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-# 123 - model
-# 456 - wood
-# 789 - typology
+# 1 2 3 - model
+# 4 5 6 - wood
+# 7 8 9 - typology
+# 10 11 12 - edge
+# 13 14 15 16 - paint
+# 17 18 19 20 - laying
 model1:
   id: 1
   name: Dalila
@@ -22,7 +25,7 @@ model3:
   description: some moel
   type: Model
   next_step_type: Wood
-
+#----------------------------------
 wood1:
   id: 4
   name: Pino FG
@@ -43,30 +46,104 @@ wood3:
   description: nice wood
   type: Wood
   next_step_type: Typology
-
+#----------------------------------
 typo1:
   id: 7
   name: frame view
   description: some moel
   type: Typology
-  next_step_type: LyingKind
+  next_step_type: Edge
 
 typo2:
   id: 8
   name: mazetta
   description: some moel
   type: Typology
-  next_step_type: LyingKind
+  next_step_type: Edge
 
 typo3:
   id: 9
   name: monoblocco
   description: some moel
   type: Typology
+  next_step_type: Edge
+#----------------------------------
+edge1:
+  id: 10
+  name: Standard
+  description: Standard edge
+  type: Edge
+  next_step_type: PaintKind
+
+edge2:
+  id: 11
+  name: Leaf
+  description: Leaf Edge
+  type: Edge
+  next_step_type: PaintKind
+
+edge3:
+  id: 12
+  name: Soft
+  description: Soft Edge
+  type: Edge
+  next_step_type: PaintKind
+#----------------------------------
+paint1:
+  id: 13
+  name: Varnished(Eko)
+  description: Varnished eko paint
+  type: PaintKind
   next_step_type: LyingKind
 
+paint2:
+  id: 14
+  name: Varnished(Adler)
+  description: Varnished adler paint
+  type: PaintKind
+  next_step_type: LyingKind
 
+paint3:
+  id: 15
+  name: Lackquered(Eko)
+  description: Lackquered eko paint
+  type: PaintKind
+  next_step_type: LyingKind
 
+paint4:
+  id: 16
+  name: Lackquered(Adler)
+  description: Lackquered adler paint
+  type: PaintKind
+  next_step_type: LyingKind
+#----------------------------------
+laying1:
+  id: 17
+  name: Restructuring
+  description: Changing the previous structure
+  type: LayingKind
+  next_step_type:
+
+laying1:
+  id: 18
+  name: New
+  description: New building
+  type: LayingKind
+  next_step_type:
+
+laying1:
+  id: 19
+  name: Over wall
+  description: Description
+  type: LayingKind
+  next_step_type:
+
+laying1:
+  id: 20
+  name: Without
+  description: the customer doesnt want the laying
+  type: LayingKind
+  next_step_type:
 
 
 

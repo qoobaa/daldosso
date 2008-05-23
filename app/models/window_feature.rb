@@ -10,7 +10,7 @@ class WindowFeature < ActiveRecord::Base
   validates_inclusion_of :type, :in => %w(Edge LayingKind Model PaintKind Typology Wood)
 
   def self.types
-    %w(Edge LayingKind Model PaintKind Typology Wood)
+    %w(Model Wood Typology Edge PaintKind LayingKind)
   end
 
   def to_s

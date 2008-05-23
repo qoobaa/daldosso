@@ -13,3 +13,5 @@
   = link_to 'Edit', edit_admin_dependency_path(dependency)
   |
   = link_to 'Destroy', admin_dependency_path(dependency), :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to 'Back to Dependencies' , admin_dependencies_path if list.nil?

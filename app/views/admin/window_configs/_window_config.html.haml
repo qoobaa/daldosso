@@ -1,3 +1,9 @@
+- window_config.window_features.each do |f|
+  %strong
+    = f.type
+  = f.name
+  %br
+%hr
 %p
   %strong Glass Type:
   = h window_config.glass_type.name
