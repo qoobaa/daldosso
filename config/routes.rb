@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'session', :action => 'destroy'
 
   map.namespace :admin do |admin|
+    admin.root :controller => 'panel'
     admin.resources :orders
     admin.resources :users
     admin.resources :window_configs
