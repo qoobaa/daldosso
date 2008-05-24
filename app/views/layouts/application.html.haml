@@ -1,21 +1,8 @@
-!!! XML
+!!!
 %html
   %head
     %title Dal Dosso Company
-    %link{:rel=>"stylesheet",:type=>"text/css",:href=>"stylesheets/style.css"}
   %body
-    %h1 Welcome
-    #menu
-      %h2 Menu
-      - unless(logged_in?)
-        = render :partial => 'session/new'
-        %br
-        = link_to 'Singup',signup_path
-      - if(logged_in?)
-        %h5 Logged as:
-        = current_user.login
-        %br
-        = link_to "Logout", logout_path
     - unless flash[:error].nil?
       = flash[:error]
     - unless flash[:notice].nil?
