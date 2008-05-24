@@ -1,15 +1,15 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-additional_config_1:
+product_config_1:
   id: 1
-  additional_product_id: 1
+  product_id: 1
   window_config_id: 1
   description: some config
   unit_price: 34.23
 
-additional_config_2:
+products_config_2:
   id: 2
-  additional_product_id: 2
+  product_id: 2
   window_config_id: 2
   description: lba
   meter_price: 23

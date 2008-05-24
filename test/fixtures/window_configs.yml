@@ -6,7 +6,7 @@ winconfig_1:
   sash_structure_id: 3
   height: 120
   width: 240
-  cover_joints_int: 1
+  cover_joint_int: 1
   cover_joint_ext: 2
   height_medium_rail: 2
   window_cost: 3000
@@ -20,7 +20,7 @@ winconfig_2:
   sash_structure_id: 1
   height: 420
   width: 40
-  cover_joints_int: 1
+  cover_joint_int: 1
   cover_joint_ext: 4
   height_medium_rail: 3.1
   window_cost: 6000
@@ -34,7 +34,7 @@ winconfig_3:
   sash_structure_id: 2
   height: 320
   width: 140
-  cover_joints_int: 6
+  cover_joint_int: 6
   cover_joint_ext: 12
   height_medium_rail: 2
   window_cost: 13000
@@ -48,7 +48,21 @@ winconfig_4:
   sash_structure_id: 2
   height: 20
   width: 40
-  cover_joints_int: 23
+  cover_joint_int: 23
+  cover_joint_ext: 4
+  height_medium_rail: 1.2
+  window_cost: 61000
+  user_id: 3
+<% for i in 5..20 %>winconf_<%= i %>
+winconfig_4:
+  id: <%= i %>
+  glass_type_id: <%= i % 3%>
+  handle_type_id: <%= i % 3%>
+  glass_color_id: <%= i % 3%>
+  sash_structure_id: 2
+  height: 20
+  width: 40
+  cover_joint_int: 23
   cover_joint_ext: 4
   height_medium_rail: 1.2
   window_cost: 61000
