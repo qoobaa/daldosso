@@ -2,7 +2,8 @@
 - for wc in @winconfigs
   = render :partial => 'window_config', :locals => {:wc => wc}
   = link_to 'Edit',edit_window_config_path(wc)
-  = link_to 'Destroy', wc, :confirm => 'Are you sure?', :method => :delete
+  = link_to 'Destroy', wc, :confirm => 'Are you sure?', :method => :delete if wc.order_items.size==0
+  = "Configuration already chosen in one or more orders" unless wc.order_items.size == 0
   %hr
 %br
 = link_to 'New',new_window_config_path
