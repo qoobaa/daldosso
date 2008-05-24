@@ -16,6 +16,7 @@ class WindowConfigsController < ApplicationController
     @handle_types = HandleType.find(:all)
     @glass_colors = GlassColor.find(:all)
     @sash_structures = SashStructure.find(:all)
+    @features = []
     if ((session[:wconf]==nil || params[:feature]==nil) && params[:step]!='back')
       @features = Model.find(:all)
       session[:wconf] = []
@@ -58,8 +59,13 @@ class WindowConfigsController < ApplicationController
     @msg = "Succesfully saved"
     @msg = "Error " unless (isSaved)
     @msg = "To save your configuration you must be logged in" unless current_user
-    session[:wconf]=nil #clears chosen feature's ids table
-    redirect_to(@winconfig) if isSaved
+
+    if (isSaved)
+      session[:wconf]=nil #clears chosen feature's ids table
+      redirect_to(@winconfig)
+    else
+      render :action => 'new'
+    end
   end
 
   def show
