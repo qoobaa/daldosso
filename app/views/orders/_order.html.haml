@@ -1,0 +1,20 @@
+%h3 Order:
+ID:
+= o.id
+%br
+%strong Status:
+= o.order_status.name
+
+- o.order_items.each do |item|
+  - if item.item.type==WindowConfig
+    = render :partial => 'window_configs/window_config',:locals => { :wc => item.item}
+  /- if item.item.type==ShutterConfig
+  /  = render :partial => 'shutter_configs/shutter_config',:locals = > { :sc = > item.item}
+  /- if item.item.type==ProductConfig
+  /  = render :partial => 'product_configs/product_config',:locals => { :pc => item.item}
+  %strong Quantity
+  = item.quantity
+  %hr{:width => "50%"}
+%strong Estimated total cost:
+= o.estimated_price
+%br

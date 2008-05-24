@@ -1,0 +1,7 @@
+%h3 New Order
+%h5 Your saved configuration are listed below, choose configuration with given quantity
+- form_for(@order) do |f|
+  - @customer.window_configs.each do |c|
+    = render :partial => 'window_configs/window_config', :locals => { :wc => c}
+
+  = f.submit 'Create'
