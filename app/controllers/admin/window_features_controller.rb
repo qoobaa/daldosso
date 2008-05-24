@@ -47,7 +47,6 @@ class Admin::WindowFeaturesController < ApplicationController
   def destroy
     @window_feature = WindowFeature.find(params[:id])
     @window_feature.destroy
-    
     redirect_to admin_window_features_path
   end
 

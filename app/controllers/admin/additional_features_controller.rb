@@ -1,4 +1,5 @@
 class Admin::AdditionalFeaturesController < ApplicationController
+  before_filter :admin_required
 
   def index
     @additional_features = AdditionalFeature.find(:all)

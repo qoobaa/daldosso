@@ -1,4 +1,5 @@
 class Admin::GlassColorsController < ApplicationController
+  before_filter :admin_required
 
   def index
     @glass_colors = GlassColor.find(:all)

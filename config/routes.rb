@@ -21,6 +21,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :glass_types
     admin.resources :glass_colors
     admin.resources :handle_types
+    admin.resources :structures
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

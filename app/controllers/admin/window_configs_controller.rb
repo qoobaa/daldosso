@@ -1,5 +1,5 @@
 class Admin::WindowConfigsController < ApplicationController
-before_filter :admin_required
+  before_filter :admin_required
 
   def index
     @window_configs = WindowConfig.find(:all)
