@@ -1,21 +1,29 @@
-%h1 created  configuration 
-- form_for :window_config,@winconfig, :url => {:controller=> 'window_configs',:action => 'save'} do |f|
-  - @winconfig.window_features.each do |fc|
-    %p
-      = fc.name
-      = fc.description
+%h3 Created configuration of window
+%h5 To save your configuration please log in
+%h4 Window Features:
+- @winconfig.window_features.each do |fc|
   %p
-    Height:
-    = @winconfig.height
-  %p
-    Width:
-    = @winconfig.width
+    = fc.long_name
+%h4 Window Configuration
+%p
+  %strong Height:
+  = @winconfig.height
+%p
+  %strong Width:
+  = @winconfig.width
+%p
+  %strong Sash Structure:
+  = @winconfig.sash_structure.name
+%p
+  %strong Glass Color:
+  = @winconfig.glass_color.name
+%p
+  %strong Handle Type:
+  = @winconfig.handle_type.name
 
-  %p
-    Overall cost: 
-    = @cost
-
-  %p
-    = f.submit "Save" if logged_in?
-    - unless logged_in?
-      %p You are not logged in. If you want to save or send your configuration you must be logged.
+%p
+  %strong Cost approximation:
+  = @winconfig.window_cost
+= link_to 'New',new_window_config_path
+|
+= link_to 'Back',window_configs_url

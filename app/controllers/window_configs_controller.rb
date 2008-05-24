@@ -1,9 +1,21 @@
 class WindowConfigsController < ApplicationController
 
+  def index
+    @isCustomer = false
+    if (current_user!=nil && current_user.type==Customer)
+      @isCustomer = true
+      @customer = Customer.find(current_user.id)
+      @winconfigs = @customer.window_configs
+    else
+      @winconfigs = []
+    end
+  end
+
   def new
-    session[:winconf]=nil
     @winconfig = WindowConfig.new
-    
+    @handle_types = HandleType.find(:all)
+    @glass_colors = GlassColor.find(:all)
+    @sash_structures = SashStructure.find(:all)
     if ((session[:wconf]==nil || params[:feature]==nil) && params[:step]!='back')
       @features = Model.find(:all)
       session[:wconf] = []
@@ -12,6 +24,7 @@ class WindowConfigsController < ApplicationController
     if (session[:wconf]!=nil && params[:feature]!=nil && params[:step]!='back')
       session[:wconf] << params[:feature][:id]
       @features = WindowFeature.find(params[:feature][:id]).after_features
+      @model_id = session[:wconf][0]
     end
     if (session[:wconf]!=nil && params[:feature]==nil && params[:step]=='back')
       session[:wconf].pop
@@ -28,38 +41,35 @@ class WindowConfigsController < ApplicationController
       session[:wconf] = []
       flash[:msg] = 'back'
       @features = Model.find(:all)
-    end    
+    end
   end
-  
+
   def create
     @winconfig = WindowConfig.new(params[:window_config])
-    if (session[:wconf]==nil)
-       redirect_to new_window_config_path
-    end
-    @features = []
+    #adding chosen features to window configuration
     features_ids = session[:wconf]
     features_ids.each{|id| @winconfig.window_features << WindowFeature.find(id)}
-    @cost = 0
-    for i in 0..features_ids.size-2
-      id = features_ids[i]
-      id_next = features_ids[i+1]
-      feature_before = WindowFeature.find(id)
-      feature_after = WindowFeature.find(id_next)
-      dependency = feature_before.dependencies_before.detect{|db| db.after_feature==feature_after}
-      @cost+= dependency.price!=nil ? dependency.price : 0
-    end
-    session[:winconf] = @winconfig
+    @winconfig.customer = current_user if current_user# set user who creates
+
+    # cost calculation
+    @winconfig.window_cost = cost_calculation(features_ids)
+
+    isSaved = @winconfig.save if (current_user)
+    @msg = "Succesfully saved"
+    @msg = "Error " unless (isSaved)
+    @msg = "To save your configuration you must be logged in" unless current_user
+    session[:wconf]=nil #clears chosen feature's ids table
+    redirect_to(@winconfig) if isSaved
   end
-  
-  def save
-    @winconfig = session[:winconf]  
-    if @winconfig.save
-      @msg = "Succesfully saved"
-    else
-      @msg = "Error"
-    end
-    session[:wconf]=nil
-    session[:winconf]=nil
+
+  def show
+    @winconfig = WindowConfig.find(params[:id])
+    redirect_to window_configs_path unless @winconfig.customer.id == current_user.id
   end
-  
+
+  def destroy
+    @winconfig = WindowConfig.find(params[:id])
+    @winconfig.destroy
+    redirect_to window_configs_path
+  end
 end

@@ -1,0 +1,28 @@
+%p
+  ID:
+  = wc.id
+  %br
+  %h5 Features:
+  - for wf in wc.window_features
+    = wf.long_name
+    %br
+%p
+  %h4 Configuration:
+  %strong Height:
+  = wc.height
+  %strong Width:
+  = wc.width
+  %br
+  %strong Code:
+  = wc.sash_structure.structure.name
+  %strong Number of sashes:
+  = wc.sash_structure.sashes_number
+  %strong Glass Type:
+  = wc.glass_type.name
+  %strong Glass Color:
+  = wc.glass_color.name
+  %strong Handle Type:
+  = wc.handle_type.name
+  %br
+  %strong Cost Approximation:
+  = wc.window_cost

@@ -4,5 +4,5 @@ class Order < ActiveRecord::Base
 	belongs_to :customer
 	has_many :events
 	has_many :calls
-	belongs_to :employee
+	belongs_to :seller, :foreign_key => 'seller_id'
 end

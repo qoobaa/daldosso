@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :customers
   map.resources :window_configs
-  
+  map.resources :orders
+
   map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
 
   map.resource :session, :controller => 'session'
@@ -9,12 +10,14 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'customers', :action => 'new'
   map.login '/login', :controller => 'session', :action => 'new'
   map.logout '/logout', :controller => 'session', :action => 'destroy'
-  
+
   map.namespace :admin do |admin|
        admin.resources :orders
        admin.resources :users
-       admin.resources :window_configs	   
+       admin.resources :window_configs
   end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
