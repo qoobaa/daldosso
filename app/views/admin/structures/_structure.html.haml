@@ -1,0 +1,10 @@
+%p
+  %strong Name
+  = h structure.name
+%p
+  %strong Description
+  = h structure.description
+%p
+  = link_to 'Edit', edit_admin_structure_path(structure)
+  |
+  = link_to 'Destroy', admin_structure_path(structure), :confirm => 'Are you sure?', :method => :delete

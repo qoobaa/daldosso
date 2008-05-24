@@ -1,0 +1,7 @@
+%h1 Editing glass color
+
+= error_messages_for :glass_color
+
+- form_for :glass_color, :url => admin_glass_color_path(@glass_color), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Edit'

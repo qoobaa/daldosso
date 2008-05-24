@@ -1,0 +1,7 @@
+%h1 Editing additional feature
+
+= error_messages_for :additional_feature
+
+- form_for :additional_feature, :url => admin_additional_feature_path(@additional_feature), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Edit'

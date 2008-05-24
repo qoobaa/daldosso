@@ -1,0 +1,7 @@
+%h1 Creating new handle type
+
+= error_messages_for :handle_type
+
+- form_for :handle_type, :url => admin_handle_types_path do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Create'

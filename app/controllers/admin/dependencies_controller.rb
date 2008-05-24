@@ -42,7 +42,6 @@ class Admin::DependenciesController < ApplicationController
   def destroy
     @dependency = Dependency.find(params[:id])
     @dependency.destroy
-    
     redirect_to admin_dependencies_path
   end
 end

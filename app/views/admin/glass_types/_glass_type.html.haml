@@ -1,0 +1,16 @@
+%p
+  %strong Name
+  = h glass_type.name
+%p
+  %strong Description
+  = h glass_type.description
+%p
+  %strong Thickness
+  = glass_type.thickness
+%p
+  %strong Meter price  
+  = number_to_currency glass_type.meter_price, :unit => "&euro;"
+%p
+  = link_to 'Edit', edit_admin_glass_type_path(glass_type)
+  |
+  = link_to 'Destroy', admin_glass_type_path(glass_type), :confirm => 'Are you sure?', :method => :delete
