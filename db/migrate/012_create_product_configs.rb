@@ -3,8 +3,7 @@ class CreateProductConfigs < ActiveRecord::Migration
     create_table :product_configs do |t|
       t.integer :product_id, :window_config_id
       t.string :description
-      t.decimal :unit_price, :precision => 9, :scale => 2
-      t.decimal :meter_price, :precision => 9, :scale => 2
+      t.decimal :cost, :precision => 9, :scale => 2, :default => 0
       t.timestamps
     end
   end
