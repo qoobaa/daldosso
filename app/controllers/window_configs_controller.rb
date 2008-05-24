@@ -52,7 +52,7 @@ class WindowConfigsController < ApplicationController
     @winconfig.customer = current_user if current_user# set user who creates
 
     # cost calculation
-    @winconfig.window_cost = cost_calculation(features_ids)
+    @winconfig.cost = cost_calculation(features_ids)
 
     isSaved = @winconfig.save if (current_user)
     @msg = "Succesfully saved"
