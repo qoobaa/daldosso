@@ -5,11 +5,11 @@ product_config_1:
   product_id: 1
   window_config_id: 1
   description: some config
-  unit_price: 34.23
+  cost: 34.23
 
 products_config_2:
   id: 2
   product_id: 2
   window_config_id: 2
   description: lba
-  meter_price: 23
+  cost: 23

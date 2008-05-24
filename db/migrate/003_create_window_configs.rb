@@ -4,7 +4,7 @@ class CreateWindowConfigs < ActiveRecord::Migration
       t.integer :glass_color_id, :glass_type_id, :handle_type_id, :sash_structure_id, :height, :width, :customer_id
       t.integer :height_medium_rail, :cover_joint_int, :cover_joint_ext
       t.string :glass_color, :finish_quality
-      t.decimal :cost :precision => 9, :scale => 2
+      t.decimal :cost, :precision => 9, :scale => 2, :default => 0
       t.timestamps
     end
   end

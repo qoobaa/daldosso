@@ -2,7 +2,7 @@ class CreateHandleTypes < ActiveRecord::Migration
   def self.up
     create_table :handle_types do |t|
       t.string :name, :description
-      t.decimal :price, :precition => 9, :scale => 2
+      t.decimal :price, :precition => 9, :scale => 2, :default => 0
       t.timestamps
     end
   end
