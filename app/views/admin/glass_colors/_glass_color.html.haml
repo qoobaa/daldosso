@@ -1,0 +1,7 @@
+%p
+  %strong Name
+  = h glass_color.name
+%p
+  = link_to 'Edit', edit_admin_glass_color_path(glass_color)
+  |
+  = link_to 'Destroy', admin_glass_color_path(glass_color), :confirm => 'Are you sure?', :method => :delete

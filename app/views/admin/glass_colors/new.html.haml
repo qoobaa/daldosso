@@ -1,0 +1,7 @@
+%h1 Creating new glass color
+
+= error_messages_for :glass_color
+
+- form_for :glass_color, :url => admin_glass_colors_path do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Create'
