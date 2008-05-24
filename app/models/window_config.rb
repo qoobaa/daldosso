@@ -7,6 +7,7 @@ class WindowConfig < ActiveRecord::Base
   has_many :shutter_types, :through => :shutter_configs
   belongs_to :customer, :class_name => 'User'
 	belongs_to :glass_type
+  belongs_to :glass_color
 	belongs_to :sash_structure
 	belongs_to :handle_type
   belongs_to :glass_color

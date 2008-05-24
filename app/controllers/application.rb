@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       feature_before = WindowFeature.find(id)
       feature_after = WindowFeature.find(id_next)
       dependency = feature_before.dependencies_before.detect{|db| db.after_feature==feature_after}
-      cost+= dependency.price!=nil ? dependency.price : 0
+      cost+= dependency.meter_price!=nil ? dependency.meter_price : 0
     end
     return cost
   end

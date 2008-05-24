@@ -1,8 +1,16 @@
+# 1-6 - model
+# 7-9 - typology
+# 10-12 - edge
+# 13-16 - paint
+# 17-20 - laying
+# 21-34 - wood
+# Order: Model-Wood-Typology-PaintKind-Edge-LayingKind
+
 winconfig_1:
   id: 1
   glass_type_id: 1
+  glass_color_id: 2
   handle_type_id: 2
-  glass_color: white
   sash_structure_id: 3
   height: 120
   width: 240
@@ -15,8 +23,8 @@ winconfig_1:
 winconfig_2:
   id: 2
   glass_type_id: 2
+  glass_color_id: 2
   handle_type_id: 2
-  glass_color: white
   sash_structure_id: 1
   height: 420
   width: 40
@@ -29,8 +37,8 @@ winconfig_2:
 winconfig_3:
   id: 3
   glass_type_id: 3
+  glass_color_id: 2
   handle_type_id: 1
-  glass_color: grey
   sash_structure_id: 2
   height: 320
   width: 140
@@ -43,8 +51,8 @@ winconfig_3:
 winconfig_4:
   id: 4
   glass_type_id: 2
+  glass_color_id: 2
   handle_type_id: 2
-  glass_color: white
   sash_structure_id: 2
   height: 20
   width: 40
@@ -56,15 +64,15 @@ winconfig_4:
 
 <% for i in 5..40 %>winconf_<%= i %>:
   id: <%= i %>
-  glass_type_id: <%= i % 3 %>
-  handle_type_id: <%= i % 3 %>
-  glass_color_id: <%= i % 3 %>
-  sash_structure_id: <%= i % 3 %>
+  glass_type_id: <%= (i % 3) + 1 %>
+  glass_color_id: <%= (i % 3) + 1 %>
+  handle_type_id: <%= (i % 3) + 1 %>
+  sash_structure_id: <%= (i % 3) + 1 %>
   height: 20
   width: 40
   cover_joint_int: 23
   cover_joint_ext: 4
   height_medium_rail: 1.2
   cost: 61000
-  customer_id: <%= i % 3 %>
+  customer_id: <%= (i % 3) + 1 %>
 <% end %>
