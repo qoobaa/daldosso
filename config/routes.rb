@@ -12,11 +12,17 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'session', :action => 'destroy'
 
   map.namespace :admin do |admin|
+    admin.root :controller => 'panel'
     admin.resources :orders
     admin.resources :users
     admin.resources :window_configs
     admin.resources :window_features
     admin.resources :dependencies
+    admin.resources :additional_features
+    admin.resources :glass_types
+    admin.resources :glass_colors
+    admin.resources :handle_types
+    admin.resources :structures
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

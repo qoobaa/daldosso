@@ -1,0 +1,57 @@
+# 1-6 - model
+# 7-9 - typology
+# 10-12 - edge
+# 13-16 - paint
+# 17-20 - laying
+# 21-34 - wood
+# Order: Model-Wood-Typology-PaintKind-Edge-LayingKind
+
+# Model-Wood dependencies [1-84]:
+<% for m in 1..6 %>
+<% for w in 21..34 %>dep_<%= (m-1)*14 + (w-20) %>:
+  id: <%= (m-1)*14 + (w-20) %>
+  feature_one_id: <%= m %>
+  feature_two_id: <%= w %>
+  meter_price: <%= ((m + w % 11) * 12) %>
+<% end %>
+<% end %>
+
+# Wood-Typology dependencies [85-126]:
+<% for w in 21..34 %>
+<% for t in 7..9 %>dep_<%= (w-21)*3 + (t-6) + 84 %>:
+  id: <%= (w-21)*3 + (t-6) + 84 %>
+  feature_one_id: <%= w %>
+  feature_two_id: <%= t %>
+  meter_price: <%= ((m + t % 11) * 12) %>
+<% end %>
+<% end %>
+
+# Typology-PaintKind dependencies [127-138]:
+<% for t in 7..9 %>
+<% for p in 13..16 %>dep_<%= (t-7)*4 + (p-12) + 126 %>:
+  id: <%= (t-7)*4 + (p-12) + 126 %>
+  feature_one_id: <%= t %>
+  feature_two_id: <%= p %>
+  meter_price: <%= ((t + p % 11) * 12) %>
+<% end %>
+<% end %>
+
+# PaintKind-Edge dependencies [139-150]:
+<% for p in 13..16 %>
+<% for e in 10..12 %>dep_<%= (p-13)*3 + (e-9) + 138 %>:
+  id: <%= (p-13)*3 + (e-9) + 138 %>
+  feature_one_id: <%= p %>
+  feature_two_id: <%= e %>
+  meter_price: <%= ((p + e % 11) * 12) %>
+<% end %>
+<% end %>
+
+# Edge-LayingKind dependencies [151-162]:
+<% for e in 10..12 %>
+<% for l in 17..20 %>dep_<%= (e-10)*4 + (l-16) + 150 %>:
+  id: <%= (e-10)*4 + (l-16) + 150 %>
+  feature_one_id: <%= e %>
+  feature_two_id: <%= l %>
+  meter_price: <%= ((e + l % 11) * 12) %>
+<% end %>
+<% end %>

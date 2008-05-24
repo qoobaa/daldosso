@@ -1,0 +1,35 @@
+id, name, description, type, next_step_type, min_thickness, max_thickness
+1, Dalila, dalila model, Model, Wood, 1, 10
+2, Sansone, desc, Model, Wood, 3, 7
+3, Giano, dalila with aluminium model, Model, Wood, 4, 9
+4, Eko, cheap model, Model, Wood, 1, 10
+5, PVC, description: PVC, Model, Wood, 4, 9
+6, Aluminium, aluminium, Model, Wood, 4, 9
+7, Frame in view, external part is visible, Typology, Paint, 0, 0
+8, Mazetta, a part of the external frame is covered by the wall, Typology, Paint, 0, 0
+9, Monoblocco, additional part in wood, Typology, Paint, 0, 0
+10, Standard, standard edge, Edge, LayingKind, 0, 0
+11, Leaf, Leaf Edge, Edge, LayingtKind, 0, 0
+12, Soft, Soft Edge, Edge, LayingKind, 0, 0
+13, Varnished(Eko), Varnished eko paint, PaintKind, Edge, 0, 0
+14, Varnished(Adler), Varnished adler paint, PaintKind, Edge, 0, 0
+15, Lackquered(Eko), Lackquered eko paint, PaintKind, Edge, 0, 0
+16, Lackquered(Adler), Lackquered adler paint, PaintKind, Edge, 0, 0
+17, Restructuring, Changing the previous structure, LayingKind, , 0, 0
+18, New, New building, LayingKind, , 0, 0
+19, Over wall, Description, LayingKind, , 0, 0
+20, Without, the customer doesnt want the laying, LayingKind, , 0, 0
+21, Abete Massello, desc, Wood, Typology, 0, 0
+22, Pino Massello, desc, Wood, Typology, 0, 0
+23, Pino Lamellare, desc, Wood, Typology, 0, 0
+24, Pino Lamellare, desc, Wood, Typology, 0, 0
+25, Yellow-Pine Massello, desc, Wood, Typology, 0, 0
+26, Framirè Massello, desc, Wood, Typology, 0, 0
+27, Hemlock Massello, desc, Wood, Typology, 0, 0
+28, Meranti Lamellare, desc, Wood, Typology, 0, 0
+29, Larice Lamellare, desc, Wood, Typology, 0, 0
+30, Douglas Massello, desc, Wood, Typology, 0, 0
+31, Rovere Massello, desc, Wood, Typology, 0, 0
+32, Rovere Lamellare, desc, Wood, Typology, 0, 0
+33, Castagno Massello, desc, Wood, Typology, 0, 0
+34, Castagno Lamellare, desc, Wood, Typology, 0, 0

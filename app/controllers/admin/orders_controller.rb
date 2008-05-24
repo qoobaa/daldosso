@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+  before_filter :admin_required
 
   def new
     @order = Order.new

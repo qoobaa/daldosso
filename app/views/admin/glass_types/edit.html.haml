@@ -1,0 +1,7 @@
+%h1 Editing glass type
+
+= error_messages_for :glass_type
+
+- form_for :glass_type, :url => admin_glass_type_path(@glass_type), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Edit'

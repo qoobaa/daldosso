@@ -1,7 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+color1:
+  id: 1
+  name: White
 
-two:
-  name: MyString
+color2:
+  id: 2
+  name: Silver
+
+color3:
+  id: 3
+  name: Yellow

@@ -11,3 +11,9 @@ handle_type_2:
   name: regular handle
   description: blbaba
   unit_price: 10
+
+handle_type_3:
+  id: 3
+  name: black handle
+  description: really expensive golden handle
+  unit_price: 345

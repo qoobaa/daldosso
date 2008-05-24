@@ -9,10 +9,10 @@
   = h window_config.glass_type
 %p
   %strong Glass Color:
-  = h window_config.glass_color
+  = h window_config.glass_color.name
 %p
   %strong Handle Type:
-  = h window_config.handle_type
+  = h window_config.handle_type.name
 %p
   %strong Sash number:
   = h window_config.sash_structure
@@ -39,7 +39,7 @@
   = h window_config.finish_quality
 %p
   %strong User:
-  = h window_config.customer
+  = h window_config.customer.name
 = link_to 'Edit', edit_admin_window_config_path(window_config)
 |
 = link_to 'Destroy', admin_window_config_path(window_config), :confirm => 'Are you sure?', :method => :delete

@@ -30,10 +30,9 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
-
     flash[:msg] = "Succesfully deleted"
     flash[:msg] = "Error" unless @order.destroy
-
     redirect_to orders_path
   end
+
 end
