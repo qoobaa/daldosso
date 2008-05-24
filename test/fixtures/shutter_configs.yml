@@ -3,21 +3,21 @@
 one:
   id: 1
   window_config_id: 1
-  shutter_id: 1
+  shutter_type_id: 1
   name: some name
   width: 100
   height: 100
   sashes_number: 3
   description: desc
-  shutter_cost: 1300
+  cost: 1300
 
 two:
   id: 2
   window_config_id: 2
-  shutter_id: 1
+  shutter_type_id: 1
   name: MyString
   width: 200
   height: 230
   sashes_number: 2
-  description: MyString
-  shutter_cost: 1556
+  description: config for expensive shutters
+  cost: 1556

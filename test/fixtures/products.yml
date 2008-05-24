@@ -4,40 +4,40 @@ product_1:
   id: 1
   name: some single product
   description: MyString
-  additional_group_id: 1
+  product_group_id: 1
 
 product_2:
   id: 2
   name: other single product
   description: MyString
-  additional_group_id: 1
+  product_group_id: 1
 
 product_3:
   id: 3
   name: Inner Door TF232
   description: MyString
-  additional_group_id: 3
+  product_group_id: 3
 
 product_4:
   id: 4
   name: Inner Door KJ5555
   description: MyString
-  additional_group_id: 3
+  product_group_id: 3
 
 product_5:
   id: 5
   name: Mosquito net Titan
   description: MyString
-  additional_group_id: 5
+  product_group_id: 5
 
 product_6:
   id: 6
   name: Mosquito net Lite
   description: MyString
-  additional_group_id: 5
+  product_group_id: 5
 
 product_7:
   id: 7
   name: Armed Door FG3434
   description: MyString
-  additional_group_id: 4
+  product_group_id: 4

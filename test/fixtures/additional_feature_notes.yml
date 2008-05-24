@@ -4,34 +4,34 @@ feature_config_1:
   id: 1
   additional_feature_id: 1
   window_config_id: 1
-  config_notes: notes about
+  note: notes about
 
 feature_config_2:
   id: 2
   additional_feature_id: 2
   window_config_id: 1
-  config_notes: notes
+  note: notes
 
 feature_config_3:
   id: 3
   additional_feature_id: 3
   window_config_id: 1
-  config_notes: notes
+  note: notes
 
 feature_config_4:
   id: 4
   additional_feature_id: 1
   window_config_id: 2
-  config_notes: notes about
+  note: notes about
 
 feature_config_5:
   id: 5
   additional_feature_id: 2
   window_config_id: 2
-  config_notes: notes
+  note: notes
 
 feature_config_6:
   id: 6
   additional_feature_id: 3
   window_config_id: 2
-  config_notes: notes
+  note: notes
