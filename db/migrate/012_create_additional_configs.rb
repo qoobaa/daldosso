@@ -1,7 +1,7 @@
-class CreateAdditionalConfigs < ActiveRecord::Migration
+class CreateProductConfigs < ActiveRecord::Migration
   def self.up
-    create_table :additional_configs do |t|
-      t.integer :additional_product_id, :window_config_id
+    create_table :product_configs do |t|
+      t.integer :product_id, :window_config_id
       t.string :description
       t.decimal :unit_price, :precision => 9, :scale => 2
       t.decimal :meter_price, :precision => 9, :scale => 2
@@ -10,6 +10,6 @@ class CreateAdditionalConfigs < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :additional_configs
+    drop_table :product_configs
   end
 end
