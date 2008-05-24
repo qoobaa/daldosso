@@ -5,7 +5,7 @@ class WindowConfig < ActiveRecord::Base
 	has_many :additional_configs
 	has_many :shutter_configs
   has_many :shutter_types, :through => :shutter_configs
-  belongs_to :customer, :foreign_key => 'user_id'
+  belongs_to :customer, :class_name => 'User'
 	belongs_to :glass_type
 	belongs_to :sash_structure
 	belongs_to :handle_type
