@@ -22,7 +22,7 @@ class WindowConfigsController < ApplicationController
       flash[:msg] = 'initial'
     end
     if (session[:wconf]!=nil && params[:feature]!=nil && params[:step]!='back')
-    session[:wconf] << params[:feature][:id] unless session[:wconf].include?(params[:feature][:id])
+      session[:wconf] << params[:feature][:id] unless session[:wconf].include?(params[:feature][:id])
       @features = WindowFeature.find(params[:feature][:id]).after_features
       @model_id = session[:wconf][0]
     end
@@ -69,7 +69,7 @@ class WindowConfigsController < ApplicationController
 
   def destroy
     @winconfig = WindowConfig.find(params[:id])
-    @winconfig.destroy unless @winconfig.order_items.size==0
+    @winconfig.destroy if @winconfig.order_items.size==0
     redirect_to window_configs_path
   end
 end
