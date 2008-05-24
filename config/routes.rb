@@ -17,6 +17,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :window_configs
     admin.resources :window_features
     admin.resources :dependencies
+    admin.resources :additional_features
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

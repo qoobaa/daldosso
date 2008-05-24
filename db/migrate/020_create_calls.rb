@@ -3,7 +3,7 @@ class CreateCalls < ActiveRecord::Migration
     create_table :calls do |t|
       t.integer :customer_id, :order_id, :seller_id, :call_status_id
       t.datetime :date
-      t.string :description
+      t.text :description
       t.timestamps
     end
   end

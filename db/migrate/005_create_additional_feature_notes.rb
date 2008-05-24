@@ -2,7 +2,7 @@ class CreateAdditionalFeatureNotes < ActiveRecord::Migration
   def self.up
     create_table :additional_feature_notes do |t|
       t.integer :additional_feature_id, :window_config_id
-      t.string :note
+      t.text :note
       t.timestamps
     end
   end
