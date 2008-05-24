@@ -1,0 +1,31 @@
+%h3 Choose configuration of new window
+- form_for :window_config, :url => {:action => 'new'} do |f|
+  - for id_f in session[:wconf]
+    - feature = WindowFeature.find(id_f)
+    #chosen_features
+      = feature.long_name
+  #feature_select
+    - unless @features.size==0
+      %ul
+        Possible choices:
+        - @features.each do |fr|
+          %li
+            = fr.long_name
+            = fr.description
+      Choice:
+      = collection_select :feature,:id,@features,:id,:long_name if @features.size>0
+  %br
+  = submit_tag 'Next' if @features.size > 0
+- if (@features.size==0)
+  - form_for @winconfig, :url => {:action => 'create'} do |ff|
+    = render :partial => 'form', :locals => { :ff => ff}
+    = ff.submit 'Create'
+#navbar
+  = link_to 'Step Back','new?step=back'
+  = link_to 'Clear', new_window_config_path
+  %br
+  %br
+  = link_to 'Back', window_configs_path
+
+
+

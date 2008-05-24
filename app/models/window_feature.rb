@@ -9,6 +9,10 @@ class WindowFeature < ActiveRecord::Base
   validates_numericality_of :min_thickness, :max_thickness, :only_integer => true, :greater_than => 0, :allow_nil => true
   validates_inclusion_of :type, :in => %w(Edge LayingKind Model PaintKind Typology Wood)
 
+  def long_name
+    return type.to_s+" :: "+name.to_s
+  end
+
   def self.types
     %w(Model Wood Typology Edge PaintKind LayingKind)
   end

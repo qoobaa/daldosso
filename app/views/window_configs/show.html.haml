@@ -1,0 +1,28 @@
+%h3 Created configuration of window
+%h4 Window Features:
+- @winconfig.window_features.each do |fc|
+  %p
+    = fc.long_name
+%h4 Window Configuration
+%p
+  %strong Height:
+  = @winconfig.height
+%p
+  %strong Width:
+  = @winconfig.width
+%p
+  %strong Sash Structure:
+  = @winconfig.sash_structure.name
+%p
+  %strong Glass Color:
+  = @winconfig.glass_color.name
+%p
+  %strong Handle Type:
+  = @winconfig.handle_type.name
+
+%p
+  %strong Cost approximation:
+  = @winconfig.window_cost
+= link_to 'New',new_window_config_path
+|
+= link_to 'Back',window_configs_url

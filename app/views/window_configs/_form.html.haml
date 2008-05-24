@@ -1,0 +1,19 @@
+%h4 Configuration:
+%p
+  = ff.label :sash_structure
+  = ff.select :sash_structure_id,select_options_for(SashStructure)
+%p
+  = ff.label :height
+  = ff.text_field :height
+%p
+  = ff.label :width
+  = ff.text_field :width
+%p
+  = ff.label :handle_type
+  = ff.select :handle_type_id,select_options_for(HandleType)
+%p
+  = ff.label :glass_type
+  = ff.select :glass_type_id,select_options_for_glass_types(@model_id)
+%p
+  = ff.label :glass_color
+  = ff.select :glass_color_id,select_options_for(GlassColor)

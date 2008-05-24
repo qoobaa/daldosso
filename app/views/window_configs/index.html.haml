@@ -1,0 +1,8 @@
+%h2 Window Configurations
+- for wc in @winconfigs
+  = render :partial => 'window_config', :locals => {:wc => wc}
+  = link_to 'Edit',edit_window_config_path(wc)
+  = link_to 'Destroy', wc, :confirm => 'Are you sure?', :method => :delete
+  %hr
+%br
+= link_to 'New',new_window_config_path
