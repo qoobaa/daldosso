@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :product_groups
   map.resources :customers
   map.resources :window_configs
   map.resources :orders
@@ -23,6 +24,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :glass_colors
     admin.resources :handle_types
     admin.resources :structures
+    admin.resources :product_groups
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

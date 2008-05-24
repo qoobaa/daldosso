@@ -11,7 +11,6 @@ class Admin::WindowConfigsController < ApplicationController
 
   def edit
     @window_config = WindowConfig.find(params[:id])
-    @current_features = @window_config.window_features
   end
 
   def create
@@ -41,7 +40,6 @@ class Admin::WindowConfigsController < ApplicationController
 
   def show
     @window_config = WindowConfig.find(params[:id])
-    @current_features = @window_config.window_features
   end
 
   def destroy

@@ -1,0 +1,10 @@
+%p
+  %strong Name
+  = h product_group.name
+%p
+  %strong Description
+  = h product_group.description
+%p
+  = link_to 'Edit', edit_admin_product_group_path(product_group)
+  |
+  = link_to 'Destroy', admin_product_group_path(product_group), :confirm => 'Are you sure?', :method => :delete
