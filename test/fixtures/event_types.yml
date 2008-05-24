@@ -1,9 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 event_type_1:
+  id: 1
   name: Apointment with customer
   description: just that
 
 event_type_2:
+  id: 2
   name: Changing measures
   description: yeah

@@ -18,7 +18,7 @@
   = f.text_field :email
 %p
   = f.label :type
-  = f.select :type, User.types, { :include_blank => true, :selected => @user.type }
+  = f.select :type, User.types, { :include_blank => 'None', :selected => @user.type }
 %p
   = f.label :password
   = f.password_field :password

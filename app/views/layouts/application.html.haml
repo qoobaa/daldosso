@@ -4,7 +4,7 @@
     %title Dal Dosso Company
     %link{:rel=>"stylesheet",:type=>"text/css",:href=>"stylesheets/style.css"}
   %body
-    %h1 Welcome        
+    %h1 Welcome
     #menu
       %h2 Menu
       - unless(logged_in?)
@@ -16,5 +16,9 @@
         = current_user.login
         %br
         = link_to "Logout", logout_path
+    - unless flash[:error].nil?
+      = flash[:error]
+    - unless flash[:notice].nil?
+      = flash[:notice]
     #content
-      = yield 
+      = yield

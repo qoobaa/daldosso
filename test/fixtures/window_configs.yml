@@ -1,7 +1,55 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+winconfig_1:
+  id: 1
+  glass_type_id: 1
+  handle_type_id: 2
+  glass_color: white
+  sash_structure_id: 3
+  height: 120
+  width: 240
+  cover_joints_int: 1
+  cover_joint_ext: 2
+  height_medium_rail: 2
+  window_cost: 3000
+  user_id: 1
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+winconfig_2:
+  id: 2
+  glass_type_id: 2
+  handle_type_id: 2
+  glass_color: white
+  sash_structure_id: 1
+  height: 420
+  width: 40
+  cover_joints_int: 1
+  cover_joint_ext: 4
+  height_medium_rail: 3.1
+  window_cost: 6000
+  user_id: 2
+
+winconfig_3:
+  id: 3
+  glass_type_id: 3
+  handle_type_id: 1
+  glass_color: grey
+  sash_structure_id: 2
+  height: 320
+  width: 140
+  cover_joints_int: 6
+  cover_joint_ext: 12
+  height_medium_rail: 2
+  window_cost: 13000
+  user_id: 2
+
+winconfig_4:
+  id: 4
+  glass_type_id: 2
+  handle_type_id: 2
+  glass_color: white
+  sash_structure_id: 2
+  height: 20
+  width: 40
+  cover_joints_int: 23
+  cover_joint_ext: 4
+  height_medium_rail: 1.2
+  window_cost: 61000
+  user_id: 3

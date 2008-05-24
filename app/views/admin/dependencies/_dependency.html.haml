@@ -1,0 +1,17 @@
+%p
+  %strong Before feature
+  = dependency.before_feature.type
+  = h dependency.before_feature.name
+%p
+  %strong After feature
+  = dependency.after_feature.type
+  = h dependency.after_feature.name
+%p
+  %strong Price
+  = number_to_currency dependency.price, :unit => "&euro;"
+%p
+  = link_to 'Edit', edit_admin_dependency_path(dependency)
+  |
+  = link_to 'Destroy', admin_dependency_path(dependency), :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to 'Back to Dependencies' , admin_dependencies_path if list.nil?

@@ -1,6 +1,15 @@
+- window_config.window_features.each do |f|
+  %strong
+    = f.type
+  = f.name
+  %br
+%hr
 %p
   %strong Glass Type:
   = h window_config.glass_type.name
+%p
+  %strong Glass Color:
+  = h window_config.glass_color
 %p
   %strong Handle Type:
   = h window_config.handle_type.name
@@ -10,3 +19,28 @@
 %p
   %strong Structure:
   = h window_config.sash_structure.structure.name
+%p
+  %strong Height:
+  = h window_config.height
+%p
+  %strong Width:
+  = h window_config.width
+%p
+  %strong Cover joints ext:
+  = h window_config.cover_joint_ext
+%p
+  %strong Cover joints int:
+  = h window_config.cover_joints_int
+%p
+  %strong Medium rail:
+  = h window_config.height_medium_rail
+%p
+  %strong Finish Quality:
+  = h window_config.finish_quality
+%p
+  %strong User:
+  = h window_config.user.name
+= link_to 'Edit', edit_admin_window_config_path(window_config)
+|
+= link_to 'Destroy', admin_window_config_path(window_config), :confirm => 'Are you sure?', :method => :delete
+%hr

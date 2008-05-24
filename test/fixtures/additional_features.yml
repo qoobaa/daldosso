@@ -1,13 +1,25 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  description: MyString
-  price: 1.5
-  price_type_id: 1
+feature_1:
+  id: 1
+  name: openning ribalta
+  description: important
+  unit_price: 4.23
 
-two:
-  name: MyString
-  description: MyString
-  price: 1.5
-  price_type_id: 1
+feature_2:
+  id: 2
+  name: openning wasistas
+  description: feature
+  unit_price: 3.6
+
+feature_3:
+  id: 3
+  name: locker
+  description: not enough description
+  meter_price: 34
+
+feature_4:
+  id: 4
+  name: locker PDF343
+  description: nice description of this feature
+  meter_price: 14

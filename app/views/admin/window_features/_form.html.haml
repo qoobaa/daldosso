@@ -1,0 +1,18 @@
+%p
+  = f.label :name
+  = f.text_field :name
+%p
+  = f.label :description
+  = f.text_area :description
+%p
+  = f.label :type
+  = f.select :type, WindowFeature.types, { :include_blank => 'None' }
+%p
+  = f.label :next_step_type
+  = f.select :next_step_type, WindowFeature.types, { :include_blank => 'None' }
+%p
+  = f.label :min_thickness
+  = f.text_field :min_thickness
+%p
+  = f.label :max_thickness
+  = f.text_field :max_thickness

@@ -1,10 +1,7 @@
-= javascript_include_tag 'jquery.js', 'application.js'
-
 %h1= "Create new Window Config"
 = error_messages_for :window_config
 
 - form_for @window_config, :url => admin_window_configs_path do |f|
-  = render :partial => 'features_form', :locals => { :f => f }
   = render :partial => 'form', :locals => { :f => f }
   = submit_tag 'Create Window Config'
 

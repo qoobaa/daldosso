@@ -1,0 +1,52 @@
+# 123 - model
+# 456 - wood
+# 789 - typology
+
+wcwf_1:
+  window_config_id: 1
+  window_feature_id: 1
+
+wcwf_2:
+  window_config_id: 1
+  window_feature_id: 4
+
+wcwf_3:
+  window_config_id: 1
+  window_feature_id: 7
+
+wcwf_4:
+  window_config_id: 2
+  window_feature_id: 2
+
+wcwf_5:
+  window_config_id: 2
+  window_feature_id: 5
+
+wcwf_6:
+  window_config_id: 2
+  window_feature_id: 8
+
+wcwf_7:
+  window_config_id: 3
+  window_feature_id: 3
+
+wcwf_8:
+  window_config_id: 3
+  window_feature_id: 6
+
+wcwf_9:
+  window_config_id: 3
+  window_feature_id: 9
+
+wcwf_10:
+  window_config_id: 4
+  window_feature_id: 3
+
+wcwf_11:
+  window_config_id: 4
+  window_feature_id: 4
+
+wcwf_12:
+  window_config_id: 4
+  window_feature_id: 8
+
