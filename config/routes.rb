@@ -10,6 +10,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :order_statuses
   map.resources :events
   map.resources :event_types
+  map.resources :shutter_types
+  map.resources :shutter_configs
 
   map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
 
@@ -39,6 +41,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :calls
     admin.resources :events
     admin.resources :event_types
+    admin.resources :shutter_types
+    admin.resources :shutter_configs
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

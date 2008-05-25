@@ -1,0 +1,7 @@
+%h1 Editing call status
+
+= error_messages_for :call
+
+- form_for :call, :url => admin_call_path(@call), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Edit'

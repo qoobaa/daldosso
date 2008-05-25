@@ -1,0 +1,7 @@
+%h1 Editing event type
+
+= error_messages_for :event_type
+
+- form_for :event_type, :url => admin_event_type_path(@event_type), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Edit'

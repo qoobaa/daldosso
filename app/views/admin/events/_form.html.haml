@@ -1,0 +1,18 @@
+%p
+  = f.label :description
+  = f.text_area :description
+%p
+  = f.label :due_date
+  = f.date_select :due_date
+%p
+  = f.label :added_date
+  = f.date_select :added_date
+%p
+  Employee assigned to this event
+  = f.select :user_id, User.employees, :include_blank => :true
+%p
+  = f.label :order_id
+  = f.select :order_id, select_options_for(Order), :include_blank => :true
+%p
+  = f.label :event_type_id
+  = f.select :event_type_id, select_options_for(EventType), :include_blank => :true

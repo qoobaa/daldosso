@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :password, :password_confirmation, :name, :address, :phone_number, :description
 
+  def self.employees
+    empl = User.find(:all, :conditions => [ "type IN (?)", ['Seller', 'ProductionManager']])
+    empl.collect {|e| ["[#{e[:type]}]#{e.name}", e.id]}
+  end
+
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
     u = find_by_login(login) # need to get the salt
