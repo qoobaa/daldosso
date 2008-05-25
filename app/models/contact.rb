@@ -1,11 +1,10 @@
 class Contact < ActionMailer::Base
   
-  def contact_company
-    # Email header info MUST be added here
+  def contact_company(message, email = "simao@fe.up.pt")
    recipients "simaobelchior@gmail.com"
-   from  current_user.email
-   subject "Thank you for registering with our website"
-     
-   body :user=> current_user
+   from  email
+   sent_on Time.now
+   subject "Message from website contact form"  
+   body :message => message
   end
 end

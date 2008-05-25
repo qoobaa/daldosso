@@ -12,7 +12,7 @@ class SessionController < ApplicationController
       #redirect_back_or_default('/')
       redirect_to current_user
       flash[:notice] = "Logged in successfully"
-      Contact.contact_company
+      Contact.deliver_contact_company
     else
       redirect_to login_path
       flash[:error] = 'Invalid login or password'

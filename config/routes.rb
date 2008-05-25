@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session, :controller => 'session'
 
+  map.contact '/contact', :controller => 'contact', :action => 'new'
   map.signup '/signup', :controller => 'customers', :action => 'new'
   map.login '/login', :controller => 'session', :action => 'new'
   map.logout '/logout', :controller => 'session', :action => 'destroy'
