@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
-
   validates_presence_of     :name
   validates_length_of       :name,    :within => 3..255
   validates_presence_of     :login, :email
