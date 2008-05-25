@@ -6,12 +6,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :product_configs
   map.resources :call_statuses
   map.resources :orders
-
+  map.resources :contact, :controller => 'contact'
+  
   map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
 
   map.resource :session, :controller => 'session'
 
-  map.contact '/contact', :controller => 'contact', :action => 'new'
   map.signup '/signup', :controller => 'customers', :action => 'new'
   map.login '/login', :controller => 'session', :action => 'new'
   map.logout '/logout', :controller => 'session', :action => 'destroy'
