@@ -1,0 +1,13 @@
+%p
+  %strong Name
+  = h product.name
+%p
+  %strong Description
+  = h product.description
+%p
+  %strong Product Group
+  = h product.product_group.name rescue ""
+%p
+  = link_to 'Edit', edit_admin_product_path(product)
+  |
+  = link_to 'Destroy', admin_product_path(product), :confirm => 'Are you sure?', :method => :delete

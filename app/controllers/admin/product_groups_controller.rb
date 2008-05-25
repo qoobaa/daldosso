@@ -21,7 +21,6 @@ class Admin::ProductGroupsController < ApplicationController
       redirect_to admin_product_group_path(@product_group)
       flash[:notice] = "Created window config"
     else
-      @product_group.password = @product_group.password_confirmation = nil
       render :action => 'new'
     end
   end
@@ -33,7 +32,6 @@ class Admin::ProductGroupsController < ApplicationController
       flash[:notice] = 'ProductGroup was successfully updated.'
       redirect_to admin_product_group_path(@product_group)
     else
-      @product_group.password = @product_group.password_confirmation = nil
       render :action => 'edit'
     end
   end
@@ -44,7 +42,12 @@ class Admin::ProductGroupsController < ApplicationController
 
   def destroy
     @product_group = ProductGroup.find(params[:id])
-    @product_group.destroy
-    redirect_to(admin_product_groups_url)
+    if @product_group.products.empty?
+      @product_group.destroy
+      redirect_to(admin_product_groups_url)
+    else
+      flash[:error] = 'There are products assigned to this group!'
+      redirect_to admin_product_group_path(@product_group)
+    end
   end
 end

@@ -11,5 +11,16 @@ class WindowConfig < ActiveRecord::Base
 	belongs_to :sash_structure
 	belongs_to :handle_type
   has_many :order_items, :as => :item
-end
 
+  def to_s
+    ret = ""
+    window_features.each { |f| ret << f.to_s + ", " }
+    ret << "#{glass_type.name}, #{glass_color.name}, #{handle_type.name}..."
+    return ret
+  end
+
+  def name
+    self.to_s[0..40]
+  end
+
+end

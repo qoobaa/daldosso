@@ -1,0 +1,7 @@
+%h1 Editing product
+
+= error_messages_for :product
+
+- form_for :product, :url => admin_product_path(@product), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Edit'
