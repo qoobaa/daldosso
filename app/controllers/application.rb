@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => 'c7a30b05f5571e48d0ddcb41fbd41d69'
 
-
   # Calculates cost from given features
   # features_ids - table of window feature's id
   def cost_calculation(features_ids)

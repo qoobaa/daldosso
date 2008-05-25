@@ -1,8 +1,12 @@
+= error_messages_for :window_config, :object => @winconfig
+- @features = [] unless @features
+- @model_id = Model.find(:first).id unless @model_id
 %h3 Choose configuration of new window
 - form_for :window_config, :url => {:action => 'new'} do |f|
-  - for id_f in session[:wconf]
-    - feature = WindowFeature.find(id_f)
-    #chosen_features
+  - if session[:wconf]
+    - for id_f in session[:wconf]
+      - feature = WindowFeature.find(id_f)
+      #chosen_features
       = feature.long_name
   #feature_select
     - unless @features.size==0
@@ -26,6 +30,4 @@
   %br
   %br
   = link_to 'Back', window_configs_path
-
-= debug session[:wconf][0]
 

@@ -1,9 +1,15 @@
 class Order < ActiveRecord::Base
-  has_many :order_items
+  has_many :order_items, :dependent => :destroy
   belongs_to :order_status
   belongs_to :customer, :class_name => "User"
   has_many :events
   has_many :calls
   belongs_to :employee, :class_name => "User"
 
+  # return estimated cost of all order items related with order
+  def estimated_price
+    cost = 0
+    order_items.each{|item| cost+= item.cost}
+    return cost
+  end
 end

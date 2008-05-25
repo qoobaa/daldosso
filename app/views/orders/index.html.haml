@@ -1,0 +1,13 @@
+%h3 Orders:
+
+- for o in @orders
+  = "ID [#{o.id}]"
+  = "has #{o.order_items.size} items, "
+  = "Status: #{o.order_status.name} ,"
+  = "Created: #{o.created_at.to_s}"
+  |
+  = link_to 'Show', o
+  = link_to 'Edit', edit_order_path(o)
+  = link_to 'Destroy', o, :confirm => 'Are you sure?', :method => :delete
+  %br
+= link_to 'New',new_order_path
