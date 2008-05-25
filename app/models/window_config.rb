@@ -13,5 +13,20 @@ class WindowConfig < ActiveRecord::Base
 
   validates_presence_of :customer, :glass_type, :glass_color, :sash_structure, :handle_type
   validates_numericality_of :height, :width, :only_integer => true, :greater_than => 0
+
+  def estimated_cost
+    cost = 0
+    for i in 0..window_features.size-2
+      feature_before = window_features[i]
+      feature_after = window_features[i+1]
+      dependency = feature_before.dependencies_before.detect{|db| db.after_feature==feature_after}
+      cost+= dependency.meter_price!=nil ? dependency.meter_price : 0
+    end
+    return cost
+  end
+
+  def cost
+    estimated_cost
+  end
 end
 

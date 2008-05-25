@@ -52,9 +52,6 @@ class WindowConfigsController < ApplicationController
     features_ids.each{|id| @winconfig.window_features << WindowFeature.find(id)}
     @winconfig.customer = current_user if current_user# set user who creates
 
-    # cost calculation
-    @winconfig.cost = cost_calculation(features_ids)
-
     isSaved = @winconfig.save if (current_user)
     @msg = "Succesfully saved"
     @msg = "Error " unless (isSaved)

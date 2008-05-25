@@ -1,0 +1,24 @@
+%h3 Editing order
+%h4 Already chosen:
+- form_for(@order) do |f|
+  - @order.order_items.each do |item|
+    - if item.item.class==WindowConfig
+      = render :partial => 'window_configs/window_config', :locals => {:wc => item.item}
+      %strong Use:
+      = check_box_tag("items[ids][]",item.id,true)
+      %strong Quantity:
+      = text_field_tag("quantities[ids][#{[item.id]}]",item.quantity)
+    %hr{:width => '50%'}
+  = f.submit 'Update'
+  %hr
+  %h4 You can add new configs if you want
+  - current_user.window_configs.each do |c|
+    = render :partial => 'window_configs/window_config', :locals => { :wc => c}
+    %br
+    %strong choose:
+    = check_box_tag("winconf[ids][]",c.id,false)
+    %strong Quantity:
+    = text_field_tag("quantities2[ids][#{[c.id]}]","0")
+  %hr
+  = f.submit 'Update'
+= link_to 'Back', orders_path
