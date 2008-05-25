@@ -1,7 +1,8 @@
 class CreateOrderStatuses < ActiveRecord::Migration
   def self.up
     create_table :order_statuses do |t|
-      t.string :name, :description
+      t.string :name
+      t.text :description
       t.timestamps
     end
   end

@@ -3,7 +3,7 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.text :description
       t.datetime :due_date, :added_date
-      t.integer :employee_id, :order_id, :event_type_id
+      t.integer :user_id, :order_id, :event_type_id
       t.timestamps
     end
   end

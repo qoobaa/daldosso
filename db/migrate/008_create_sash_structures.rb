@@ -1,8 +1,7 @@
 class CreateSashStructures < ActiveRecord::Migration
   def self.up
     create_table :sash_structures do |t|
-      t.integer :structure_id, :sashes_number
-      t.decimal :minimum, :precision => 9, :scale => 2
+      t.integer :structure_id, :sashes_number, :minimum
       t.timestamps
     end
   end

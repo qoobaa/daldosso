@@ -15,11 +15,8 @@ class Admin::UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-
     @user.type = params[:user][:type]
-
-    @user.save
-    if @user.errors.empty?
+    if @user.save
       redirect_to admin_user_path(@user)
       flash[:notice] = "Thanks for signing up!"
     else
@@ -30,9 +27,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
     @user.type = params[:user][:type]
-
     if @user.update_attributes(params[:user])
       flash[:notice] = 'User was successfully updated.'
       redirect_to admin_user_path(@user)
@@ -49,9 +44,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-
     redirect_to(admin_users_url)
   end
-
 
 end

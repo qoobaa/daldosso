@@ -1,0 +1,7 @@
+%h1 Creating new structure
+
+= error_messages_for :structure
+
+- form_for :structure, :url => admin_structures_path do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Create'

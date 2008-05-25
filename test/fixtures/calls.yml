@@ -1,25 +1,28 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 call_1:
+  id: 1
   customer_id: 1
   order_id: 1
-  employee_id: 5
+  seller_id: 5
   date: 2008-05-12 20:26:54
   description: some important call with customer nr_1
   call_status_id: 1
 
 call_2:
+  id: 2
   customer_id: 1
   order_id: 1
-  employee_id: 5
+  seller_id: 5
   date: 2008-05-12 20:26:54
   description: changing order of this customer:add 2 windows
   call_status_id: 4
 
 call_3:
+  id: 3
   customer_id: 2
   order_id: 2
-  employee_id: 5
+  seller_id: 5
   date: 2008-05-12 20:26:54
   description: checking call
   call_status_id: 2

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+color1:
+  id: 1
+  name: White
+
+color2:
+  id: 2
+  name: Silver
+
+color3:
+  id: 3
+  name: Yellow

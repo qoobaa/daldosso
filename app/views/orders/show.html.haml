@@ -1,0 +1,7 @@
+= render :partial => 'order', :locals => { :o => @order}
+= link_to 'Edit', edit_order_path(@order)
+|
+= link_to 'Destroy', @order, :confirm => 'Are you sure?', :method => :delete
+%hr
+= link_to 'Back',orders_path
+= link_to 'New',new_order_path

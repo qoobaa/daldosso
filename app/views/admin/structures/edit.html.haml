@@ -1,0 +1,7 @@
+%h1 Editing structure
+
+= error_messages_for :structure
+
+- form_for :structure, :url => admin_structure_path(@structure), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Edit'

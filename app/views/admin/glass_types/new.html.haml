@@ -1,0 +1,7 @@
+%h1 Creating new glass type
+
+= error_messages_for :glass_type
+
+- form_for :glass_type, :url => admin_glass_types_path do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Create'

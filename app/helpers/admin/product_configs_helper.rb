@@ -1,0 +1,2 @@
+module Admin::ProductConfigsHelper
+end

@@ -1,12 +1,6 @@
-<h1>Editing window_config</h1>
+%h1= "Editing Window Configuration"
+= error_messages_for :window_config
 
-<%= error_messages_for :window_config %>
-
-<% form_for(@window_config) do |f| %>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @window_config %> |
-<%= link_to 'Back', window_configs_path %>
+- form_for @window_config, :url => admin_window_config_path(@window_config), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  %p= submit_tag 'Update other features'

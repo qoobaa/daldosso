@@ -2,24 +2,24 @@
 
 feature_1:
   id: 1
-  name: additional feature nr 1
-  description: iporntant
+  name: openning ribalta
+  description: important
   unit_price: 4.23
 
 feature_2:
   id: 2
-  name: feature nr 2
-  description: MyString
+  name: openning wasistas
+  description: feature
   unit_price: 3.6
 
 feature_3:
   id: 3
-  name: feature nr 3
-  description: MyStrin
+  name: locker
+  description: not enough description
   meter_price: 34
 
 feature_4:
   id: 4
-  name: feature nr 4
-  description: MyString
-  meter_price: 34
+  name: locker PDF343
+  description: nice description of this feature
+  meter_price: 14
