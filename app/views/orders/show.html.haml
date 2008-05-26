@@ -1,3 +1,4 @@
+= session[:msg]
 = render :partial => 'order', :locals => { :o => @order}
 %hr
 - if (@order.is_saved?)
@@ -12,6 +13,7 @@
     %strong Order description:
     %br
     = text_area_tag("description",@order.description,:rows => 10, :cols=> 50)
+    = hidden_field_tag("show")
     %br
     = f.submit 'Update'
     %br

@@ -19,7 +19,7 @@ class Order < ActiveRecord::Base
   end
 
   def is_saved?
-    order_status.name=="SAVED"
+    order_status==OrderStatus.saved
   end
 
   def self.find_reqested_orders
@@ -27,7 +27,7 @@ class Order < ActiveRecord::Base
   end
 
   def is_requested?
-    orders_status.name=="REQUESTED"
+    orders_status==OrderStatus.requested
   end
 
 end

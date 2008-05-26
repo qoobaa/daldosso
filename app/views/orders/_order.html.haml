@@ -6,7 +6,9 @@
   = item.item.to_s
   %strong Quantity
   = item.quantity
-  %hr{:width => "50%"}
+  |
+  = link_to 'Show',order_window_config_path(o.id,item.item.id)
+%hr{:width => "50%"}
 %strong Estimated total cost:
 = o.estimated_price
 %br
