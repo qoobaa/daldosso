@@ -1,10 +1,19 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :product_groups
+  map.resources :products
   map.resources :customers
   map.resources :window_configs
+  map.resources :product_configs
+  map.resources :call_statuses
+  map.resources :calls
   map.resources :orders
+  map.resources :order_statuses
+  map.resources :events
+  map.resources :event_types
+  map.resources :shutter_types
+  map.resources :shutter_configs
 
   map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
-
   map.resource :session, :controller => 'session'
 
   map.signup '/signup', :controller => 'customers', :action => 'new'
@@ -14,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.root :controller => 'panel'
     admin.resources :orders
+    admin.resources :order_statuses
     admin.resources :users
     admin.resources :window_configs
     admin.resources :window_features
@@ -23,6 +33,19 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :glass_colors
     admin.resources :handle_types
     admin.resources :structures
+    admin.resources :product_groups
+    admin.resources :products
+    admin.resources :product_configs
+    admin.resources :call_statuses
+    admin.resources :calls
+    admin.resources :events
+    admin.resources :event_types
+    admin.resources :shutter_types
+    admin.resources :shutter_configs
+  end
+
+  map.namespace :seller do |seller|
+    seller.resources :events
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

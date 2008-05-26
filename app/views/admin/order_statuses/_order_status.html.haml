@@ -1,0 +1,13 @@
+%p
+  %strong Name
+  = h order_status.name
+%p
+  %strong Description
+  = h order_status.description
+%p
+  %strong No of orders with this status:
+  = h order_status.orders.size
+%p
+  = link_to 'Edit', edit_admin_order_status_path(order_status)
+  |
+  = link_to 'Destroy', admin_order_status_path(order_status), :confirm => 'Are you sure?', :method => :delete

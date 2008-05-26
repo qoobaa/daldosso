@@ -1,0 +1,16 @@
+%p
+  %strong Product:
+  = h product_config.product.name rescue ""
+%p
+  %strong Window Config:
+  = h product_config.window_config.to_s
+%p
+  %strong Cost:
+  = number_to_currency product_config.cost, :unit => "&euro;"
+%p
+  %strong Description:
+  = h product_config.description
+= link_to 'Edit', edit_admin_product_config_path(product_config)
+|
+= link_to 'Destroy', admin_product_config_path(product_config), :confirm => 'Are you sure?', :method => :delete
+%br

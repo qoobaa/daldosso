@@ -10,7 +10,7 @@
   = f.select :glass_type_id, select_options_for(GlassType), :include_blank => :true
 %p
   %strong Glass Color:
-  = f.text_field :glass_color
+  = f.select :glass_color_id, select_options_for(GlassColor), :include_blank => :true
 %p
   %strong Handle Type:
   = f.select :handle_type_id, select_options_for(HandleType), :include_blank => :true
@@ -34,11 +34,11 @@
   = f.text_field :height_medium_rail
 %p
   %strong Window Cost:
-  = f.text_field :window_cost
+  = f.text_field :cost
 %p
   %strong Additional information:
   = f.text_field :finish_quality
 %hr
 %p
   %strong User
-  = f.select :user_id, select_options_for(Customer), :include_blank => :true
+  = f.select :customer_id, select_options_for(Customer), :include_blank => :true

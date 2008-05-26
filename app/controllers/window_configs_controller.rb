@@ -16,13 +16,14 @@ class WindowConfigsController < ApplicationController
     @handle_types = HandleType.find(:all)
     @glass_colors = GlassColor.find(:all)
     @sash_structures = SashStructure.find(:all)
+    @features = []
     if ((session[:wconf]==nil || params[:feature]==nil) && params[:step]!='back')
       @features = Model.find(:all)
       session[:wconf] = []
       flash[:msg] = 'initial'
     end
     if (session[:wconf]!=nil && params[:feature]!=nil && params[:step]!='back')
-    session[:wconf] << params[:feature][:id] unless session[:wconf].include?(params[:feature][:id])
+      session[:wconf] << params[:feature][:id] unless session[:wconf].include?(params[:feature][:id])
       @features = WindowFeature.find(params[:feature][:id]).after_features
       @model_id = session[:wconf][0]
     end
@@ -58,8 +59,13 @@ class WindowConfigsController < ApplicationController
     @msg = "Succesfully saved"
     @msg = "Error " unless (isSaved)
     @msg = "To save your configuration you must be logged in" unless current_user
-    session[:wconf]=nil #clears chosen feature's ids table
-    redirect_to(@winconfig) if isSaved
+
+    if (isSaved)
+      session[:wconf]=nil #clears chosen feature's ids table
+      redirect_to(@winconfig)
+    else
+      render :action => 'new'
+    end
   end
 
   def show
@@ -69,7 +75,7 @@ class WindowConfigsController < ApplicationController
 
   def destroy
     @winconfig = WindowConfig.find(params[:id])
-    @winconfig.destroy unless @winconfig.order_items.size==0
+    @winconfig.destroy if @winconfig.order_items.size==0
     redirect_to window_configs_path
   end
 end

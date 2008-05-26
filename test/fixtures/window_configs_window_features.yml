@@ -1,52 +1,46 @@
-# 123 - model
-# 456 - wood
-# 789 - typology
+# 1-6 - model
+# 7-9 - typology
+# 10-12 - edge
+# 13-16 - paint
+# 17-20 - laying
+# 21-34 - wood
+# Order: Model-Wood-Typology-PaintKind-Edge-LayingKind
 
-wcwf_1:
-  window_config_id: 1
-  window_feature_id: 1
+<% for i in 1..10 %>
+wcwf_m_<%= i %>:
+  window_config_id: <%= i %>
+  window_feature_id: <%= rand(6) + 1 %>
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 1.days.ago.to_s :db %>
 
-wcwf_2:
-  window_config_id: 1
-  window_feature_id: 4
+wcwf_w_<%= i %>:
+  window_config_id: <%= i %>
+  window_feature_id: <%= rand(14) + 21 %>
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 1.days.ago.to_s :db %>
 
-wcwf_3:
-  window_config_id: 1
-  window_feature_id: 7
+wcwf_t_<%= i %>:
+  window_config_id: <%= i %>
+  window_feature_id: <%= rand(3) + 1 %>
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 1.days.ago.to_s :db %>
 
-wcwf_4:
-  window_config_id: 2
-  window_feature_id: 2
+wcwf_p_<%= i %>:
+  window_config_id: <%= i %>
+  window_feature_id: <%= rand(4) + 13 %>
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 1.days.ago.to_s :db %>
 
-wcwf_5:
-  window_config_id: 2
-  window_feature_id: 5
+wcwf_e_<%= i %>:
+  window_config_id: <%= i %>
+  window_feature_id: <%= rand(3) + 10 %>
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 1.days.ago.to_s :db %>
 
-wcwf_6:
-  window_config_id: 2
-  window_feature_id: 8
+wcwf_l_<%= i %>:
+  window_config_id: <%= i %>
+  window_feature_id: <%= rand(4) + 17 %>
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 1.days.ago.to_s :db %>
 
-wcwf_7:
-  window_config_id: 3
-  window_feature_id: 3
-
-wcwf_8:
-  window_config_id: 3
-  window_feature_id: 6
-
-wcwf_9:
-  window_config_id: 3
-  window_feature_id: 9
-
-wcwf_10:
-  window_config_id: 4
-  window_feature_id: 3
-
-wcwf_11:
-  window_config_id: 4
-  window_feature_id: 4
-
-wcwf_12:
-  window_config_id: 4
-  window_feature_id: 8
-
+<% end %>

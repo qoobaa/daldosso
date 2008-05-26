@@ -2,27 +2,29 @@
 
 call_1:
   id: 1
-  customer_id: 1
   order_id: 1
-  seller_id: 5
   date: 2008-05-12 20:26:54
   description: some important call with customer nr_1
   call_status_id: 1
 
 call_2:
   id: 2
-  customer_id: 1
   order_id: 1
-  seller_id: 5
   date: 2008-05-12 20:26:54
   description: changing order of this customer:add 2 windows
   call_status_id: 4
 
 call_3:
   id: 3
-  customer_id: 2
   order_id: 2
-  seller_id: 5
   date: 2008-05-12 20:26:54
   description: checking call
   call_status_id: 2
+
+<% for i in 4..30 %>call_<%= i %>:
+  id: <%= i %>
+  order_id: <%= (i * 23) % 3 + 1 %>
+  date: 2008-05-12 20:26:54
+  description: description af this phone call.
+  call_status_id: <%= (i % 4) + 1%>
+<% end %>

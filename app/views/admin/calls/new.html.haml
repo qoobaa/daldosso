@@ -1,0 +1,7 @@
+%h1 Creating new call
+
+= error_messages_for :call
+
+- form_for :call, :url => admin_calls_path do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Create'

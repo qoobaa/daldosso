@@ -1,0 +1,2 @@
+module Seller::EventsHelper
+end

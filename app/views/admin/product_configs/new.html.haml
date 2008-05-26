@@ -1,0 +1,8 @@
+%h1= "Create new Product Config"
+= error_messages_for :Product_config
+
+- form_for @product_config, :url => admin_product_configs_path do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Create Product Config'
+
+= link_to 'Back', admin_product_configs_path

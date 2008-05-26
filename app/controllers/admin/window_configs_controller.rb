@@ -11,7 +11,6 @@ class Admin::WindowConfigsController < ApplicationController
 
   def edit
     @window_config = WindowConfig.find(params[:id])
-    @current_features = @window_config.window_features
   end
 
   def create
@@ -22,7 +21,6 @@ class Admin::WindowConfigsController < ApplicationController
       redirect_to admin_window_config_path(@window_config)
       flash[:notice] = "Created window config"
     else
-      @window_config.password = @window_config.password_confirmation = nil
       render :action => 'new'
     end
   end
@@ -34,14 +32,12 @@ class Admin::WindowConfigsController < ApplicationController
       flash[:notice] = 'WindowConfig was successfully updated.'
       redirect_to admin_window_config_path(@window_config)
     else
-      @window_config.password = @window_config.password_confirmation = nil
       render :action => 'edit'
     end
   end
 
   def show
     @window_config = WindowConfig.find(params[:id])
-    @current_features = @window_config.window_features
   end
 
   def destroy

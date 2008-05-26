@@ -10,7 +10,7 @@ class WindowFeature < ActiveRecord::Base
   validates_inclusion_of :type, :in => %w(Edge LayingKind Model PaintKind Typology Wood)
 
   def long_name
-    return type.to_s+" :: "+name.to_s
+    return [:type].to_s+" :: "+name.to_s
   end
 
   def self.types
@@ -18,11 +18,7 @@ class WindowFeature < ActiveRecord::Base
   end
 
   def to_s
-    "#{self.type} #{self.name}"
-  end
-
-  def from_my_type
-     WindowFeature.find_all_by_type(type.to_s).collect { |c| [c.name ||= "No name found", c.id] }
+    "#{self[:type]} #{self.name}"
   end
 
 end

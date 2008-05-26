@@ -6,7 +6,7 @@ order_1:
   seller_id: 4
   percentual_discount: 12
   total_cost: 23000
-  order_status: 2
+  order_status_id: 2
 
 order_2:
   id: 2
@@ -14,7 +14,7 @@ order_2:
   seller_id: 4
   percentual_discount: 2
   total_cost: 3000
-  order_status: 1
+  order_status_id: 1
 
 order_3:
   id: 3
@@ -22,7 +22,7 @@ order_3:
   seller_id: 4
   percentual_discount: 20
   total_cost: 6000
-  order_status: 2
+  order_status_id: 2
 
 order_4:
   id: 4
@@ -30,4 +30,4 @@ order_4:
   seller_id: 5
   percentual_discount: 11
   total_cost: 7000
-  order_status: 3
+  order_status_id: 3
