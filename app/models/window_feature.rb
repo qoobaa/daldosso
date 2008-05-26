@@ -5,8 +5,8 @@ class WindowFeature < ActiveRecord::Base
   has_many  :after_features, :through => :dependencies_before
   has_and_belongs_to_many :window_configs
 
-  validates_presence_of :name, :type
-  validates_numericality_of :min_thickness, :max_thickness, :only_integer => true, :greater_than => 0, :allow_nil => true
+  validates_presence_of :name
+  validates_numericality_of :min_thickness, :max_thickness, :only_integer => true, :greater_than_or_equal_to => 0, :allow_nil => true
   validates_inclusion_of :type, :in => %w(Edge LayingKind Model PaintKind Typology Wood)
 
   def long_name

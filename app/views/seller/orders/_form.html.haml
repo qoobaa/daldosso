@@ -1,4 +1,10 @@
 %p
+  %strong Items in this order:
+  = @order.order_items.size
+  \:
+  - @order.order_items.each do |order_item|
+
+%p
   %strong Customer:
   = f.select :customer_id, select_options_for(Customer)
 %p

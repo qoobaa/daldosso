@@ -4,6 +4,6 @@
 %p
   = render :partial  => 'order', :collection => @curent_user_orders
 %hr
-%h2 Pending Orders
+%h2 Requested Orders
 %p
-  = render :partial  => 'order', :collection => @pending_orders, :locals => { :pending => :true }
+  = render :partial  => 'order', :collection => @requested_orders

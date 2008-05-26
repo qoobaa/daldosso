@@ -22,8 +22,8 @@ class Order < ActiveRecord::Base
     order_status.name=="SAVED"
   end
 
-  def self.find_reqested_orders
-    self.find(:all, :conditions => [ "order_status.name = ?", 'REQUESTED'])
+  def self.find_requested
+    self.find_all_by_order_status_id(2).to_a
   end
 
   def is_requested?
