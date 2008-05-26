@@ -20,10 +20,35 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'session', :action => 'new'
   map.logout '/logout', :controller => 'session', :action => 'destroy'
 
+  map.namespace :seller do |seller|
+    seller.root :controller => 'panel'
+    seller.resources :events
+    seller.resources :orders
+    seller.resources :order_items
+    seller.resources :customers
+    seller.resources :window_configs
+    seller.resources :product_configs
+    seller.resources :shutter_configs
+    seller.resources :calls
+  end
+
+  map.namespace :manager do |manager|
+    manager.root :controller => 'panel'
+    manager.resources :events
+    manager.resources :orders
+    manager.resources :order_items
+    manager.resources :customers
+    manager.resources :window_configs
+    manager.resources :product_configs
+    manager.resources :shutter_configs
+    manager.resources :calls
+  end
+
   map.namespace :admin do |admin|
     admin.root :controller => 'panel'
     admin.resources :orders
     admin.resources :order_statuses
+    admin.resources :order_items
     admin.resources :users
     admin.resources :window_configs
     admin.resources :window_features

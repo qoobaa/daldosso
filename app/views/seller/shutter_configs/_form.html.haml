@@ -1,0 +1,25 @@
+%p
+  = f.label :name
+  = f.text_field :name
+%p
+  = f.label :window_config_id
+  = f.select :window_config_id, select_options_for(WindowConfig), :include_blank => :true
+%p
+  = f.label :shutter_type_id
+  = f.select :shutter_type_id, select_options_for(ShutterType), :include_blank => :true
+%p
+  = f.label :width
+  = f.text_field :width
+%p
+  = f.label :height
+  = f.text_field :height
+%p
+  = f.label :sashes_number
+  = f.text_field :sashes_number
+%p
+  = f.label :cost
+  = f.text_field :cost
+%p
+  = f.label :description
+  = f.text_area :description
+

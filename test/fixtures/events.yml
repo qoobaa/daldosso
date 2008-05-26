@@ -1,33 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  id: 1
-  due_date: 2008-05-12 20:44:49
-  added_date: 2008-05-12 20:44:49
-  order_id: 2
-  event_type_id: 2
-  description: Important event
-
-two:
-  id: 2
-  due_date: 2008-05-12 20:44:49
-  added_date: 2008-05-12 20:44:49
-  order_id: 1
-  event_type_id: 1
-  description: Nice event
-
-three:
-  id: 3
-  due_date: 2008-05-12 20:44:49
-  added_date: 2008-05-12 20:44:49
-  order_id: 3
-  event_type_id: 2
-  description: Important event about something
-
-four:
-  id: 4
-  due_date: 2008-05-12 20:44:49
-  added_date: 2008-05-12 20:44:49
-  order_id: 3
-  event_type_id: 1
-  description: Nice event
+<% for i in 1..60 %>event<%= i %>:
+  id: <%= i %>
+  due_date: <%= (rand(20) + 1).days.ago.to_s :db %>
+  added_date: <%= (rand(35)+1).days.ago.to_s :db %>
+  order_id: <%= rand(30) + 1 %>
+  event_type_id: <%= rand(4) + 1 %>
+  description: Nice event nr <%= i %>
+  user_id: <%= rand(90) + 10 %>
+<% end %>

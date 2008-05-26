@@ -1,6 +1,7 @@
 class CreateWindowConfigs < ActiveRecord::Migration
   def self.up
     create_table :window_configs do |t|
+      t.string :name
       t.integer :glass_color_id, :glass_type_id, :handle_type_id, :sash_structure_id, :height, :width, :customer_id
       t.integer :height_medium_rail, :cover_joint_int, :cover_joint_ext
       t.string :finish_quality

@@ -32,4 +32,5 @@ class Event < ActiveRecord::Base
   def self.find_added_on_day(date)
     find(:all, :conditions => { :added_date => (date.beginning_of_day)..(date.end_of_day) })
   end
+
 end

@@ -1,4 +1,7 @@
 %p
+  = f.label :name
+  = f.text_field :name
+%p
   = f.label :product_id
   = f.select :product_id, select_options_for(Product), :include_blank => :true
 %p

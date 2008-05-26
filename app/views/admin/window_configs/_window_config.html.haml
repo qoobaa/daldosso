@@ -1,3 +1,7 @@
+%p
+  %strong Name of this window configuration:
+  = h window_config.name rescue "No name yet!"
+
 %h3 Basic Features:
 - window_config.window_features.each do |f|
   %p
@@ -5,6 +9,7 @@
       = f[:type]
     = f.name
     %br
+
 %h3 Other Features:
 %p
   %strong Glass Type:

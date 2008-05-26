@@ -16,4 +16,8 @@ class Order < ActiveRecord::Base
   def name
     "[#{order_status.name}]-#{customer.id}-#{customer.name}-#{created_at}"
   end
+
+  def self.find_pending_orders
+    self.find(:all, :conditions => [ "order_status_id = 2"])
+  end
 end

@@ -8,4 +8,14 @@ event_type_1:
 event_type_2:
   id: 2
   name: Changing measures
-  description: yeah
+  description: yeah that is nice
+
+event_type_3:
+  id: 3
+  name: Party after work
+  description: alco alco alco
+
+event_type_4:
+  id: 4
+  name: Simao Birthday
+  description: lan-party :)

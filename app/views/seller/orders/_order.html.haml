@@ -1,0 +1,22 @@
+%p
+  %strong ID:
+  = h order.id rescue "No ID?"
+%p
+  %strong Order Items:
+  %ul
+  - order.order_items.each do |order_item|
+    %li
+      = h order_item.name rescue "no description for this order item yet!"
+%p
+  %strong Customer:
+  = h order.customer.name rescue "No Customer assign !"
+%p
+  %strong Employee:
+  = h order.seller.name rescue "No Seller assigned !"
+%p
+  %strong Status:
+  = h order.order_status.name rescue "No Status selected !"
+%br
+= link_to 'Show', seller_order_path(order)
+|
+= link_to 'Edit', edit_seller_order_path(order) if !pending
