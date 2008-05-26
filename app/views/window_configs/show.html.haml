@@ -3,7 +3,7 @@
 %h4 Window Features:
 - @winconfig.window_features.each do |fc|
   %p
-    = fc.long_name
+    = fc.to_s
 %h4 Window Configuration
 %p
   %strong Height:
@@ -26,4 +26,5 @@
   = @winconfig.cost
 = link_to 'New',new_window_config_path
 |
-= link_to 'Back',window_configs_url
+= link_to 'Back',order_window_configs_path(@order) if @order
+= link_to 'Back',window_configs_path unless @order

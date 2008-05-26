@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
   has_many :order_items, :dependent => :destroy
+  has_many :window_configs, :through => :order_items, :foreign_key => 'item_id'
   belongs_to :order_status
   belongs_to :customer, :class_name => "User"
   has_many :events
@@ -17,7 +18,16 @@ class Order < ActiveRecord::Base
     "[#{order_status.name}]-#{customer.id}-#{customer.name}-#{created_at}"
   end
 
-  def self.find_pending_orders
-    self.find(:all, :conditions => [ "order_status_id = 2"])
+  def is_saved?
+    order_status.name=="SAVED"
   end
+
+  def self.find_reqested_orders
+    self.find(:all, :conditions => [ "order_status.name = ?", 'REQUESTED'])
+  end
+
+  def is_requested?
+    orders_status.name=="REQUESTED"
+  end
+
 end

@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :product_groups
-  map.resources :products
   map.resources :customers
   map.resources :window_configs
+  map.resources :product_groups
+  map.resources :products
   map.resources :product_configs
   map.resources :call_statuses
   map.resources :calls
@@ -12,6 +12,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :event_types
   map.resources :shutter_types
   map.resources :shutter_configs
+
+  map.resources :orders do |order|
+    order.resources :window_configs, :through => :order_items
+  end
 
   map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
   map.resource :session, :controller => 'session'

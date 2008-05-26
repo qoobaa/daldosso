@@ -4,7 +4,7 @@ class Seller::OrdersController < ApplicationController
   def index
     @orders = Order.find(:all)
     @curent_user_orders = current_user.orders.find(:all)
-    @pending_orders = Order.find_pending_orders
+    @requested_orders = Order.find_requested_orders
   end
 
   def new

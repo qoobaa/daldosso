@@ -21,4 +21,8 @@ class WindowFeature < ActiveRecord::Base
     "#{self[:type]} #{self.name}"
   end
 
+  def from_my_type
+     WindowFeature.find_all_by_type(type.to_s).collect { |c| [c.name ||= "No name found", c.id] }
+  end
+
 end

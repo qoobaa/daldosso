@@ -1,0 +1,37 @@
+%h3 Editing order
+
+- form_for(@order) do |f|
+  %strong Check this if you want to send this order after edition:
+  = check_box_tag("send","send",false)
+  %br
+  Any changes of this order will not be possible after sending
+  %h4 Already chosen:
+  - @order.order_items.each do |item|
+    - if item.item.class==WindowConfig
+      = render :partial => 'window_configs/window_config', :locals => {:wc => item.item}
+      %strong Use:
+      = check_box_tag("items[ids][]",item.id,true)
+      %strong Quantity:
+      = text_field_tag("quantities[ids][#{[item.id]}]",item.quantity)
+      %br
+      - if @order.is_saved?
+        = link_to 'Edit',edit_order_window_config_path(@order.id,item.item.id)
+    %hr{:width => '50%'}
+  = f.submit 'Update'
+  %hr
+  %h4 You can fill additional information to your order:
+  = text_area_tag("description",@order.description,:rows => 10, :cols=> 50)
+  %br
+  = f.submit 'Update'
+  %hr
+  %h4 You can add new configs if you want
+  - current_user.config_templates.each do |c|
+    = render :partial => 'window_configs/window_config', :locals => { :wc => c}
+    %br
+    %strong choose:
+    = check_box_tag("winconf[ids][]",c.id,false)
+    %strong Quantity:
+    = text_field_tag("quantities2[ids][#{[c.id]}]","0")
+  %hr
+  = f.submit 'Update'
+= link_to 'Back', orders_path
