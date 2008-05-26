@@ -1,0 +1,48 @@
+%h3 Basic Features:
+- window_config.window_features.each do |f|
+  %p
+    %strong
+      = f[:type]
+    = f.name
+    %br
+%h3 Other Features:
+%p
+  %strong Glass Type:
+  = h window_config.glass_type.name rescue ""
+%p
+  %strong Glass Color:
+  = h window_config.glass_color.name
+%p
+  %strong Handle Type:
+  = h window_config.handle_type.name
+%p
+  %strong Sash number:
+  = h window_config.sash_structure.sashes_number rescue ""
+%p
+  %strong Structure:
+  = h window_config.sash_structure.structure.name rescue "Structure not found"
+%p
+  %strong Height:
+  = h window_config.height
+%p
+  %strong Width:
+  = h window_config.width
+%p
+  %strong Cover joint ext:
+  = h window_config.cover_joint_ext
+%p
+  %strong Cover joint int:
+  = h window_config.cover_joint_int
+%p
+  %strong Medium rail:
+  = h window_config.height_medium_rail
+%p
+  %strong Finish Quality:
+  = h window_config.finish_quality
+%p
+  %strong User:
+  = h window_config.customer.name
+= link_to 'Edit', edit_admin_window_config_path(window_config)
+|
+= link_to 'Destroy', admin_window_config_path(window_config), :confirm => 'Are you sure?', :method => :delete
+%br

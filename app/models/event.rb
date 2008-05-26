@@ -3,4 +3,9 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :order
   validates_presence_of :due_date, :added_date, :user, :order, :event_type
+
+  def dates
+    e = Event.find(:all)
+    e.collect { |event| event.added_date.to_date }
+  end
 end

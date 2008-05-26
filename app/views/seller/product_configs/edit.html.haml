@@ -1,0 +1,6 @@
+%h1= "Editing Product Configuration"
+= error_messages_for :product_config
+
+- form_for @product_config, :url => seller_product_config_path(@product_config), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  %p= submit_tag 'Update product config'

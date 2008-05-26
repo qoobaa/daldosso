@@ -6,4 +6,8 @@ class OrderItem < ActiveRecord::Base
   def cost
     return quantity * item.cost
   end
+
+  def name
+    item.name
+  end
 end

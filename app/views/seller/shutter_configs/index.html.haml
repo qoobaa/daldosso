@@ -1,0 +1,5 @@
+%h1 Listing Shutter Configurations
+%p
+  = link_to 'Create new Shutter Configuration', new_seller_shutter_config_path
+%hr
+= render :partial => 'shutter_config', :collection => @shutter_configs

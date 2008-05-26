@@ -1,9 +1,12 @@
 %p
+  %strong Name of this shutter configuration:
+  = h shutter_config.name
+%p
   %strong Name of this configuration:
   = h shutter_config.name rescue "No name"
 %p
   %strong Window Config:
-  = h shutter_config.window_config.to_s rescue "No window config assigned yet"
+  = h shutter_config.window_config.name rescue "No window config assigned yet"
 %p
   %strong Shutter Type:
   = h shutter_config.shutter_type.name rescue "No type selected yet"

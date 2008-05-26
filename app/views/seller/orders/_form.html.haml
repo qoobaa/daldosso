@@ -1,0 +1,12 @@
+%p
+  %strong Customer:
+  = f.select :customer_id, select_options_for(Customer)
+%p
+  %strong Employee:
+  = f.select :seller_id, select_options_for(User)
+%p
+  %strong Order status:
+  = f.select :order_status_id, select_options_for(OrderStatus)
+%p
+  %strong Percentual discount:
+  = f.text_field :percentual_discount

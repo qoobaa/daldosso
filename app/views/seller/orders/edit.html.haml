@@ -1,0 +1,7 @@
+%h1 Editing Order
+
+= error_messages_for :order
+
+- form_for @order, :url => seller_order_path(@order), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Edit'

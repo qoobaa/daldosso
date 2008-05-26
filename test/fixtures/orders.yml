@@ -24,10 +24,11 @@ order_3:
   total_cost: 6000
   order_status_id: 2
 
-order_4:
-  id: 4
-  customer_id: 3
-  seller_id: 5
-  percentual_discount: 11
-  total_cost: 7000
-  order_status_id: 3
+<% for i in 4..50 %>order_<%= i %>:
+  id: <%= i %>
+  customer_id: <%= rand(90) + 1 %>
+  seller_id: <%= rand(2) + 4 %>
+  percentual_discount: <%= (i*23) % 7 %>
+  total_cost: <%= rand(5500) %>
+  order_status_id: <%= rand(10) + 1 %>
+<% end %>

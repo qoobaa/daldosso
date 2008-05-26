@@ -8,6 +8,7 @@
 
 winconfig_1:
   id: 1
+  name: Some nice config
   glass_type_id: 1
   glass_color_id: 2
   handle_type_id: 2
@@ -22,6 +23,7 @@ winconfig_1:
 
 winconfig_2:
   id: 2
+  name: Some nice config
   glass_type_id: 2
   glass_color_id: 2
   handle_type_id: 2
@@ -36,6 +38,7 @@ winconfig_2:
 
 winconfig_3:
   id: 3
+  name: Some nice config
   glass_type_id: 3
   glass_color_id: 2
   handle_type_id: 1
@@ -50,6 +53,7 @@ winconfig_3:
 
 winconfig_4:
   id: 4
+  name: Some nice config
   glass_type_id: 2
   glass_color_id: 2
   handle_type_id: 2
@@ -64,6 +68,7 @@ winconfig_4:
 
 <% for i in 5..100 %>winconf_<%= i %>:
   id: <%= i %>
+  name: Some nice config
   glass_type_id: <%= (i % 3) + 1 %>
   glass_color_id: <%= (i+1) % 3 + 1 %>
   handle_type_id: <%= (i+2) % 3 + 1 %>
