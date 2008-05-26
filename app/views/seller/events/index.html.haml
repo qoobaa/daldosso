@@ -1,3 +1,16 @@
-%h1 Listing events
+%h1= "Listing events on #{@date.to_formatted_s(:long)}"
 
-= render :partial => 'event', :collection => @events
+%p
+  = events_calendar(@date, @month_events)
+
+%p
+  - if (@due_events + @added_events).empty?
+    %h2 No events
+  - else
+    - unless @added_events.empty?
+      %h2 Added events
+      = render :partial => 'event', :collection => @added_events
+    - unless @due_events.empty?
+      %h2 Due events
+      = render :partial => 'event', :collection => @due_events
+

@@ -14,7 +14,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :shutter_configs
 
   map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
-
   map.resource :session, :controller => 'session'
 
   map.signup '/signup', :controller => 'customers', :action => 'new'
@@ -68,6 +67,10 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :event_types
     admin.resources :shutter_types
     admin.resources :shutter_configs
+  end
+
+  map.namespace :seller do |seller|
+    seller.resources :events
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

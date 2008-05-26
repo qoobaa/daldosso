@@ -1,7 +1,4 @@
 %p
-  %strong Description
-  = h event.description rescue "No description yet !"
-%p
   %strong Due Date
   = h event.due_date rescue "No date was selected"
 %p
@@ -19,5 +16,7 @@
 %p
   %strong Event Type
   = h event.event_type.name rescue "No event type assigned yet"
+%p
+  %strong Description
+  = truncate event.description
 %br
-
