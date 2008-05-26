@@ -2,6 +2,7 @@
 %html
   %head
     %title Dal Dosso Company
+    = stylesheet_link_tag 'application'
   %body
     - unless flash[:error].nil?
       = flash[:error]

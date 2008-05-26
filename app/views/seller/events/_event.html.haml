@@ -1,6 +1,18 @@
 %p
   %strong Type
-  = event.event_type.name
+  = h event.event_type.name
 %p
   %strong Description
-  = truncate event.description
+  = h event.description
+/%p
+/  %strong Added by
+/  = h event.user.name
+%p
+  %strong Order number
+  = event.order_id
+%p
+  %strong Added on
+  = event.added_date
+%p
+  %strong Due on
+  = event.due_date
