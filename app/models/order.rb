@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
   has_many :order_items, :dependent => :destroy
+  has_many :window_configs, :through => :order_items, :foreign_key => 'item_id'
   belongs_to :order_status
   belongs_to :customer, :class_name => "User"
   has_many :events
@@ -12,4 +13,13 @@ class Order < ActiveRecord::Base
     order_items.each{|item| cost+= item.cost}
     return cost
   end
+
+  def is_saved?
+    order_status.name=="Saved"
+  end
+
+  def is_requested?
+    orders_status.name=="Requested"
+  end
+
 end

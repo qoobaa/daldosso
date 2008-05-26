@@ -27,7 +27,9 @@ class OrdersController < ApplicationController
     configs[:ids].each do |id|
       o = OrderItem.new
       o.quantity = quantities[:ids][id]
-      o.item = WindowConfig.find(id)
+      c = WindowConfig.find(id).copy_constructor
+      c.save
+      o.item = c
       @order.order_items << o
     end
     @order.order_status = OrderStatus.find(:first)
@@ -46,6 +48,10 @@ class OrdersController < ApplicationController
 
   def edit
     @order = Order.find(params[:id])
+    unless @order.is_saved?
+      flash[:notice] = "You cannot edit this order any more"
+      redirect_to :action => 'show', :id => @order
+    end
   end
 
   def update
@@ -55,26 +61,32 @@ class OrdersController < ApplicationController
     configs = params[:winconf] # winconfigs checked on form
     quantities2 = params[:quantities2] # quantities of winconfigs
 
-    order_items_to_delete = @order.order_items #items to delete
+    order_items_to_delete = []
 
     #deleting unchecked items
     if (items) # if any checked
+      order_items_to_delete = @order.order_items #items to delete
       item_ids = items[:ids] #ids of all checked
       order_items_to_delete.delete_if {|item| item_ids.include?(item.id.to_s)}
       #if checked remove from list to delete
     end
 
-    order_items_to_delete.each{|item| item.destroy}
+    order_items_to_delete.each do |item|
+      item.item.destroy #destroy configuration
+      item.destroy #destroy item
+    end
 
     @order = Order.find(params[:id])
 
     #updating quantities
-    error = false
-    @order.order_items.each do |item|
-      item.quantity = quantities[:ids][item.id.to_s]
-      unless item.save
-        flash[:error] = "Error updating item. Wrong value"
-        error = true
+    if quantities
+      error = false
+      @order.order_items.each do |item|
+        item.quantity = quantities[:ids][item.id.to_s]
+        unless item.save
+          flash[:error] = "Error updating item. Wrong value"
+          error = true
+        end
       end
     end
     #adding new items
@@ -82,10 +94,18 @@ class OrdersController < ApplicationController
       configs[:ids].each do |id|
         o = OrderItem.new
         o.quantity = quantities2[:ids][id]
-        o.item = WindowConfig.find(id)
+        c = WindowConfig.find(id).copy_constructor
+        c.save
+        o.item = c
         @order.order_items << o
       end
     end
+
+    if(params[:send])
+      @order.order_status = OrderStatus.requested
+    end
+
+    @order.description = params[:description]
 
     if @order.save
       flash[:notice] = "Succesfully updated"
@@ -99,7 +119,11 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
-    @order.order_items.each{|item| item.destroy}
+    @order.order_items.each do |item|
+      item.item.destroy
+      item.destroy
+    end
+
     flash[:msg] = "Succesfully deleted"
     flash[:msg] = "Error" unless @order.destroy
     redirect_to orders_path

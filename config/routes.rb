@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :customers
   map.resources :window_configs
-  map.resources :orders
+  map.resources :orders do |order|
+    order.resources :window_configs, :through => :order_items
+  end
 
   map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
 

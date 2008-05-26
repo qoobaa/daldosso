@@ -1,0 +1,12 @@
+%p
+  ID:
+  = @winconfig.id
+  %br
+  %h4 Features:
+  - for wf in @winconfig.window_features
+    = wf.to_s
+    %br
+
+- form_for(@winconfig) do |f|
+  = render :partial => 'form', :locals => { :ff => f}
+  = f.submit 'Update'

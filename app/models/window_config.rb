@@ -4,7 +4,7 @@ class WindowConfig < ActiveRecord::Base
   has_many :additional_features, :through => :additional_feature_notes
   has_many :shutter_configs
   has_many :shutter_types, :through => :shutter_configs
-  has_many :order_items, :as => :item
+  has_one :order_item, :as => :item
   belongs_to :customer, :class_name => 'User'
   belongs_to :glass_type
   belongs_to :glass_color
@@ -27,6 +27,20 @@ class WindowConfig < ActiveRecord::Base
 
   def cost
     estimated_cost
+  end
+
+  def copy_constructor
+    wc = self.clone
+    self.window_features.each{|f| wc.window_features << f}
+    return wc
+  end
+
+  def features_names
+    "#{self.window_features.collect{|f| f.to_s}.join(', ')}"
+  end
+
+  def to_s
+  "ID [#{self.id}] #{features_names} Height: #{height} Width: #{width}"
   end
 end
 

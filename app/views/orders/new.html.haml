@@ -5,7 +5,7 @@
 %h5 Your saved configuration are listed below, choose configuration with given quantity
 - form_for(@order) do |f|
   %h4 Window Configurations
-  - current_user.window_configs.each do |c|
+  - current_user.config_templates.each do |c|
     = render :partial => 'window_configs/window_config', :locals => { :wc => c}
     %br
     %strong choose:
@@ -13,6 +13,10 @@
     %strong Quantity:
     = text_field_tag("quantities[ids][#{[c.id]}]","0")
   %hr
+  %strong You can fill here additional information to your order
+  %br
+  = f.text_area :description
+  %br
   = f.submit 'Create'
 %hr
 = link_to 'Back', orders_path
