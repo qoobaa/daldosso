@@ -21,7 +21,7 @@ class WindowConfig < ActiveRecord::Base
       feature_before = window_features[i]
       feature_after = window_features[i+1]
       dependency = feature_before.dependencies_before.detect{|db| db.after_feature==feature_after}
-      cost+= dependency.meter_price!=nil ? dependency.meter_price : 0
+      cost += dependency.cost(self)
     end
     return cost
   end
