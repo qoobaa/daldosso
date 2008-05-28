@@ -1,0 +1,8 @@
+%h1= "Create new Order"
+= error_messages_for :order
+
+- form_for @order, :url => admin_orders_path do |f|
+  = render :partial => 'form', :locals => { :f => f, :view => :new }
+  = submit_tag 'Create Order'
+
+= link_to 'Back', seller_orders_path

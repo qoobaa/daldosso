@@ -1,9 +1,12 @@
 %p
+  %strong Name of this product configuration:
+  = h product_config.name
+%p
   %strong Product:
   = h product_config.product.name rescue ""
 %p
   %strong Window Config:
-  = h product_config.window_config.to_s
+  = h product_config.window_config.name rescue ""
 %p
   %strong Cost:
   = number_to_currency product_config.cost, :unit => "&euro;"

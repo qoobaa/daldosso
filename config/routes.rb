@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :product_groups
-  map.resources :products
   map.resources :customers
   map.resources :window_configs
+  map.resources :product_groups
+  map.resources :products
   map.resources :product_configs
   map.resources :call_statuses
   map.resources :calls
@@ -14,18 +14,46 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :shutter_types
   map.resources :shutter_configs
 
-  map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
+  map.resources :orders do |order|
+    order.resources :window_configs, :through => :order_items
+  end
 
+  map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
   map.resource :session, :controller => 'session'
 
   map.signup '/signup', :controller => 'customers', :action => 'new'
   map.login '/login', :controller => 'session', :action => 'new'
   map.logout '/logout', :controller => 'session', :action => 'destroy'
 
+  map.namespace :seller do |seller|
+    seller.root :controller => 'panel'
+    seller.resources :events
+    seller.resources :orders
+    seller.resources :order_items
+    seller.resources :customers
+    seller.resources :window_configs
+    seller.resources :product_configs
+    seller.resources :shutter_configs
+    seller.resources :calls
+  end
+
+  map.namespace :manager do |manager|
+    manager.root :controller => 'panel'
+    manager.resources :events
+    manager.resources :orders
+    manager.resources :order_items
+    manager.resources :customers
+    manager.resources :window_configs
+    manager.resources :product_configs
+    manager.resources :shutter_configs
+    manager.resources :calls
+  end
+
   map.namespace :admin do |admin|
     admin.root :controller => 'panel'
     admin.resources :orders
     admin.resources :order_statuses
+    admin.resources :order_items
     admin.resources :users
     admin.resources :window_configs
     admin.resources :window_features
@@ -44,6 +72,10 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :event_types
     admin.resources :shutter_types
     admin.resources :shutter_configs
+  end
+
+  map.namespace :seller do |seller|
+    seller.resources :events
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

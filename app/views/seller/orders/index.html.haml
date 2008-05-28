@@ -1,0 +1,9 @@
+%h1 Listing Orders
+%hr
+%h2 My Orders
+%p
+  = render :partial  => 'order', :collection => @curent_user_orders
+%hr
+%h2 Pending Orders
+%p
+  = render :partial  => 'order', :collection => @pending_orders, :locals => { :pending => :true }

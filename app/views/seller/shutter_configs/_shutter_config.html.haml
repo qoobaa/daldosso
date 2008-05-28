@@ -1,0 +1,28 @@
+%p
+  %strong Name of this configuration:
+  = h shutter_config.name rescue "No name"
+%p
+  %strong Window Config:
+  = h shutter_config.window_config.name rescue "No window config assigned yet"
+%p
+  %strong Shutter Type:
+  = h shutter_config.shutter_type.name rescue "No type selected yet"
+%p
+  %strong Width:
+  = h shutter_config.width
+%p
+  %strong Height
+  = h shutter_config.height
+%p
+  %strong Sashes number:
+  = h shutter_config.sashes_number
+%p
+  %strong Cost:
+  = number_to_currency shutter_config.cost, :unit => "&euro;"
+%p
+  %strong Description:
+  = h shutter_config.description
+= link_to 'Edit', edit_seller_shutter_config_path(shutter_config)
+|
+= link_to 'Destroy', seller_shutter_config_path(shutter_config), :confirm => 'Are you sure?', :method => :delete
+%br

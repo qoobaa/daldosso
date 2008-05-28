@@ -1,0 +1,6 @@
+%h1 Listing Product Configurations
+%p
+  = link_to 'Create new Product Configuration', new_seller_product_config_path
+%hr
+= render :partial => 'product_config', :collection => @product_configs
+

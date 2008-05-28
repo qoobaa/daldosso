@@ -1,58 +1,28 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 # for order nr 1:
-item_1:
-  id: 1
-  quantity: 2
-  item_id: 1
+
+<% for i in 1..50 %>item_<%= i %>:
+  id: <%= i %>
+  quantity: 1
+  item_id: <%= rand(70) + 1 %>
   item_type: WindowConfig
-  order_id: 1
+  order_id: <%= i %>
+<% end %>
 
-item_2:
-  id: 2
-  quantity: 3
-  item_id: 1
+<% for i in 51..100 %>item_<%= i %>:
+  id: <%= i %>
+  quantity: <%= rand(12) + 1 %>
+  item_id: <%= rand(4) + 1 %>
   item_type: ShutterConfig
-  order_id: 1
+  order_id: <%= i-50 %>
+<% end %>
 
-item_3:
-  id: 3
-  quantity: 1
-  item_id: 1
-  item_type: AdditionalConfig
-  order_id: 1
+<% for i in 101..150 %>item_<%= i %>:
+  id: <%= i %>
+  quantity: <%= rand(10) + 1 %>
+  item_id: <%= rand(4) + 1 %>
+  item_type: ProductConfig
+  order_id: <%= i-100 %>
+<% end %>
 
-item_4:
-  id: 4
-  quantity: 1
-  item_id: 2
-  item_type: AdditionalConfig
-  order_id: 1
 
-# for order nr 2:
-item_5:
-  id: 5
-  quantity: 1
-  item_id: 2
-  item_type: WindowConfig
-  order_id: 2
-
-item_6:
-  id: 6
-  quantity: 3
-  item_id: 2
-  item_type: ShutterConfig
-  order_id: 2
-
-item_7:
-  id: 7
-  quantity: 1
-  item_id: 2
-  item_type: AdditionalConfig
-  order_id: 2
-
-item_8:
-  id: 8
-  quantity: 1
-  item_id: 3
-  item_type: AdditionalConfig
-  order_id: 2

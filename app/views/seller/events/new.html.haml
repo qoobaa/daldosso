@@ -1,0 +1,7 @@
+%h1 Creating new event
+
+= error_messages_for :event
+
+- form_for :event, :url => seller_events_path do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Create'

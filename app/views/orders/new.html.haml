@@ -1,7 +1,22 @@
+- @order.order_items.each do |item|
+  = error_messages_for :order_item, :object => item
+
 %h3 New Order
 %h5 Your saved configuration are listed below, choose configuration with given quantity
 - form_for(@order) do |f|
-  - @customer.window_configs.each do |c|
+  %h4 Window Configurations
+  - current_user.config_templates.each do |c|
     = render :partial => 'window_configs/window_config', :locals => { :wc => c}
-
+    %br
+    %strong choose:
+    = check_box_tag("winconf[ids][]",c.id,false)
+    %strong Quantity:
+    = text_field_tag("quantities[ids][#{[c.id]}]","0")
+  %hr
+  %strong You can fill here additional information to your order
+  %br
+  = f.text_area :description
+  %br
   = f.submit 'Create'
+%hr
+= link_to 'Back', orders_path
