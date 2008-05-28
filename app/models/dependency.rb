@@ -6,32 +6,19 @@ class Dependency < ActiveRecord::Base
   validates_numericality_of :unit_price, :meter_price, :greater_or_equal_than => 0, :allow_nil => true
 
   def type
-    before_feature.class.to_s+after_feature.class.to_s
-  end
-
-  def self.model_wood
-    "ModelWood"
-  end
-
-  def self.wood_typology
-    "TypologyWood"
+    [before_feature.class,after_feature.class]
   end
 
   def cost(window_config)
-    case self.type
-    when Dependency.model_wood
-      return model_typology_calculation(window_config)
-    when Dependency.wood_typology
-      return typology_wood_calculation(window_config)
-    end
-      return 0
+    return glass_meter_calculation(window_config) if type[1]==GlassType
+    return regular_meter_calculation(window_config)
   end
 
-  def model_wood_calculation(window_config)
-    return 1
+  def regular_meter_calculation(window_config)
+    return size * meter_price
   end
 
-  def wood_typology_calculation(window_config)
-    return 2
+  def glass_meter_calculation(window_config)
+    code = window_config.sash_structure.structure
   end
 end
