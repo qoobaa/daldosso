@@ -1,0 +1,7 @@
+%h1 Creating new order status
+
+= error_messages_for :order_status
+
+- form_for :order_status, :url => admin_order_statuses_path do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Create'

@@ -5,8 +5,8 @@
   %strong Window Config:
   = h product_config.window_config.to_s
 %p
-  %strong Description:
-  = h product_config.description
+  %strong Cost:
+  = number_to_currency product_config.cost, :unit => "&euro;"
 %p
   %strong Description:
   = h product_config.description

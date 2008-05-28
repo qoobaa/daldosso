@@ -1,0 +1,10 @@
+id, name, description
+1, REQUESTED, when the customer ask for an estimate. The seller have to calculate and make it.
+2, IN CONFIRMATION, the estimate is already done and the seller have to wait the customer decision.
+3, REFUSED, refused
+4, APPROVED, after signing the contract
+5, CONFIRMED ORDER, when the seller add technical informations and he have checked the measures.
+6, TO PRODUCTION, when all information about production are ready for the production manager.
+7, IN PRODUCTION, when the order is in production.
+8, TO LAY, when all materials are ready.
+9, FINISHED, when all is done.

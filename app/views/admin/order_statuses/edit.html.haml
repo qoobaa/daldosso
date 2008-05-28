@@ -1,0 +1,7 @@
+%h1 Editing order status
+
+= error_messages_for :order_status
+
+- form_for :order_status, :url => admin_order_status_path(@order_status), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Edit'

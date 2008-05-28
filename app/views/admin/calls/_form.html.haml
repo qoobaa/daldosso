@@ -1,0 +1,12 @@
+%p
+  = f.label :order_id
+  = f.select :order_id, select_options_for(Order)
+%p
+  = f.label :call_status_id
+  = f.select :call_status_id, select_options_for(CallStatus)
+%p
+  = f.label :date
+  = f.date_select :date
+%p
+  = f.label :description
+  = f.text_area :description

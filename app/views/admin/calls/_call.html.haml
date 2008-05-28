@@ -1,0 +1,22 @@
+%p
+  %strong Customer
+  = h call.order.customer.name rescue ""
+%p
+  %strong Order
+  = h call.order.name rescue ""
+%p
+  %strong Seller
+  = h call.order.seller.name rescue ""
+%p
+  %strong Call Status
+  = h call.call_status.name rescue ""
+%p
+  %strong Date
+  = h call.date
+%p
+  %strong Description
+  = h call.description
+%p
+  = link_to 'Edit', edit_admin_call_path(call)
+  |
+  = link_to 'Destroy', admin_call_path(call), :confirm => 'Are you sure?', :method => :delete

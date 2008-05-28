@@ -1,0 +1,26 @@
+%p
+  %strong Description
+  = h event.description rescue "No description yet !"
+%p
+  %strong Due Date
+  = h event.due_date rescue "No date was selected"
+%p
+  %strong Added date
+  = h event.added_date rescue "No date was selected yet"
+%p
+  %strong Customer
+  = h event.order.customer.name rescue "No customer assigned yet"
+%p
+  %strong Employee
+  = h event.user.name rescue "No employee assigned yet"
+%p
+  %strong Order
+  = h event.order.name rescue "No order assigned yet"
+%p
+  %strong Event Type
+  = h event.event_type.nane rescue "No event type assigned yet"
+
+%p
+  = link_to 'Edit', edit_admin_event_path(event)
+  |
+  = link_to 'Destroy', admin_event_path(event), :confirm => 'Are you sure?', :method => :delete

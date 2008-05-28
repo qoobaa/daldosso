@@ -1,0 +1,10 @@
+%p
+  %strong Name
+  = h shutter_type.name
+%p
+  %strong Description
+  = h shutter_type.description
+%p
+  = link_to 'Edit', edit_admin_shutter_type_path(shutter_type)
+  |
+  = link_to 'Destroy', admin_shutter_type_path(shutter_type), :confirm => 'Are you sure?', :method => :delete

@@ -1,0 +1,7 @@
+%h1 Editing shutter type
+
+= error_messages_for :shutter_type
+
+- form_for :shutter_type, :url => admin_shutter_type_path(@shutter_type), :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Edit'

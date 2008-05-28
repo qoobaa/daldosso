@@ -1,4 +1,5 @@
 %h1 Administration panel
+= calendar(:year => 2008, :month => 2)
 
 %ul
   %li
@@ -25,6 +26,10 @@
     = link_to 'Orders', admin_orders_path
     |
     = link_to 'New', new_admin_order_path
+  %li
+    = link_to 'Order Statuses', admin_order_statuses_path
+    |
+    = link_to 'New', new_admin_order_status_path
   %li
     = link_to 'Structures', admin_structures_path
     |
@@ -57,3 +62,23 @@
     = link_to 'Call Statuses', admin_call_statuses_path
     |
     = link_to 'New', new_admin_call_status_path
+  %li
+    = link_to 'Calls', admin_calls_path
+    |
+    = link_to 'New', new_admin_call_path
+  %li
+    = link_to 'Event Types', admin_event_types_path
+    |
+    = link_to 'New', new_admin_event_type_path
+  %li
+    = link_to 'Events', admin_events_path
+    |
+    = link_to 'New', new_admin_event_path
+  %li
+    = link_to 'Shutter Configs', admin_shutter_configs_path
+    |
+    = link_to 'New', new_admin_shutter_config_path
+  %li
+    = link_to 'Shutter Types', admin_shutter_types_path
+    |
+    = link_to 'New', new_admin_shutter_type_path

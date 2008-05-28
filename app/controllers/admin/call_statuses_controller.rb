@@ -14,7 +14,7 @@ class Admin::CallStatusesController < ApplicationController
   end
 
   def create
-    @call_status = CallStatus.new(params[:product_group])
+    @call_status = CallStatus.new(params[:call_status])
 
     @call_status.save
     if @call_status.errors.empty?
@@ -28,7 +28,7 @@ class Admin::CallStatusesController < ApplicationController
   def update
     @call_status = CallStatus.find(params[:id])
 
-    if @call_status.update_attributes(params[:product_group])
+    if @call_status.update_attributes(params[:call_status])
       flash[:notice] = 'CallStatus was successfully updated.'
       redirect_to admin_call_status_path(@call_status)
     else

@@ -1,0 +1,10 @@
+%p
+  %strong Name
+  = h event_type.name rescue ""
+%p
+  %strong Description
+  = h event_type.description rescue ""
+%p
+  = link_to 'Edit', edit_admin_event_type_path(event_type)
+  |
+  = link_to 'Destroy', admin_event_type_path(event_type), :confirm => 'Are you sure?', :method => :delete
