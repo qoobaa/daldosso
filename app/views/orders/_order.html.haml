@@ -8,6 +8,8 @@
   = item.quantity
   |
   = link_to 'Show',order_window_config_path(o.id,item.item.id)
+  - if (o.is_saved?)
+    = link_to 'Edit',edit_order_window_config_path(o.id,item.item.id)
 %hr{:width => "50%"}
 %strong Estimated total cost:
 = o.estimated_price

@@ -29,7 +29,6 @@ class OrdersController < ApplicationController
         o = OrderItem.new
         o.quantity = quantities[:ids][id]
         c = WindowConfig.find(id).copy_constructor
-        c.save
         o.item = c
         @order.order_items << o
       end

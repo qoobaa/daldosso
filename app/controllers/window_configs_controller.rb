@@ -80,7 +80,7 @@ class WindowConfigsController < ApplicationController
     @winconfig = WindowConfig.find(params[:id])
     @model_id = @winconfig.window_features[0].id
     @order = @winconfig.order_item.order if @winconfig.order_item
-    unless @order || @order.is_saved?
+    if (@order && !@order.is_saved?)
       flash[:notice] = "Cannot edit window configuration related to order that already is sent"
       redirect_to order_window_config_path(@order.id,@winconfig)
     end
@@ -88,12 +88,13 @@ class WindowConfigsController < ApplicationController
 
   def update
     @winconfig = WindowConfig.find(params[:id])
+    @order = @winconfig.order_item.order if @winconfig.order_item
     if @winconfig.update_attributes(params[:window_config])
       flash[:notice] = "Updated"
-      redirect_to @winconfig
+      redirect_to @winconfig unless @order
     else
       flash[:notice] = "Error"
-      redirect_to window_configs_path
+      redirect_to window_config_path
     end
   end
 
