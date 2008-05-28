@@ -92,9 +92,11 @@ class WindowConfigsController < ApplicationController
     if @winconfig.update_attributes(params[:window_config])
       flash[:notice] = "Updated"
       redirect_to @winconfig unless @order
+      redirect_to order_window_config_path(@order,@winconfig)
     else
       flash[:notice] = "Error"
-      redirect_to window_config_path
+      redirect_to window_config_path unless @order
+      redirect_to order_window_config_path(@order,@winconfig)
     end
   end
 
