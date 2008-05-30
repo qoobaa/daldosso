@@ -13,6 +13,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :event_types
   map.resources :shutter_types
   map.resources :shutter_configs
+  map.resources :materials, :controller =>'material'
+  map.resources :additional_features
+  map.resources :glass_types
+  map.resources :window_features
 
   map.resources :orders do |order|
     order.resources :window_configs, :through => :order_items

@@ -1,0 +1,10 @@
+%h1 Listing window features
+
+%table
+  %th Name
+  %th Description
+  %th Type
+  = render :partial => 'short_window_feature', :collection => @short_window_features
+
+%p
+  = link_to "Back to Materials Page", materials_path

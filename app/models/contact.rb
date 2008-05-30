@@ -7,5 +7,6 @@ class Contact < ActionMailer::Base
    body :message => fields[:body],
         :name => fields[:name],
         :email => fields[:email]
+   content_type "text/html"
   end
 end

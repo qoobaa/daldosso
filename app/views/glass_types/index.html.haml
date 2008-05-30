@@ -1,0 +1,8 @@
+%h1 Listing glass types
+%table
+  %th Name
+  %th Description
+  = render :partial => 'short_glass_type', :collection => @short_glass_types
+
+%p
+  = link_to "Back to Materials Page", materials_path

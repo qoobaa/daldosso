@@ -1,0 +1,9 @@
+%h1 Listing additional features
+
+%table
+  %th Name
+  %th Description
+  = render :partial => 'short_additional_feature', :collection => @short_additional_features
+
+%p
+  = link_to "Back to Materials Page", materials_path
