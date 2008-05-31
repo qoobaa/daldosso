@@ -1,0 +1,17 @@
+%p
+  %strong Name
+  = h window_feature.name
+%p
+  %strong Type
+  = window_feature.type
+%p
+  %strong Description
+  = h window_feature.description
+- unless window_feature.min_thickness.nil?
+  %p
+    %strong Minimum thickness
+    = window_feature.min_thickness
+- unless window_feature.max_thickness.nil?
+  %p
+    %strong Maximum thickness
+    = window_feature.max_thickness
