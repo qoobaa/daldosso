@@ -5,20 +5,21 @@ class Dependency < ActiveRecord::Base
   validates_presence_of :before_feature, :after_feature
   validates_numericality_of :unit_price, :meter_price, :greater_or_equal_than => 0, :allow_nil => true
 
-  def type
+  def pair
     [before_feature.class,after_feature.class]
   end
 
   def cost(window_config)
-    return glass_meter_calculation(window_config) if type[1]==GlassType
+    return discounted_meter_calculation(window_config,0.5) if (window_config.without_sashes? && pair[1]==Wood)
     return regular_meter_calculation(window_config)
   end
 
   def regular_meter_calculation(window_config)
-    return size * meter_price
+    window_config.window_area * meter_price
   end
 
-  def glass_meter_calculation(window_config)
-    code = window_config.sash_structure.structure
+  def discounted_meter_calculation(window_config,discount_factor)
+    cost = regular_meter_calculation(window_config)
+    return cost * discount_factor
   end
 end

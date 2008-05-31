@@ -22,30 +22,31 @@ class WindowConfigsController < ApplicationController
     @glass_colors = GlassColor.find(:all)
     @sash_structures = SashStructure.find(:all)
     @features = []
+    @recommendation = []
     if ((session[:wconf]==nil || params[:feature]==nil) && params[:step]!='back')
       @features = Model.find(:all)
       session[:wconf] = []
-      flash[:msg] = 'initial'
     end
     if (session[:wconf]!=nil && params[:feature]!=nil && params[:step]!='back')
       session[:wconf] << params[:feature][:id] unless session[:wconf].include?(params[:feature][:id])
-      @features = WindowFeature.find(params[:feature][:id]).after_features
+      feature = WindowFeature.find(params[:feature][:id])
+      @features = feature.after_features
       @model_id = session[:wconf][0]
+      @recommendation = feature.recommend(session[:wconf])
     end
     if (session[:wconf]!=nil && params[:feature]==nil && params[:step]=='back')
       session[:wconf].pop
       if (session[:wconf].size>0)
         last = session[:wconf].last
-        @features = WindowFeature.find(last).after_features
-        flash[:msg] = 'at least one'
+        feature = WindowFeature.find(last)
+        @features = feature.after_features
+        @recommendation = feature.recommend(session[:wconf])
       else
         @features = Model.find(:all)
-        flash[:msg] = 'removed last'
       end
     end
     if (session[:wconf]==nil && params[:step]=='back')
       session[:wconf] = []
-      flash[:msg] = 'back'
       @features = Model.find(:all)
     end
   end
@@ -90,13 +91,16 @@ class WindowConfigsController < ApplicationController
     @winconfig = WindowConfig.find(params[:id])
     @order = @winconfig.order_item.order if @winconfig.order_item
     if @winconfig.update_attributes(params[:window_config])
+      if @order
+        @winconfig.order_item.cost = @winconfig.estimated_price
+        @winconfig.order_item.save
+      end
       flash[:notice] = "Updated"
       redirect_to @winconfig unless @order
-      redirect_to order_window_config_path(@order,@winconfig)
+      redirect_to order_window_config_path(@order,@winconfig) if @order
     else
       flash[:notice] = "Error"
-      redirect_to window_config_path unless @order
-      redirect_to order_window_config_path(@order,@winconfig)
+      redirect_to :action => 'edit'
     end
   end
 

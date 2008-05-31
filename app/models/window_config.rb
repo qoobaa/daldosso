@@ -14,20 +14,23 @@ class WindowConfig < ActiveRecord::Base
 
   validates_presence_of :customer, :glass_type, :glass_color, :sash_structure, :handle_type, :name
   validates_numericality_of :height, :width, :only_integer => true, :greater_than => 0
+  validates_numericality_of :height_medium_rail, :only_integer => true, :greater_than_or_equal_to => 0
 
-  def estimated_cost
-    cost = 0
+  def estimated_price
+    model = window_features[0]
+    return 0 if model.no_calculations?
+
+    price = 0
     for i in 0..window_features.size-2
       feature_before = window_features[i]
       feature_after = window_features[i+1]
       dependency = feature_before.dependencies_before.detect{|db| db.after_feature==feature_after}
-      cost += dependency.cost(self)
+      price += dependency.cost(self)
     end
-    return cost
-  end
 
-  def cost
-    estimated_cost
+    price += glass_area * glass_type.meter_price
+    price += handle_type.unit_price
+    return price
   end
 
   def copy_constructor
@@ -41,16 +44,18 @@ class WindowConfig < ActiveRecord::Base
   end
 
   def to_s
-  "ID [#{self.id}] #{features_names} Height: #{height} Width: #{width}"
+  "Name: [#{self.name}] #{features_names} Height: #{height} Width: #{width}"
   end
 
-  def window_size
-    size = height * width * 1.0 # square cm
-    size = size / 10000.0 # square m
+  def window_area
+    size = height * width # square cm
+    size = size / 1000000.0
+    min = sash_structure.minimum
+    size = size > min ? size : min
     return size
   end
 
-  def glass_size
+  def glass_area
     code = sash_structure.code # "F" or "PF"
     sashes = sash_structure.sashes_number # "sashes number"
     rail = height_medium_rail # if greater than zero then split window
@@ -66,7 +71,7 @@ class WindowConfig < ActiveRecord::Base
     case code
         when SashStructure.code_f
           case sashes
-            when 1 # CODE F0,F1
+            when 0,1 # CODE F0,F1
               if rail > 0
                 hg1 = medium_rail_height - frame_sash_width
                 hg2 = h - ( medium_rail_width + frame_sash_width + medium_rail_height )
@@ -136,7 +141,7 @@ class WindowConfig < ActiveRecord::Base
           end
         when SashStructure.code_pf
           case sashes
-            when 1 # CODE PF1
+            when 0,1 # CODE PF1
               if rail > 0
                 hg1 = medium_rail_height - frame_sash_width - added_bottom_rail_width
                 hg2 = h - ( medium_rail_width + frame_sash_width + medium_rail_height )
@@ -205,8 +210,32 @@ class WindowConfig < ActiveRecord::Base
               end
           end
     end
-
     return area / 1000000.0
   end
 
+  def without_sashes?
+    sash_structure.sashes_number==0
+  end
+
+  def with_medium_rail?
+    height_medium_rail > 0
+  end
+
+  def features_ids
+    window_features.collect{|wf| wf.id.to_s}
+  end
+
+  def has_features?(f_ids)
+    return false unless f_ids
+    features = features_ids # ids of all features related with self object
+    return false if f_ids.size==0
+    f_ids.each do |id|
+      return false unless features.include?(id.to_s)
+    end
+    return true
+  end
+
+  def self.templates
+    return WindowConfig.find(:all).reject{|wc| wc.order_item!=nil}
+  end
 end

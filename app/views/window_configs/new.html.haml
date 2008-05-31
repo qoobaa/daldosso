@@ -1,5 +1,6 @@
 = error_messages_for :window_config, :object => @winconfig
 - @features = [] unless @features
+- @recommendation = [] unless @recommendation
 - @model_id = Model.find(:first).id unless @model_id
 %h3 Choose configuration of new window
 - form_for :window_config, :url => {:action => 'new'} do |f|
@@ -16,6 +17,13 @@
           %li
             = fr.to_s
             = fr.description
+      - unless @recommendation.empty?
+        Recommendation:
+        %br
+        - @recommendation.each do |r|
+          = r.to_s
+          %br
+      %br
       Choice:
       = collection_select :feature,:id,@features,:id,:to_s if @features.size>0
   %br
@@ -30,4 +38,3 @@
   %br
   %br
   = link_to 'Back', window_configs_path
-

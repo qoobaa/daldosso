@@ -9,9 +9,9 @@ class Order < ActiveRecord::Base
 
   # return estimated cost of all order items related with order
   def estimated_price
-    cost = 0
-    order_items.each{|item| cost+= item.cost}
-    return cost
+    price = 0
+    order_items.each{|item| price+= item.price}
+    return price
   end
 
   def name

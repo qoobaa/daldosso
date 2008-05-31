@@ -23,6 +23,9 @@
   = wc.glass_color.name
   %strong Handle Type:
   = wc.handle_type.name
+  - if wc.with_medium_rail?
+    %strong Medium rail height:
+    = wc.height_medium_rail
   %br
   %strong Cost Approximation:
-  = wc.cost
+  = wc.estimated_price

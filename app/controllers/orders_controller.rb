@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
         o = OrderItem.new
         o.quantity = quantities[:ids][id]
         c = WindowConfig.find(id).copy_constructor
+        o.cost = c.estimated_price
         o.item = c
         @order.order_items << o
       end
