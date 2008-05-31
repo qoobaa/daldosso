@@ -1,16 +1,24 @@
 %p
+  %strong Configuration name:
+  = h product_config.name rescue "[No name]"
+%p
   %strong Product:
-  = h product_config.product.name rescue ""
+  = h product_config.product.name rescue "[No Product chosen]"
 %p
   %strong Window Config:
-  = h product_config.window_config.name rescue ""
+  = h product_config.window_config.name rescue "[No Window Config assigned]"
 %p
   %strong Cost:
   = number_to_currency product_config.cost, :unit => "&euro;"
 %p
   %strong Description:
   = h product_config.description
+%p
+  = link_to_if !product_config.order.nil? , 'View Order', seller_order_path(product_config.order)
+= link_to 'Show', seller_product_config_path(product_config)
+|
 = link_to 'Edit', edit_seller_product_config_path(product_config)
 |
 = link_to 'Destroy', seller_product_config_path(product_config), :confirm => 'Are you sure?', :method => :delete
+%br
 %br

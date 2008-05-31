@@ -2,6 +2,6 @@
 
 = error_messages_for :order
 
-- form_for @order, :url => seller_order_path(@order), :html => { :method => :put } do |f|
-  = render :partial => 'form', :locals => { :f => f }
+- form_for([:seller, @order]) do |f|
+  = render :partial => 'form', :locals => { :f => f, :view => 'edit' }
   = submit_tag 'Edit'

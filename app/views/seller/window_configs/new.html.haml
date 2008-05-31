@@ -1,8 +1,10 @@
 %h1= "Create new Window Config"
 = error_messages_for :window_config
 
-- form_for @window_config, :url => admin_window_configs_path do |f|
+- form_for([@order, @window_config], :url => seller_order_window_config_path(@order, @window_config)) do |f|
   = render :partial => 'form', :locals => { :f => f }
   = submit_tag 'Create Window Config'
-
-= link_to 'Back', admin_window_configs_path
+%br
+= link_to 'Back to Order', seller_order_path(@order)
+|
+= link_to 'Back to Orders list', seller_orders_path

@@ -1,6 +1,13 @@
 %p
+  Part of order:
+  = @product_config.order.name rescue "[No Order]"
+%br
+%p
+  = f.label :name
+  = f.text_field :name
+%p
   = f.label :product_id
-  = f.select :product_id, select_options_for(Product), :include_blank => :true
+  = f.select :product_id, select_options_for(Product)
 %p
   = f.label :window_config_id
   = f.select :window_config_id, select_options_for(WindowConfig), :include_blank => :true
@@ -10,3 +17,4 @@
 %p
   = f.label :cost
   = f.text_field :cost
+%br

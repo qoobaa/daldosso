@@ -3,8 +3,8 @@
 
 <% for i in 1..50 %>item_<%= i %>:
   id: <%= i %>
-  quantity: 1
-  item_id: <%= rand(70) + 1 %>
+  quantity: <%= rand(9) + 1 %>
+  item_id: <%= i %>
   item_type: WindowConfig
   order_id: <%= i %>
 <% end %>

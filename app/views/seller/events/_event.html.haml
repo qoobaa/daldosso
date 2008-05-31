@@ -11,5 +11,7 @@
   %strong Added on
   = event.added_date
 %p
-  %strong Due on
-  = event.due_date
+  %strong Description
+  = truncate event.description
+%p
+  = link_to 'Edit', edit_seller_event_path(event)

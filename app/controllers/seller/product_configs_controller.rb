@@ -1,5 +1,9 @@
 class Seller::ProductConfigsController < ApplicationController
-  before_filter :seller_required
+  before_filter :seller_required, :get_order
+
+  def get_order
+    @order = Order.find(params[:order_id]) unless params[:order_id].nil?
+  end
 
   def index
     @product_configs = ProductConfig.find(:all)
@@ -42,12 +46,7 @@ class Seller::ProductConfigsController < ApplicationController
 
   def destroy
     @product_config = ProductConfig.find(params[:id])
-    if @product_config.order_items.empty?
-      @product_config.destroy
-      redirect_to(seller_product_configs_url)
-    else
-      flash[:notice] = 'This product config has been assigned to some orders!'
-      redirect_to seller_product_config_path(@product_config)
-    end
+    @product_config.destroy
+    redirect_to(:back)
   end
 end

@@ -4,4 +4,12 @@ class AdditionalFeature < ActiveRecord::Base
 
   validates_presence_of :name
   validates_numericality_of :unit_price, :meter_price, :greater_or_equal_than => 0, :allow_nil => true
+  
+  def self.search(search)
+    if search
+      find(:all, :conditions=>['name LIKE ?',"%#{search}%"])
+    else
+      find(:all)
+    end
+  end
 end

@@ -4,15 +4,14 @@ class WindowConfig < ActiveRecord::Base
   has_many :additional_features, :through => :additional_feature_notes
   has_many :shutter_configs
   has_many :shutter_types, :through => :shutter_configs
-  has_one :order_item, :as => :item
+  has_one :order_item, :as => :item, :dependent => :destroy
   belongs_to :customer, :class_name => 'User'
   belongs_to :glass_type
   belongs_to :glass_color
 	belongs_to :sash_structure
 	belongs_to :handle_type
-  has_many :order_items, :as => :item
 
-  validates_presence_of :customer, :glass_type, :glass_color, :sash_structure, :handle_type, :name
+  validates_presence_of :glass_type, :glass_color, :sash_structure, :handle_type, :name
   validates_numericality_of :height, :width, :only_integer => true, :greater_than => 0
   validates_numericality_of :height_medium_rail, :only_integer => true, :greater_than_or_equal_to => 0
 
@@ -44,7 +43,7 @@ class WindowConfig < ActiveRecord::Base
   end
 
   def to_s
-  "Name: [#{self.name}] #{features_names} Height: #{height} Width: #{width}"
+    "Name: [#{self.name}] #{features_names} Height: #{height} Width: #{width}"
   end
 
   def window_area
@@ -225,6 +224,11 @@ class WindowConfig < ActiveRecord::Base
     window_features.collect{|wf| wf.id.to_s}
   end
 
+  def order
+    return self.order_item.order if self.order_item
+    return nil
+  end
+
   def has_features?(f_ids)
     return false unless f_ids
     features = features_ids # ids of all features related with self object
@@ -235,7 +239,16 @@ class WindowConfig < ActiveRecord::Base
     return true
   end
 
+  def self.with_orders
+    selected = []
+    find(:all).each do |window_config|
+      selected << window_config if window_config.order_item.nil?
+    end
+    return selected
+  end
+
   def self.templates
     return WindowConfig.find(:all).reject{|wc| wc.order_item!=nil}
   end
+
 end

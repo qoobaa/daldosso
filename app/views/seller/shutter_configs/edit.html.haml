@@ -1,6 +1,6 @@
 %h1= "Editing Shutter Configuration"
 = error_messages_for :shutter_config
 
-- form_for @shutter_config, :url => seller_shutter_config_path(@shutter_config), :html => { :method => :put } do |f|
+- form_for([:seller, @shutter_config]) do |f|
   = render :partial => 'form', :locals => { :f => f }
   %p= submit_tag 'Update shutter config'

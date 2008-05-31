@@ -1,0 +1,5 @@
+= error_messages_for :contact
+
+- form_for :contact, :url => {:action => 'create'} do |f|
+  = render :partial=>'form', :locals => { :f => f }
+  %p= submit_tag 'Send'

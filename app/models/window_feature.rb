@@ -5,8 +5,8 @@ class WindowFeature < ActiveRecord::Base
   has_many  :after_features, :through => :dependencies_before
   has_and_belongs_to_many :window_configs
 
-  validates_presence_of :name, :type
-  validates_numericality_of :min_thickness, :max_thickness, :only_integer => true, :greater_than => 0, :allow_nil => true
+  validates_presence_of :name
+  validates_numericality_of :min_thickness, :max_thickness, :only_integer => true, :greater_than_or_equal_to => 0, :allow_nil => true
   validates_inclusion_of :type, :in => %w(Edge LayingKind Model PaintKind Typology Wood)
 
   def long_name
@@ -36,12 +36,19 @@ class WindowFeature < ActiveRecord::Base
     configs.each do |c|
     features = c.window_features.reject{|f| ids.include?(f.id.to_s)}
     features = features.find_all{|f| after_features.include?(f)}
-        if features
-          features.each do |f|
-            stat[f] = 0 unless stat[f]
-            stat[f] += 1
-          end
-        end
+    if features
+      features.each do |f|
+        stat[f] = 0 unless stat[f]
+        stat[f] += 1
+      end
+    end
+  end
+
+  def self.search(search)
+    if search
+      find(:all, :conditions=>['name LIKE ? AND ( type LIKE ? OR type LIKE ? OR type LIKE ? )',"%#{search}%",'Wood','Model','Typology'])
+    else
+      find(:all, :conditions=>['type LIKE ? OR type LIKE ? OR type LIKE ?','Wood','Model','Typology'], :order => 'type')
     end
 
     stat = stat.sort{|a,b| b[1] <=> a[1]} # sort descending

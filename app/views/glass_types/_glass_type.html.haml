@@ -1,0 +1,12 @@
+%p
+  %strong Name
+  = h glass_type.name
+%p
+  %strong Description
+  = h glass_type.description
+%p
+  %strong Thickness
+  = glass_type.thickness
+%p
+  %strong Meter price  
+  = number_to_currency glass_type.meter_price, :unit => "&euro;"

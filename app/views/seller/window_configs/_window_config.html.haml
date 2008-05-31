@@ -1,3 +1,7 @@
+%p
+  %strong Name:
+  = h window_config.name rescue "[No name]"
+
 %h3 Basic Features:
 - window_config.window_features.each do |f|
   %p
@@ -8,19 +12,19 @@
 %h3 Other Features:
 %p
   %strong Glass Type:
-  = h window_config.glass_type.name rescue ""
+  = h window_config.glass_type.name rescue "[No Glass type chosen]"
 %p
   %strong Glass Color:
-  = h window_config.glass_color.name
+  = h window_config.glass_color.name rescue "[No Glass color chosen]"
 %p
   %strong Handle Type:
-  = h window_config.handle_type.name
+  = h window_config.handle_type.name rescue "[No Handle type chosen]"
 %p
   %strong Sash number:
   = h window_config.sash_structure.sashes_number rescue ""
 %p
   %strong Structure:
-  = h window_config.sash_structure.structure.name rescue "Structure not found"
+  = h window_config.sash_structure.structure.name rescue "[No Structure chosen]"
 %p
   %strong Height:
   = h window_config.height
@@ -40,9 +44,9 @@
   %strong Finish Quality:
   = h window_config.finish_quality
 %p
-  %strong User:
-  = h window_config.customer.name
-= link_to 'Edit', edit_admin_window_config_path(window_config)
-|
-= link_to 'Destroy', admin_window_config_path(window_config), :confirm => 'Are you sure?', :method => :delete
+  %strong Customer:
+  = h window_config.customer.name rescue "[No Customer chosen]"
+%br
+%p
+  = link_to_if !window_config.order.nil? , 'Back to Order', seller_order_path(window_config.order)
 %br

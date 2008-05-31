@@ -1,12 +1,56 @@
-!!!
-%html
+!!! Strict
+%html{html_attrs}
   %head
-    %title Dal Dosso Company
-    = stylesheet_link_tag 'application'
+    %title Dal Dosso
+    =stylesheet_link_tag "style_1.css"
   %body
-    - unless flash[:error].nil?
-      = flash[:error]
-    - unless flash[:notice].nil?
-      = flash[:notice]
-    #content
-      = yield
+    #wrap
+      #top
+      #content
+        .header
+          %table{:width=>"97%", :border=>"0"}
+            %tr
+              %td
+                %h1 Falegnameria Dal Dosso SAS
+                %br
+                %h2 Windows Expertise Project
+              %td{:align=>"right"}
+                =image_tag("/images/logo.gif", :size => "50x50", :border => 0)
+        .breadcrumbs
+          =link_to "Home", :controller=>"home"
+          &middot
+          - if logged_in?
+            =current_user_home
+            &middot
+            =link_to "Log-out", logout_path
+          - else
+            =link_to "Log-in", login_path
+        .middle
+          %h2
+            =@title
+          %br
+          =flash[:error]
+          =flash[:notice]
+          =yield
+        .right
+          %h2 Navigation
+          %ul
+            - unless @title=="Statistics Page"
+              %li
+                =link_to "Statistics", :controller=>"statistics", :action=>"choose"
+            %br
+            %li
+              link-2
+            %br
+            %li
+              link-3
+            %br
+            %li
+              link-4
+            %br
+            %li
+              link-5
+      #clear
+      #bottom
+  #footer
+    Powered with Ruby on Rails
