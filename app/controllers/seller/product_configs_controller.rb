@@ -19,11 +19,11 @@ class Seller::ProductConfigsController < ApplicationController
 
   def create
     @product_config = ProductConfig.new(params[:product_config])
-    @product_config.save
     @item = OrderItem.new(:item => @product_config, :order => @order)
-    @item.save
+    @product_config.save
 
     if @product_config.errors.empty?
+      @item.save
       redirect_to seller_order_path(@order)
       flash[:notice] = "Created product config"
     else

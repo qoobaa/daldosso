@@ -19,11 +19,11 @@ class Seller::ShutterConfigsController < ApplicationController
 
   def create
     @shutter_config = ShutterConfig.new(params[:shutter_config])
-    @shutter_config.save
     @item = OrderItem.new(:item => @shutter_config, :order => @order)
-    @item.save
+    @shutter_config.save
 
     if @shutter_config.errors.empty?
+      @item.save
       redirect_to seller_order_path(@order)
       flash[:notice] = "Created shutter config"
     else
