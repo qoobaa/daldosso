@@ -19,11 +19,11 @@ class Seller::WindowConfigsController < ApplicationController
 
   def create
     @window_config = WindowConfig.new(params[:window_config])
-    @window_config.save
     @item = OrderItem.new(:item => @window_config, :order => @order)
-    @item.save
+    @window_config.save
 
     if @window_config.errors.empty?
+      @item.save
       redirect_to seller_order_path(@order)
       flash[:notice] = "Created window config"
     else
