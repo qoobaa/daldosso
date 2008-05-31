@@ -1,6 +1,9 @@
 %h1 Listing Orders
 %p
   = link_to 'Create new Order', new_seller_order_path
+  |
+  = link_to 'Back to tasks', seller_root_path
+%hr
 %hr
 %h2= "My Orders (#{@curent_user_orders.size rescue 0}):"
 %p
