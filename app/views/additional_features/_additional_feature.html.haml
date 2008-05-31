@@ -1,0 +1,12 @@
+%p
+  %strong Name
+  = additional_feature.name
+%p
+  %strong Description
+  = additional_feature.description
+%p
+  %strong Unit price
+  = number_to_currency additional_feature.unit_price, :unit => "&euro;"
+%p
+  %strong Meter price  
+  = number_to_currency additional_feature.meter_price, :unit => "&euro;"

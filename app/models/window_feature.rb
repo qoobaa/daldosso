@@ -36,12 +36,19 @@ class WindowFeature < ActiveRecord::Base
     configs.each do |c|
     features = c.window_features.reject{|f| ids.include?(f.id.to_s)}
     features = features.find_all{|f| after_features.include?(f)}
-        if features
-          features.each do |f|
-            stat[f] = 0 unless stat[f]
-            stat[f] += 1
-          end
-        end
+    if features
+      features.each do |f|
+        stat[f] = 0 unless stat[f]
+        stat[f] += 1
+      end
+    end
+  end
+
+  def self.search(search)
+    if search
+      find(:all, :conditions=>['name LIKE ? AND ( type LIKE ? OR type LIKE ? OR type LIKE ? )',"%#{search}%",'Wood','Model','Typology'])
+    else
+      find(:all, :conditions=>['type LIKE ? OR type LIKE ? OR type LIKE ?','Wood','Model','Typology'], :order => 'type')
     end
 
     stat = stat.sort{|a,b| b[1] <=> a[1]} # sort descending

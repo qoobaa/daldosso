@@ -7,11 +7,16 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :call_statuses
   map.resources :calls
   map.resources :orders
+  map.resources :contact, :controller => 'contact'
   map.resources :order_statuses
   map.resources :events
   map.resources :event_types
   map.resources :shutter_types
   map.resources :shutter_configs
+  map.resources :materials, :controller =>'material'
+  map.resources :additional_features
+  map.resources :glass_types
+  map.resources :window_features
 
   map.root :controller => 'site'
   map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
