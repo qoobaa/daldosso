@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :product_groups
-  map.resources :products
   map.resources :customers
   map.resources :window_configs
+  map.resources :product_groups
+  map.resources :products
   map.resources :product_configs
   map.resources :call_statuses
   map.resources :calls
@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :shutter_types
   map.resources :shutter_configs
 
+  map.root :controller => 'site'
   map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
   map.resource :session, :controller => 'session'
 
@@ -23,8 +24,8 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :seller do |seller|
     seller.root :controller => 'panel'
     seller.resources :events
-    seller.resources :orders
-    seller.resources :order_items
+    seller.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs]
+
     seller.resources :customers
     seller.resources :window_configs
     seller.resources :product_configs

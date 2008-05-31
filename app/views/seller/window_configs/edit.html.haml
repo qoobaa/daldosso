@@ -1,6 +1,6 @@
 %h1= "Editing Window Configuration"
 = error_messages_for :window_config
 
-- form_for @window_config, :url => admin_window_config_path(@window_config), :html => { :method => :put } do |f|
+- form_for([@order, @window_config], :url => seller_order_window_config_path(@order, @window_config)) do |f|
   = render :partial => 'form', :locals => { :f => f }
-  %p= submit_tag 'Update other features'
+  %p= submit_tag 'Update window config'

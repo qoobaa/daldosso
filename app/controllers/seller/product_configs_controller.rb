@@ -42,12 +42,7 @@ class Seller::ProductConfigsController < ApplicationController
 
   def destroy
     @product_config = ProductConfig.find(params[:id])
-    if @product_config.order_items.empty?
-      @product_config.destroy
-      redirect_to(seller_product_configs_url)
-    else
-      flash[:notice] = 'This product config has been assigned to some orders!'
-      redirect_to seller_product_config_path(@product_config)
-    end
+    @product_config.destroy
+    redirect_to(:back)
   end
 end

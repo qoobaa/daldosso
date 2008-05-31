@@ -1,33 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-product_config_1:
-  id: 1
+<% for i in 1..50 %>products_config_<%= i %>:
+  id: <%= i %>
   name: Some nice config
-  product_id: 1
-  window_config_id: 1
-  description: some config
-  cost: 34.23
-
-products_config_2:
-  id: 2
-  name: Some nice config
-  product_id: 2
-  window_config_id: 2
+  product_id: <%= rand(6) + 1 %>
+  window_config_id: <%= i %>
   description: lba
-  cost: 23
-
-product_config_3:
-  id: 3
-  name: Some nice config
-  product_id: 3
-  window_config_id: 2
-  description: some config
-  cost: 4.23
-
-products_config_4:
-  id: 4
-  name: Some nice config
-  product_id: 2
-  window_config_id: 3
-  description: lba
-  cost: 2232
+  cost: <%= rand(4000) %>
+<% end %>

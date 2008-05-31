@@ -1,45 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  id: 1
-  window_config_id: 1
-  shutter_type_id: 1
-  name: some name
-  width: 100
-  height: 100
-  sashes_number: 3
-  description: desc
-  cost: 1300
-
-two:
-  id: 2
-  window_config_id: 2
-  shutter_type_id: 1
+<% for i in 1..50 %>shutter_cfg_<%= i %>:
+  id: <%= i %>
+  window_config_id: <%= i %>
+  shutter_type_id: <%= rand(3) + 1 %>
   name: name of this config
-  width: 200
-  height: 230
-  sashes_number: 2
+  width: <%= rand(500) %>
+  height: <%= rand(500) %>
+  sashes_number: <%= rand(2) + 1 %>
   description: config for expensive shutters
-  cost: 1556
-
-three:
-  id: 3
-  window_config_id: 1
-  shutter_type_id: 1
-  name: some name
-  width: 100
-  height: 100
-  sashes_number: 3
-  description: desc
-  cost: 1300
-
-four:
-  id: 4
-  window_config_id: 2
-  shutter_type_id: 1
-  name: name of this config
-  width: 200
-  height: 230
-  sashes_number: 2
-  description: config for expensive shutters
-  cost: 1556
+  cost: <%= rand(5000) %>
+<% end %>

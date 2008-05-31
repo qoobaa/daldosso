@@ -1,7 +1,21 @@
 = render :partial => 'order', :locals => { :o => @order}
-= link_to 'Edit', edit_order_path(@order)
-|
-= link_to 'Destroy', @order, :confirm => 'Are you sure?', :method => :delete
+%hr
+- if (@order.is_saved?)
+  = link_to 'Edit', edit_order_path(@order)
+  |
+  = link_to 'Destroy', @order, :confirm => 'Are you sure?', :method => :delete
+  %hr
+  - form_for(@order) do |f|
+    %strong Check if you want to send this order
+    = check_box_tag("send","send",false)
+    %br
+    %strong Order description:
+    %br
+    = text_area_tag("description",@order.description,:rows => 10, :cols=> 50)
+    %br
+    = f.submit 'Update'
+    %br
+    Remember that after sending this order to us you cannot edit order any more
 %hr
 = link_to 'Back',orders_path
 = link_to 'New',new_order_path

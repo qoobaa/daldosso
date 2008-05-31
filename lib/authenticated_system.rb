@@ -6,7 +6,7 @@ module AuthenticatedSystem
       !!current_user
     end
 
-    # Accesses the current user from the session. 
+    # Accesses the current user from the session.
     # Future calls avoid the database because nil is not equal to false.
     def current_user
       @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie) unless @current_user == false
@@ -57,11 +57,11 @@ module AuthenticatedSystem
     end
 
     def seller_required
-      current_user.kind_of?(Seller) || access_denied
+      current_user.kind_of?(Seller) || current_user.kind_of?(Admin) || access_denied
     end
 
     def production_manager_required
-      current_user.kind_of?(ProductionManager) || access_denied
+      current_user.kind_of?(ProductionManager) || current_user.kind_of?(Admin) || access_denied
     end
 
     # Redirect as appropriate when an access request fails.

@@ -1,0 +1,231 @@
+(in C:/development/WindowsExpertise/daldosso)
+                              customers GET    /customers                                        {:controller=>"customers", :action=>"index"}
+                    formatted_customers GET    /customers.:format                                {:controller=>"customers", :action=>"index"}
+                                        POST   /customers                                        {:controller=>"customers", :action=>"create"}
+                                        POST   /customers.:format                                {:controller=>"customers", :action=>"create"}
+                           new_customer GET    /customers/new                                    {:controller=>"customers", :action=>"new"}
+                 formatted_new_customer GET    /customers/new.:format                            {:controller=>"customers", :action=>"new"}
+                          edit_customer GET    /customers/:id/edit                               {:controller=>"customers", :action=>"edit"}
+                formatted_edit_customer GET    /customers/:id/edit.:format                       {:controller=>"customers", :action=>"edit"}
+                               customer GET    /customers/:id                                    {:controller=>"customers", :action=>"show"}
+                     formatted_customer GET    /customers/:id.:format                            {:controller=>"customers", :action=>"show"}
+                                        PUT    /customers/:id                                    {:controller=>"customers", :action=>"update"}
+                                        PUT    /customers/:id.:format                            {:controller=>"customers", :action=>"update"}
+                                        DELETE /customers/:id                                    {:controller=>"customers", :action=>"destroy"}
+                                        DELETE /customers/:id.:format                            {:controller=>"customers", :action=>"destroy"}
+                         window_configs GET    /window_configs                                   {:controller=>"window_configs", :action=>"index"}
+               formatted_window_configs GET    /window_configs.:format                           {:controller=>"window_configs", :action=>"index"}
+                                        POST   /window_configs                                   {:controller=>"window_configs", :action=>"create"}
+                                        POST   /window_configs.:format                           {:controller=>"window_configs", :action=>"create"}
+                      new_window_config GET    /window_configs/new                               {:controller=>"window_configs", :action=>"new"}
+            formatted_new_window_config GET    /window_configs/new.:format                       {:controller=>"window_configs", :action=>"new"}
+                     edit_window_config GET    /window_configs/:id/edit                          {:controller=>"window_configs", :action=>"edit"}
+           formatted_edit_window_config GET    /window_configs/:id/edit.:format                  {:controller=>"window_configs", :action=>"edit"}
+                          window_config GET    /window_configs/:id                               {:controller=>"window_configs", :action=>"show"}
+                formatted_window_config GET    /window_configs/:id.:format                       {:controller=>"window_configs", :action=>"show"}
+                                        PUT    /window_configs/:id                               {:controller=>"window_configs", :action=>"update"}
+                                        PUT    /window_configs/:id.:format                       {:controller=>"window_configs", :action=>"update"}
+                                        DELETE /window_configs/:id                               {:controller=>"window_configs", :action=>"destroy"}
+                                        DELETE /window_configs/:id.:format                       {:controller=>"window_configs", :action=>"destroy"}
+                                 orders GET    /orders                                           {:controller=>"orders", :action=>"index"}
+                       formatted_orders GET    /orders.:format                                   {:controller=>"orders", :action=>"index"}
+                                        POST   /orders                                           {:controller=>"orders", :action=>"create"}
+                                        POST   /orders.:format                                   {:controller=>"orders", :action=>"create"}
+                              new_order GET    /orders/new                                       {:controller=>"orders", :action=>"new"}
+                    formatted_new_order GET    /orders/new.:format                               {:controller=>"orders", :action=>"new"}
+                             edit_order GET    /orders/:id/edit                                  {:controller=>"orders", :action=>"edit"}
+                   formatted_edit_order GET    /orders/:id/edit.:format                          {:controller=>"orders", :action=>"edit"}
+                                  order GET    /orders/:id                                       {:controller=>"orders", :action=>"show"}
+                        formatted_order GET    /orders/:id.:format                               {:controller=>"orders", :action=>"show"}
+                                        PUT    /orders/:id                                       {:controller=>"orders", :action=>"update"}
+                                        PUT    /orders/:id.:format                               {:controller=>"orders", :action=>"update"}
+                                        DELETE /orders/:id                                       {:controller=>"orders", :action=>"destroy"}
+                                        DELETE /orders/:id.:format                               {:controller=>"orders", :action=>"destroy"}
+                   order_window_configs GET    /orders/:order_id/window_configs                  {:controller=>"window_configs", :action=>"index"}
+         formatted_order_window_configs GET    /orders/:order_id/window_configs.:format          {:controller=>"window_configs", :action=>"index"}
+                                        POST   /orders/:order_id/window_configs                  {:controller=>"window_configs", :action=>"create"}
+                                        POST   /orders/:order_id/window_configs.:format          {:controller=>"window_configs", :action=>"create"}
+                new_order_window_config GET    /orders/:order_id/window_configs/new              {:controller=>"window_configs", :action=>"new"}
+      formatted_new_order_window_config GET    /orders/:order_id/window_configs/new.:format      {:controller=>"window_configs", :action=>"new"}
+               edit_order_window_config GET    /orders/:order_id/window_configs/:id/edit         {:controller=>"window_configs", :action=>"edit"}
+     formatted_edit_order_window_config GET    /orders/:order_id/window_configs/:id/edit.:format {:controller=>"window_configs", :action=>"edit"}
+                    order_window_config GET    /orders/:order_id/window_configs/:id              {:controller=>"window_configs", :action=>"show"}
+          formatted_order_window_config GET    /orders/:order_id/window_configs/:id.:format      {:controller=>"window_configs", :action=>"show"}
+                                        PUT    /orders/:order_id/window_configs/:id              {:controller=>"window_configs", :action=>"update"}
+                                        PUT    /orders/:order_id/window_configs/:id.:format      {:controller=>"window_configs", :action=>"update"}
+                                        DELETE /orders/:order_id/window_configs/:id              {:controller=>"window_configs", :action=>"destroy"}
+                                        DELETE /orders/:order_id/window_configs/:id.:format      {:controller=>"window_configs", :action=>"destroy"}
+                                        POST   /user                                             {:controller=>"user", :action=>"create"}
+                                        POST   /user.:format                                     {:controller=>"user", :action=>"create"}
+                               new_user GET    /user/new                                         {:controller=>"user", :action=>"new"}
+                     formatted_new_user GET    /user/new.:format                                 {:controller=>"user", :action=>"new"}
+                              edit_user GET    /user/edit                                        {:controller=>"user", :action=>"edit"}
+                    formatted_edit_user GET    /user/edit.:format                                {:controller=>"user", :action=>"edit"}
+                   change_password_user GET    /user/change_password                             {:controller=>"user", :action=>"change_password"}
+         formatted_change_password_user GET    /user/change_password.:format                     {:controller=>"user", :action=>"change_password"}
+            change_password_update_user PUT    /user/change_password_update                      {:controller=>"user", :action=>"change_password_update"}
+  formatted_change_password_update_user PUT    /user/change_password_update.:format              {:controller=>"user", :action=>"change_password_update"}
+                                   user GET    /user                                             {:controller=>"user", :action=>"show"}
+                         formatted_user GET    /user.:format                                     {:controller=>"user", :action=>"show"}
+                                        PUT    /user                                             {:controller=>"user", :action=>"update"}
+                                        PUT    /user.:format                                     {:controller=>"user", :action=>"update"}
+                                        DELETE /user                                             {:controller=>"user", :action=>"destroy"}
+                                        DELETE /user.:format                                     {:controller=>"user", :action=>"destroy"}
+                                        POST   /session                                          {:controller=>"session", :action=>"create"}
+                                        POST   /session.:format                                  {:controller=>"session", :action=>"create"}
+                            new_session GET    /session/new                                      {:controller=>"session", :action=>"new"}
+                  formatted_new_session GET    /session/new.:format                              {:controller=>"session", :action=>"new"}
+                           edit_session GET    /session/edit                                     {:controller=>"session", :action=>"edit"}
+                 formatted_edit_session GET    /session/edit.:format                             {:controller=>"session", :action=>"edit"}
+                                session GET    /session                                          {:controller=>"session", :action=>"show"}
+                      formatted_session GET    /session.:format                                  {:controller=>"session", :action=>"show"}
+                                        PUT    /session                                          {:controller=>"session", :action=>"update"}
+                                        PUT    /session.:format                                  {:controller=>"session", :action=>"update"}
+                                        DELETE /session                                          {:controller=>"session", :action=>"destroy"}
+                                        DELETE /session.:format                                  {:controller=>"session", :action=>"destroy"}
+                                 signup        /signup                                           {:controller=>"customers", :action=>"new"}
+                                  login        /login                                            {:controller=>"session", :action=>"new"}
+                                 logout        /logout                                           {:controller=>"session", :action=>"destroy"}
+                             admin_root        /admin                                            {:controller=>"admin/panel", :action=>"index"}
+                           admin_orders GET    /admin/orders                                     {:controller=>"admin/orders", :action=>"index"}
+                 formatted_admin_orders GET    /admin/orders.:format                             {:controller=>"admin/orders", :action=>"index"}
+                                        POST   /admin/orders                                     {:controller=>"admin/orders", :action=>"create"}
+                                        POST   /admin/orders.:format                             {:controller=>"admin/orders", :action=>"create"}
+                        new_admin_order GET    /admin/orders/new                                 {:controller=>"admin/orders", :action=>"new"}
+              formatted_new_admin_order GET    /admin/orders/new.:format                         {:controller=>"admin/orders", :action=>"new"}
+                       edit_admin_order GET    /admin/orders/:id/edit                            {:controller=>"admin/orders", :action=>"edit"}
+             formatted_edit_admin_order GET    /admin/orders/:id/edit.:format                    {:controller=>"admin/orders", :action=>"edit"}
+                            admin_order GET    /admin/orders/:id                                 {:controller=>"admin/orders", :action=>"show"}
+                  formatted_admin_order GET    /admin/orders/:id.:format                         {:controller=>"admin/orders", :action=>"show"}
+                                        PUT    /admin/orders/:id                                 {:controller=>"admin/orders", :action=>"update"}
+                                        PUT    /admin/orders/:id.:format                         {:controller=>"admin/orders", :action=>"update"}
+                                        DELETE /admin/orders/:id                                 {:controller=>"admin/orders", :action=>"destroy"}
+                                        DELETE /admin/orders/:id.:format                         {:controller=>"admin/orders", :action=>"destroy"}
+                            admin_users GET    /admin/users                                      {:controller=>"admin/users", :action=>"index"}
+                  formatted_admin_users GET    /admin/users.:format                              {:controller=>"admin/users", :action=>"index"}
+                                        POST   /admin/users                                      {:controller=>"admin/users", :action=>"create"}
+                                        POST   /admin/users.:format                              {:controller=>"admin/users", :action=>"create"}
+                         new_admin_user GET    /admin/users/new                                  {:controller=>"admin/users", :action=>"new"}
+               formatted_new_admin_user GET    /admin/users/new.:format                          {:controller=>"admin/users", :action=>"new"}
+                        edit_admin_user GET    /admin/users/:id/edit                             {:controller=>"admin/users", :action=>"edit"}
+              formatted_edit_admin_user GET    /admin/users/:id/edit.:format                     {:controller=>"admin/users", :action=>"edit"}
+                             admin_user GET    /admin/users/:id                                  {:controller=>"admin/users", :action=>"show"}
+                   formatted_admin_user GET    /admin/users/:id.:format                          {:controller=>"admin/users", :action=>"show"}
+                                        PUT    /admin/users/:id                                  {:controller=>"admin/users", :action=>"update"}
+                                        PUT    /admin/users/:id.:format                          {:controller=>"admin/users", :action=>"update"}
+                                        DELETE /admin/users/:id                                  {:controller=>"admin/users", :action=>"destroy"}
+                                        DELETE /admin/users/:id.:format                          {:controller=>"admin/users", :action=>"destroy"}
+                   admin_window_configs GET    /admin/window_configs                             {:controller=>"admin/window_configs", :action=>"index"}
+         formatted_admin_window_configs GET    /admin/window_configs.:format                     {:controller=>"admin/window_configs", :action=>"index"}
+                                        POST   /admin/window_configs                             {:controller=>"admin/window_configs", :action=>"create"}
+                                        POST   /admin/window_configs.:format                     {:controller=>"admin/window_configs", :action=>"create"}
+                new_admin_window_config GET    /admin/window_configs/new                         {:controller=>"admin/window_configs", :action=>"new"}
+      formatted_new_admin_window_config GET    /admin/window_configs/new.:format                 {:controller=>"admin/window_configs", :action=>"new"}
+               edit_admin_window_config GET    /admin/window_configs/:id/edit                    {:controller=>"admin/window_configs", :action=>"edit"}
+     formatted_edit_admin_window_config GET    /admin/window_configs/:id/edit.:format            {:controller=>"admin/window_configs", :action=>"edit"}
+                    admin_window_config GET    /admin/window_configs/:id                         {:controller=>"admin/window_configs", :action=>"show"}
+          formatted_admin_window_config GET    /admin/window_configs/:id.:format                 {:controller=>"admin/window_configs", :action=>"show"}
+                                        PUT    /admin/window_configs/:id                         {:controller=>"admin/window_configs", :action=>"update"}
+                                        PUT    /admin/window_configs/:id.:format                 {:controller=>"admin/window_configs", :action=>"update"}
+                                        DELETE /admin/window_configs/:id                         {:controller=>"admin/window_configs", :action=>"destroy"}
+                                        DELETE /admin/window_configs/:id.:format                 {:controller=>"admin/window_configs", :action=>"destroy"}
+                  admin_window_features GET    /admin/window_features                            {:controller=>"admin/window_features", :action=>"index"}
+        formatted_admin_window_features GET    /admin/window_features.:format                    {:controller=>"admin/window_features", :action=>"index"}
+                                        POST   /admin/window_features                            {:controller=>"admin/window_features", :action=>"create"}
+                                        POST   /admin/window_features.:format                    {:controller=>"admin/window_features", :action=>"create"}
+               new_admin_window_feature GET    /admin/window_features/new                        {:controller=>"admin/window_features", :action=>"new"}
+     formatted_new_admin_window_feature GET    /admin/window_features/new.:format                {:controller=>"admin/window_features", :action=>"new"}
+              edit_admin_window_feature GET    /admin/window_features/:id/edit                   {:controller=>"admin/window_features", :action=>"edit"}
+    formatted_edit_admin_window_feature GET    /admin/window_features/:id/edit.:format           {:controller=>"admin/window_features", :action=>"edit"}
+                   admin_window_feature GET    /admin/window_features/:id                        {:controller=>"admin/window_features", :action=>"show"}
+         formatted_admin_window_feature GET    /admin/window_features/:id.:format                {:controller=>"admin/window_features", :action=>"show"}
+                                        PUT    /admin/window_features/:id                        {:controller=>"admin/window_features", :action=>"update"}
+                                        PUT    /admin/window_features/:id.:format                {:controller=>"admin/window_features", :action=>"update"}
+                                        DELETE /admin/window_features/:id                        {:controller=>"admin/window_features", :action=>"destroy"}
+                                        DELETE /admin/window_features/:id.:format                {:controller=>"admin/window_features", :action=>"destroy"}
+                     admin_dependencies GET    /admin/dependencies                               {:controller=>"admin/dependencies", :action=>"index"}
+           formatted_admin_dependencies GET    /admin/dependencies.:format                       {:controller=>"admin/dependencies", :action=>"index"}
+                                        POST   /admin/dependencies                               {:controller=>"admin/dependencies", :action=>"create"}
+                                        POST   /admin/dependencies.:format                       {:controller=>"admin/dependencies", :action=>"create"}
+                   new_admin_dependency GET    /admin/dependencies/new                           {:controller=>"admin/dependencies", :action=>"new"}
+         formatted_new_admin_dependency GET    /admin/dependencies/new.:format                   {:controller=>"admin/dependencies", :action=>"new"}
+                  edit_admin_dependency GET    /admin/dependencies/:id/edit                      {:controller=>"admin/dependencies", :action=>"edit"}
+        formatted_edit_admin_dependency GET    /admin/dependencies/:id/edit.:format              {:controller=>"admin/dependencies", :action=>"edit"}
+                       admin_dependency GET    /admin/dependencies/:id                           {:controller=>"admin/dependencies", :action=>"show"}
+             formatted_admin_dependency GET    /admin/dependencies/:id.:format                   {:controller=>"admin/dependencies", :action=>"show"}
+                                        PUT    /admin/dependencies/:id                           {:controller=>"admin/dependencies", :action=>"update"}
+                                        PUT    /admin/dependencies/:id.:format                   {:controller=>"admin/dependencies", :action=>"update"}
+                                        DELETE /admin/dependencies/:id                           {:controller=>"admin/dependencies", :action=>"destroy"}
+                                        DELETE /admin/dependencies/:id.:format                   {:controller=>"admin/dependencies", :action=>"destroy"}
+              admin_additional_features GET    /admin/additional_features                        {:controller=>"admin/additional_features", :action=>"index"}
+    formatted_admin_additional_features GET    /admin/additional_features.:format                {:controller=>"admin/additional_features", :action=>"index"}
+                                        POST   /admin/additional_features                        {:controller=>"admin/additional_features", :action=>"create"}
+                                        POST   /admin/additional_features.:format                {:controller=>"admin/additional_features", :action=>"create"}
+           new_admin_additional_feature GET    /admin/additional_features/new                    {:controller=>"admin/additional_features", :action=>"new"}
+ formatted_new_admin_additional_feature GET    /admin/additional_features/new.:format            {:controller=>"admin/additional_features", :action=>"new"}
+          edit_admin_additional_feature GET    /admin/additional_features/:id/edit               {:controller=>"admin/additional_features", :action=>"edit"}
+formatted_edit_admin_additional_feature GET    /admin/additional_features/:id/edit.:format       {:controller=>"admin/additional_features", :action=>"edit"}
+               admin_additional_feature GET    /admin/additional_features/:id                    {:controller=>"admin/additional_features", :action=>"show"}
+     formatted_admin_additional_feature GET    /admin/additional_features/:id.:format            {:controller=>"admin/additional_features", :action=>"show"}
+                                        PUT    /admin/additional_features/:id                    {:controller=>"admin/additional_features", :action=>"update"}
+                                        PUT    /admin/additional_features/:id.:format            {:controller=>"admin/additional_features", :action=>"update"}
+                                        DELETE /admin/additional_features/:id                    {:controller=>"admin/additional_features", :action=>"destroy"}
+                                        DELETE /admin/additional_features/:id.:format            {:controller=>"admin/additional_features", :action=>"destroy"}
+                      admin_glass_types GET    /admin/glass_types                                {:controller=>"admin/glass_types", :action=>"index"}
+            formatted_admin_glass_types GET    /admin/glass_types.:format                        {:controller=>"admin/glass_types", :action=>"index"}
+                                        POST   /admin/glass_types                                {:controller=>"admin/glass_types", :action=>"create"}
+                                        POST   /admin/glass_types.:format                        {:controller=>"admin/glass_types", :action=>"create"}
+                   new_admin_glass_type GET    /admin/glass_types/new                            {:controller=>"admin/glass_types", :action=>"new"}
+         formatted_new_admin_glass_type GET    /admin/glass_types/new.:format                    {:controller=>"admin/glass_types", :action=>"new"}
+                  edit_admin_glass_type GET    /admin/glass_types/:id/edit                       {:controller=>"admin/glass_types", :action=>"edit"}
+        formatted_edit_admin_glass_type GET    /admin/glass_types/:id/edit.:format               {:controller=>"admin/glass_types", :action=>"edit"}
+                       admin_glass_type GET    /admin/glass_types/:id                            {:controller=>"admin/glass_types", :action=>"show"}
+             formatted_admin_glass_type GET    /admin/glass_types/:id.:format                    {:controller=>"admin/glass_types", :action=>"show"}
+                                        PUT    /admin/glass_types/:id                            {:controller=>"admin/glass_types", :action=>"update"}
+                                        PUT    /admin/glass_types/:id.:format                    {:controller=>"admin/glass_types", :action=>"update"}
+                                        DELETE /admin/glass_types/:id                            {:controller=>"admin/glass_types", :action=>"destroy"}
+                                        DELETE /admin/glass_types/:id.:format                    {:controller=>"admin/glass_types", :action=>"destroy"}
+                     admin_glass_colors GET    /admin/glass_colors                               {:controller=>"admin/glass_colors", :action=>"index"}
+           formatted_admin_glass_colors GET    /admin/glass_colors.:format                       {:controller=>"admin/glass_colors", :action=>"index"}
+                                        POST   /admin/glass_colors                               {:controller=>"admin/glass_colors", :action=>"create"}
+                                        POST   /admin/glass_colors.:format                       {:controller=>"admin/glass_colors", :action=>"create"}
+                  new_admin_glass_color GET    /admin/glass_colors/new                           {:controller=>"admin/glass_colors", :action=>"new"}
+        formatted_new_admin_glass_color GET    /admin/glass_colors/new.:format                   {:controller=>"admin/glass_colors", :action=>"new"}
+                 edit_admin_glass_color GET    /admin/glass_colors/:id/edit                      {:controller=>"admin/glass_colors", :action=>"edit"}
+       formatted_edit_admin_glass_color GET    /admin/glass_colors/:id/edit.:format              {:controller=>"admin/glass_colors", :action=>"edit"}
+                      admin_glass_color GET    /admin/glass_colors/:id                           {:controller=>"admin/glass_colors", :action=>"show"}
+            formatted_admin_glass_color GET    /admin/glass_colors/:id.:format                   {:controller=>"admin/glass_colors", :action=>"show"}
+                                        PUT    /admin/glass_colors/:id                           {:controller=>"admin/glass_colors", :action=>"update"}
+                                        PUT    /admin/glass_colors/:id.:format                   {:controller=>"admin/glass_colors", :action=>"update"}
+                                        DELETE /admin/glass_colors/:id                           {:controller=>"admin/glass_colors", :action=>"destroy"}
+                                        DELETE /admin/glass_colors/:id.:format                   {:controller=>"admin/glass_colors", :action=>"destroy"}
+                     admin_handle_types GET    /admin/handle_types                               {:controller=>"admin/handle_types", :action=>"index"}
+           formatted_admin_handle_types GET    /admin/handle_types.:format                       {:controller=>"admin/handle_types", :action=>"index"}
+                                        POST   /admin/handle_types                               {:controller=>"admin/handle_types", :action=>"create"}
+                                        POST   /admin/handle_types.:format                       {:controller=>"admin/handle_types", :action=>"create"}
+                  new_admin_handle_type GET    /admin/handle_types/new                           {:controller=>"admin/handle_types", :action=>"new"}
+        formatted_new_admin_handle_type GET    /admin/handle_types/new.:format                   {:controller=>"admin/handle_types", :action=>"new"}
+                 edit_admin_handle_type GET    /admin/handle_types/:id/edit                      {:controller=>"admin/handle_types", :action=>"edit"}
+       formatted_edit_admin_handle_type GET    /admin/handle_types/:id/edit.:format              {:controller=>"admin/handle_types", :action=>"edit"}
+                      admin_handle_type GET    /admin/handle_types/:id                           {:controller=>"admin/handle_types", :action=>"show"}
+            formatted_admin_handle_type GET    /admin/handle_types/:id.:format                   {:controller=>"admin/handle_types", :action=>"show"}
+                                        PUT    /admin/handle_types/:id                           {:controller=>"admin/handle_types", :action=>"update"}
+                                        PUT    /admin/handle_types/:id.:format                   {:controller=>"admin/handle_types", :action=>"update"}
+                                        DELETE /admin/handle_types/:id                           {:controller=>"admin/handle_types", :action=>"destroy"}
+                                        DELETE /admin/handle_types/:id.:format                   {:controller=>"admin/handle_types", :action=>"destroy"}
+                       admin_structures GET    /admin/structures                                 {:controller=>"admin/structures", :action=>"index"}
+             formatted_admin_structures GET    /admin/structures.:format                         {:controller=>"admin/structures", :action=>"index"}
+                                        POST   /admin/structures                                 {:controller=>"admin/structures", :action=>"create"}
+                                        POST   /admin/structures.:format                         {:controller=>"admin/structures", :action=>"create"}
+                    new_admin_structure GET    /admin/structures/new                             {:controller=>"admin/structures", :action=>"new"}
+          formatted_new_admin_structure GET    /admin/structures/new.:format                     {:controller=>"admin/structures", :action=>"new"}
+                   edit_admin_structure GET    /admin/structures/:id/edit                        {:controller=>"admin/structures", :action=>"edit"}
+         formatted_edit_admin_structure GET    /admin/structures/:id/edit.:format                {:controller=>"admin/structures", :action=>"edit"}
+                        admin_structure GET    /admin/structures/:id                             {:controller=>"admin/structures", :action=>"show"}
+              formatted_admin_structure GET    /admin/structures/:id.:format                     {:controller=>"admin/structures", :action=>"show"}
+                                        PUT    /admin/structures/:id                             {:controller=>"admin/structures", :action=>"update"}
+                                        PUT    /admin/structures/:id.:format                     {:controller=>"admin/structures", :action=>"update"}
+                                        DELETE /admin/structures/:id                             {:controller=>"admin/structures", :action=>"destroy"}
+                                        DELETE /admin/structures/:id.:format                     {:controller=>"admin/structures", :action=>"destroy"}
+                                               /:controller/:action/:id                          
+                                               /:controller/:action/:id.:format                  

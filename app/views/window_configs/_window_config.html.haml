@@ -4,7 +4,7 @@
   %br
   %h4 Features:
   - for wf in wc.window_features
-    = wf.long_name
+    = wf.to_s
     %br
 %p
   %h4 Configuration:
@@ -25,4 +25,5 @@
   = wc.handle_type.name
   %br
   %strong Cost Approximation:
-  = wc.cost
+  = wc.cost rescue "No price yet"
+%br

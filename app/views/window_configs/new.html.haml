@@ -7,17 +7,17 @@
     - for id_f in session[:wconf]
       - feature = WindowFeature.find(id_f)
       #chosen_features
-      = feature.long_name
+      = feature.to_s
   #feature_select
     - unless @features.size==0
       %ul
         Possible choices:
         - @features.each do |fr|
           %li
-            = fr.long_name
+            = fr.to_s
             = fr.description
       Choice:
-      = collection_select :feature,:id,@features,:id,:long_name if @features.size>0
+      = collection_select :feature,:id,@features,:id,:to_s if @features.size>0
   %br
   = submit_tag 'Next' if @features.size > 0
 - if (@features.size==0)

@@ -4,4 +4,5 @@ module WindowConfigsHelper
     gt = model.possible_glass_types
     gt.collect { |c| [c.name ||= "No name found", c.id] }
   end
+
 end

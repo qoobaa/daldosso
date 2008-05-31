@@ -2,10 +2,15 @@ class WindowConfigsController < ApplicationController
 
   def index
     @isCustomer = false
+    @order = Order.find(params[:order_id]) if params[:order_id]
     if (current_user!=nil && current_user.type==Customer)
       @isCustomer = true
       @customer = Customer.find(current_user.id)
-      @winconfigs = @customer.window_configs
+      if (@order)
+        @winconfigs = @order.window_configs
+      else
+        @winconfigs = @customer.config_templates
+      end
     else
       @winconfigs = []
     end
@@ -52,9 +57,6 @@ class WindowConfigsController < ApplicationController
     features_ids.each{|id| @winconfig.window_features << WindowFeature.find(id)}
     @winconfig.customer = current_user if current_user# set user who creates
 
-    # cost calculation
-    @winconfig.cost = cost_calculation(features_ids)
-
     isSaved = @winconfig.save if (current_user)
     @msg = "Succesfully saved"
     @msg = "Error " unless (isSaved)
@@ -70,12 +72,41 @@ class WindowConfigsController < ApplicationController
 
   def show
     @winconfig = WindowConfig.find(params[:id])
+    @order = @winconfig.order_item.order if @winconfig.order_item
     redirect_to window_configs_path unless @winconfig.customer.id == current_user.id
+  end
+
+  def edit
+    @winconfig = WindowConfig.find(params[:id])
+    @model_id = @winconfig.window_features[0].id
+    @order = @winconfig.order_item.order if @winconfig.order_item
+    unless @order || @order.is_saved?
+      flash[:notice] = "Cannot edit window configuration related to order that already is sent"
+      redirect_to order_window_config_path(@order.id,@winconfig)
+    end
+  end
+
+  def update
+    @winconfig = WindowConfig.find(params[:id])
+    if @winconfig.update_attributes(params[:window_config])
+      flash[:notice] = "Updated"
+      redirect_to @winconfig
+    else
+      flash[:notice] = "Error"
+      redirect_to window_configs_path
+    end
   end
 
   def destroy
     @winconfig = WindowConfig.find(params[:id])
-    @winconfig.destroy if @winconfig.order_items.size==0
-    redirect_to window_configs_path
+    @order = @winconfig.order_item.order if @winconfig.order_item
+    if (@order)
+      @winconfig.order_item.destroy
+      @winconfig.destroy
+      redirect_to order_window_configs_path(@order)
+    else
+      @winconfig.destroy
+      redirect_to window_configs_path
+    end
   end
 end

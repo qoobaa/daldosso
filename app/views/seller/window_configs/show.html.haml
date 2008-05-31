@@ -1,5 +1,4 @@
 %h1= "Details of Window Config"
 = error_messages_for :window_config
-= render :partial => 'admin/window_configs/window_config', :object => @window_config
-|
-= link_to 'Back', admin_window_configs_path
+= render :partial => 'window_config', :object => @window_config
+

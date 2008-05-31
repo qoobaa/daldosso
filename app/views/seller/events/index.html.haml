@@ -14,4 +14,7 @@
       %h2 Due events
       = render :partial => 'event', :collection => @due_events
 
-= link_to 'New', new_seller_event_path
+%p
+  = link_to 'New', new_seller_event_path
+%p
+  = link_to 'Back to tasks', seller_root_path
