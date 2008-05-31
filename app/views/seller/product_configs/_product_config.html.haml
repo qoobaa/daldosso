@@ -13,12 +13,7 @@
 %p
   %strong Description:
   = h product_config.description
-%p
-  = link_to_if !product_config.order.nil? , 'View Order', seller_order_path(product_config.order)
-= link_to 'Show', seller_product_config_path(product_config)
-|
-= link_to 'Edit', edit_seller_product_config_path(product_config)
-|
-= link_to 'Destroy', seller_product_config_path(product_config), :confirm => 'Are you sure?', :method => :delete
 %br
+%p
+  = link_to_if !product_config.order.nil? , 'Back to Order', seller_order_path(product_config.order)
 %br

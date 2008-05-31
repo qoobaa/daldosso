@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    unless current_user
+    unless current_user && current_user.type.kind_of?(Customer)
       flash[:notice] = "You need to be logged in to create order"
       redirect_to orders_url
     end

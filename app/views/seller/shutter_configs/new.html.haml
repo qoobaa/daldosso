@@ -1,8 +1,10 @@
 %h1= "Create new Shutter Config"
 = error_messages_for :shutter_config
 
-- form_for([:seller, @shutter_config]) do |f|
+- form_for([@order, @shutter_config], :url => seller_order_shutter_config_path(@order, @shutter_config)) do |f|
   = render :partial => 'form', :locals => { :f => f }
   = submit_tag 'Create Shutter Config'
-
-= link_to 'Back to list', seller_shutter_configs_path
+%br
+= link_to 'Back to Order', seller_order_path(@order)
+|
+= link_to 'Back to Orders list', seller_orders_path

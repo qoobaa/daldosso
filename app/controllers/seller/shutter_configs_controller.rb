@@ -24,30 +24,31 @@ class Seller::ShutterConfigsController < ApplicationController
     @item.save
 
     if @shutter_config.errors.empty?
-      redirect_to seller_shutter_config_path(@shutter_config)
+      redirect_to seller_order_path(@order)
       flash[:notice] = "Created shutter config"
     else
+      flash[:error] = "Couldn't save this shutter config"
       render :action => 'new'
     end
   end
 
   def update
-    @shutter_config = ShutterConfig.find(params[:id])
+    @shutter_config = @order.shutter_configs.find(params[:id])
 
     if @shutter_config.update_attributes(params[:shutter_config])
       flash[:notice] = 'ShutterConfig was successfully updated.'
-      redirect_to seller_shutter_config_path(@shutter_config)
+      redirect_to seller_order_path(@order)
     else
       render :action => 'edit'
     end
   end
 
   def show
-    @shutter_config = ShutterConfig.find(params[:id])
+    @shutter_config = @order.shutter_configs.find(params[:id])
   end
 
   def destroy
-    @shutter_config = ShutterConfig.find(params[:id])
+    @shutter_config = @order.shutter_configs.find(params[:id])
     @shutter_config.destroy
     redirect_to(:back)
   end
