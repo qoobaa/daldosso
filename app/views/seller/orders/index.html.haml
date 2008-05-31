@@ -1,4 +1,6 @@
 %h1 Listing Orders
+%p
+  = link_to 'Create new Order', new_seller_order_path
 %hr
 %h2= "My Orders (#{@curent_user_orders.size rescue 0}):"
 %p
