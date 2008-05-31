@@ -1,5 +1,10 @@
 %h1 Listing window features
 
+- form_tag window_features_path, :method=>'get' do
+  %p
+    = text_field_tag :search, params[:search]
+    = submit_tag :search, :name => nil
+
 %table
   %th Name
   %th Description

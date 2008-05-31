@@ -25,4 +25,11 @@ class WindowFeature < ActiveRecord::Base
      WindowFeature.find_all_by_type(type.to_s).collect { |c| [c.name ||= "No name found", c.id] }
   end
 
+  def self.search(search)
+    if search
+      find(:all, :conditions=>['name LIKE ? AND ( type LIKE ? OR type LIKE ? OR type LIKE ? )',"%#{search}%",'Wood','Model','Typology'])
+    else
+      find(:all, :conditions=>['type LIKE ? OR type LIKE ? OR type LIKE ?','Wood','Model','Typology'], :order => 'type')
+    end
+  end
 end

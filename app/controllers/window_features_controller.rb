@@ -1,7 +1,7 @@
 class WindowFeaturesController < ApplicationController
 
   def index
-    @short_window_features = WindowFeature.find(:all, :conditions=>['type LIKE ? OR type LIKE ? OR type LIKE ?','Wood','Model','Typology'], :order => 'type')
+    @short_window_features = WindowFeature.search(params[:search])
   end
 
   def show

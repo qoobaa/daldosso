@@ -2,7 +2,7 @@ class AdditionalFeaturesController < ApplicationController
   
 
   def index
-    @short_additional_features = AdditionalFeature.find(:all)
+    @short_additional_features = AdditionalFeature.search(params[:search])
   end
 
   def show
