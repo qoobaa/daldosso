@@ -42,12 +42,7 @@ class Seller::ShutterConfigsController < ApplicationController
 
   def destroy
     @shutter_config = ShutterConfig.find(params[:id])
-    if @shutter_config.order_items.empty?
-      @shutter_config.destroy
-      redirect_to(seller_shutter_configs_url)
-    else
-      flash[:notice] = 'This shutter config has been assigned to some orders!'
-      redirect_to seller_shutter_config_path(@shutter_config)
-    end
+    @shutter_config.destroy
+    redirect_to(:back)
   end
 end

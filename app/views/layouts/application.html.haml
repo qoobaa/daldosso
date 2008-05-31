@@ -4,7 +4,7 @@
     %title Dal Dosso
     =stylesheet_link_tag "style_1.css"
   %body
-    #wrap 
+    #wrap
       #top
       #content
         .header
@@ -17,15 +17,21 @@
               %td{:align=>"right"}
                 =image_tag("/images/logo.gif", :size => "50x50", :border => 0)
         .breadcrumbs
-          =link_to "Home", :controller=>"home" 
-          &middot 
+          =link_to "Home", :controller=>"home"
+          &middot
           - if logged_in?
+            =current_user_home
+            &middot
             =link_to "Log-out", logout_path
-        .middle		
+          - else
+            =link_to "Log-in", login_path
+        .middle
           %h2
             =@title
           %br
-          =yield		
+          =flash[:error]
+          =flash[:notice]
+          =yield
         .right
           %h2 Navigation
           %ul

@@ -3,7 +3,11 @@ class Seller::OrdersController < ApplicationController
 
   def index
     @orders = Order.find(:all)
-    @curent_user_orders = current_user.orders.find(:all)
+    if current_user.kind_of?(Admin) || current_user.kind_of?(ProductionManager)
+      @curent_user_orders = []
+    else
+      @curent_user_orders = current_user.orders.find(:all)
+    end
     @requested_orders = Order.find_requested
   end
 
@@ -29,7 +33,10 @@ class Seller::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-
+    @order.order_items.each do |item|
+      item.quantity = params[:order_item][:quantity][item.id.to_s].to_i if params[:order_item][:quantity].has_key?(item.id.to_s)
+      item.save
+    end
     if @order.update_attributes(params[:order])
       flash[:notice] = 'Order was successfully updated.'
       redirect_to seller_order_path(@order)
@@ -43,6 +50,9 @@ class Seller::OrdersController < ApplicationController
   end
 
   def destroy
+    @order.order_items.each do |order_item|
+      order_item.destroy
+    end
     @order = Order.find(params[:id])
     @order.destroy
     redirect_to(seller_orders_url)

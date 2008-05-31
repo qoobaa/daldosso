@@ -1,9 +1,9 @@
 %h1 Listing Orders
 %hr
-%h2 My Orders
+%h2= "My Orders (#{@curent_user_orders.size rescue 0}):"
 %p
-  = render :partial  => 'order', :collection => @curent_user_orders
+  = render :partial  => 'order', :collection => @curent_user_orders, :locals => { :view => 'index' }
 %hr
-%h2 Requested Orders
+%h2= "Requested Orders (#{@requested_orders.size}):"
 %p
-  = render :partial  => 'order', :collection => @requested_orders
+  = render :partial  => 'order', :collection => @requested_orders, :locals => { :view => 'index' }

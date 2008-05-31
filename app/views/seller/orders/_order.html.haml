@@ -1,22 +1,35 @@
 %p
   %strong ID:
-  = h order.id rescue "No ID?"
+  = h order.id rescue "[No ID]"
 %p
   %strong Order Items:
-  %ul
+  %br
   - order.order_items.each do |order_item|
-    %li
-      = h order_item.name rescue "no description for this order item yet!"
+    = h "[#{order_item.item_type[0..2]}]" rescue "[Unknown]"
+    = order_item_link(order_item, :show, view)
+    = "(#{order_item.quantity})"
+    %br
 %p
   %strong Customer:
-  = h order.customer.name rescue "No Customer assign !"
+  = h order.customer.name rescue "[No Customer assign]"
 %p
   %strong Employee:
-  = h order.seller.name rescue "No Seller assigned !"
+  = h order.seller.name rescue "[No Seller assigned]"
 %p
   %strong Status:
-  = h order.order_status.name rescue "No Status selected !"
+  = h order.order_status.name rescue "[No Status selected]"
+%br
+%p
+  Add new item to this order:
+  %br
+  = link_to 'Window', new_seller_order_window_config_path(order)
+  |
+  = link_to 'Product', new_seller_order_product_config_path(order)
+  |
+  = link_to 'Shutter', new_seller_order_shutter_config_path(order)
 %br
 = link_to 'Show', seller_order_path(order)
 |
 = link_to 'Edit', edit_seller_order_path(order)
+%br
+%br

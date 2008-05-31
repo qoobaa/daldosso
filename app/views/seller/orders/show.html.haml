@@ -1,7 +1,8 @@
 %h1 Details of Order
-
-= error_messages_for :order
-
-= render :partial => 'order', :object => @order
-|
-= link_to 'Back', seller_orders_path
+%br
+%p
+  = error_messages_for :order
+%p
+  = render :partial => 'order', :object => @order, :locals => { :view => 'show' }
+%p
+  = link_to 'Back to list', seller_orders_path

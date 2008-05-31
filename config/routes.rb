@@ -13,10 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :shutter_types
   map.resources :shutter_configs
 
-  map.resources :orders do |order|
-    order.resources :window_configs, :through => :order_items
-  end
-
+  map.root :controller => 'site'
   map.resource :user, :controller => 'user', :member => { :change_password => :get, :change_password_update => :put }
   map.resource :session, :controller => 'session'
 
@@ -27,8 +24,8 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :seller do |seller|
     seller.root :controller => 'panel'
     seller.resources :events
-    seller.resources :orders
-    seller.resources :order_items
+    seller.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs]
+
     seller.resources :customers
     seller.resources :window_configs
     seller.resources :product_configs

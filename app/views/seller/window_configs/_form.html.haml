@@ -1,44 +1,48 @@
+%p
+  Part of order:
+  = @window_config.order.name rescue "[No Order]"
+%br
+%p
+  = f.label :name
+  = f.text_field :name
+%br
 - WindowFeature.types.each do |type|
-  %strong
-    = type
+  = type
   = select_tag 'window_config[window_feature_ids][]', window_features_for_select(type, @window_config.window_features.find_by_type(type))
   %br
-%hr
-
+%br
 %p
-  %strong Glass Type:
+  = f.label :glass_type_id
   = f.select :glass_type_id, select_options_for(GlassType), :include_blank => :true
 %p
-  %strong Glass Color:
+  = f.label :glass_color_id
   = f.select :glass_color_id, select_options_for(GlassColor), :include_blank => :true
 %p
-  %strong Handle Type:
+  = f.label :handle_type_id
   = f.select :handle_type_id, select_options_for(HandleType), :include_blank => :true
 %p
-  %strong Sash and Structure Type:
+  Structure and sashes number
   = f.select :sash_structure_id, select_options_for(SashStructure), :include_blank => :true
 %p
-  %strong Height:
+  = f.label :height
   = f.text_field :height
 %p
-  %strong Width:
+  = f.label :width
   = f.text_field :width
 %p
-  %strong Cover joint int:
+  = f.label :cover_joint_int
   = f.text_field :cover_joint_int
 %p
-  %strong Cover joint ext:
+  = f.label :cover_joint_ext
   = f.text_field :cover_joint_ext
 %p
-  %strong Medium Rail height:
+  Medium rail height
   = f.text_field :height_medium_rail
 %p
-  %strong Window Cost:
+  = f.label :cost
   = f.text_field :cost
 %p
-  %strong Additional information:
+  Additional information (quality):
   = f.text_field :finish_quality
-%hr
-%p
-  %strong User
-  = f.select :customer_id, select_options_for(Customer), :include_blank => :true
+%br
+%br
