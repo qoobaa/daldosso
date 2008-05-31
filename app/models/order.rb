@@ -12,9 +12,9 @@ class Order < ActiveRecord::Base
   validates_associated :order_items, :on => :update
   # return estimated cost of all order items related with order
   def estimated_price
-    cost = 0
-    order_items.each{|item| cost+= item.cost}
-    return cost
+    price = 0
+    order_items.each{|item| price+= item.price}
+    return price
   end
 
   def name
@@ -22,11 +22,11 @@ class Order < ActiveRecord::Base
   end
 
   def is_saved?
-    order_status.name=="SAVED"
+    order_status==OrderStatus.saved
   end
 
   def is_requested?
-    orders_status.name=="REQUESTED"
+    orders_status==OrderStatus.requested
   end
 
   def self.find_requested

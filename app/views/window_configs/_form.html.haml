@@ -20,3 +20,7 @@
 %p
   = ff.label :glass_color
   = ff.select :glass_color_id,select_options_for(GlassColor)
+%p
+  Medium rail height
+  = ff.text_field :height_medium_rail
+  (0 == without rail)

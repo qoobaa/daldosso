@@ -7,8 +7,8 @@ class OrderItem < ActiveRecord::Base
   validates_numericality_of :quantity, :greater_than => 0
 
   # returns item cost
-  def cost
-    return quantity * item.cost
+  def price
+    return quantity * cost
   end
 
   def name

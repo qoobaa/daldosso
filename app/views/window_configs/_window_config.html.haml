@@ -1,6 +1,6 @@
 %p
-  ID:
-  = wc.id
+  Name:
+  = wc.name
   %br
   %h4 Features:
   - for wf in wc.window_features
@@ -23,7 +23,14 @@
   = wc.glass_color.name
   %strong Handle Type:
   = wc.handle_type.name
+  - if wc.with_medium_rail?
+    %strong Medium rail height:
+    = wc.height_medium_rail
   %br
   %strong Cost Approximation:
+<<<<<<< HEAD:app/views/window_configs/_window_config.html.haml
   = wc.cost rescue "No price yet"
 %br
+=======
+  = wc.estimated_price
+>>>>>>> eafd7a84925a53e62ef95bca832820d8d27d74fe:app/views/window_configs/_window_config.html.haml
