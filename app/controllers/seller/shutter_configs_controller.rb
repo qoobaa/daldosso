@@ -1,8 +1,12 @@
 class Seller::ShutterConfigsController < ApplicationController
-  before_filter :seller_required
+  before_filter :seller_required, :get_order
+
+  def get_order
+    @order = Order.find(params[:order_id]) unless params[:order_id].nil?
+  end
 
   def index
-    @shutter_configs = ShutterConfig.find(:all)
+    @shutter_configs = @order.shutter_configs.find(:all)
   end
 
   def new
@@ -10,13 +14,15 @@ class Seller::ShutterConfigsController < ApplicationController
   end
 
   def edit
-    @shutter_config = ShutterConfig.find(params[:id])
+    @shutter_config = @order.shutter_configs.find(params[:id])
   end
 
   def create
     @shutter_config = ShutterConfig.new(params[:shutter_config])
-
     @shutter_config.save
+    @item = OrderItem.new(:item => @shutter_config, :order => @order)
+    @item.save
+
     if @shutter_config.errors.empty?
       redirect_to seller_shutter_config_path(@shutter_config)
       flash[:notice] = "Created shutter config"

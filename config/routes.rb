@@ -32,9 +32,6 @@ ActionController::Routing::Routes.draw do |map|
     seller.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs]
 
     seller.resources :customers
-    seller.resources :window_configs
-    seller.resources :product_configs
-    seller.resources :shutter_configs
     seller.resources :calls
   end
 

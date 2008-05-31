@@ -1,5 +1,9 @@
 class Seller::ProductConfigsController < ApplicationController
-  before_filter :seller_required
+  before_filter :seller_required, :get_order
+
+  def get_order
+    @order = Order.find(params[:order_id]) unless params[:order_id].nil?
+  end
 
   def index
     @product_configs = ProductConfig.find(:all)
