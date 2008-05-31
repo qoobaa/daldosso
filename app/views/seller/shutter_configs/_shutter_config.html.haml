@@ -22,12 +22,7 @@
 %p
   %strong Description:
   = h shutter_config.description
-%p
-  = link_to_if !shutter_config.order.nil? , 'View Order', seller_order_path(shutter_config.order)
-= link_to 'Show', seller_shutter_config_path(shutter_config)
-|
-= link_to 'Edit', edit_seller_shutter_config_path(shutter_config)
-|
-= link_to 'Destroy', seller_shutter_config_path(shutter_config), :confirm => 'Are you sure?', :method => :delete
 %br
+%p
+  = link_to_if !shutter_config.order.nil? , 'Back to Order', seller_order_path(shutter_config.order)
 %br

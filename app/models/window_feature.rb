@@ -34,12 +34,13 @@ class WindowFeature < ActiveRecord::Base
     stat = {} # hash for statistics
 
     configs.each do |c|
-    features = c.window_features.reject{|f| ids.include?(f.id.to_s)}
-    features = features.find_all{|f| after_features.include?(f)}
-    if features
-      features.each do |f|
-        stat[f] = 0 unless stat[f]
-        stat[f] += 1
+      features = c.window_features.reject{|f| ids.include?(f.id.to_s)}
+      features = features.find_all{|f| after_features.include?(f)}
+      if features
+        features.each do |f|
+          stat[f] = 0 unless stat[f]
+          stat[f] += 1
+        end
       end
     end
   end

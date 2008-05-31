@@ -25,5 +25,5 @@
   = f.text_field :percentual_discount
 %p
   %strong Employee:
-  = f.select :seller_id, select_options_for(Seller)
+  = f.select :seller_id, [[current_user.name, current_user.id]]
 %br
