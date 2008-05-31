@@ -10,16 +10,20 @@ module Seller::EventsHelper
 
   def events_calendar(date, events)
     calendar :month => date.month,
-             :year => date.year, 
-             :previous_month_text => link_to_date('<', date << 1),
-             :next_month_text => link_to_date('>', date >> 1) do |d|
-      has_event = false
-      events.each { |e| has_event = true if e.added_date.to_date == d || e.due_date.to_date == d }
-      if has_event
-        [link_to_date(d.day, d), { :class => 'hasEvent' }]
-      else
-        [link_to_date(d.day, d), { :class => 'noEvent' }]
-      end
+             :year => date.year,
+             :first_day_of_week => 1,
+             :previous_month_text => link_to_date('&lt;', date << 1),
+             :next_month_text => link_to_date('&gt;', date >> 1) do |d|
+
+      css_class = ''
+
+      # change to 'hasEvent' class if day has an event
+      events.each { |e| css_class = 'hasEvent' if e.added_date.to_date == d || e.due_date.to_date == d }
+
+      # add 'activeDay' class if day is the current day
+      css_class += ' activeDay' if date == d
+
+      [link_to_date(d.day, d), { :class => css_class }]
     end
   end
 

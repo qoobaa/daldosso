@@ -1,22 +1,15 @@
 %p
-  %strong Due Date
-  = h event.due_date rescue "No date was selected"
-%p
-  %strong Added date
-  = h event.added_date rescue "No date was selected yet"
-%p
-  %strong Customer
-  = h event.order.customer.name rescue "No customer assigned yet"
-%p
-  %strong Employee
-  = h event.user.name rescue "No employee assigned yet"
-%p
-  %strong Order
-  = h event.order.name rescue "No order assigned yet"
-%p
-  %strong Event Type
-  = h event.event_type.name rescue "No event type assigned yet"
-%p
   %strong Description
-  = truncate event.description
-%br
+  = h event.description
+/%p
+/  %strong Added by
+/  = h event.user.name
+%p
+  %strong Order number
+  = event.order_id
+%p
+  %strong Added on
+  = event.added_date
+%p
+  %strong Due on
+  = event.due_date
