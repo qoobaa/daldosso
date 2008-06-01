@@ -27,7 +27,7 @@ class WindowFeature < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions=>['name LIKE ? AND ( type LIKE ? OR type LIKE ? OR type LIKE ? )',"%#{search}%",'Wood','Model','Typology'])
+      find(:all, :conditions=>['( name LIKE ?  OR description LIKE ? ) AND ( type LIKE ? OR type LIKE ? OR type LIKE ? )',"%#{search}%","%#{search}%",'Wood','Model','Typology'])
     else
       find(:all, :conditions=>['type LIKE ? OR type LIKE ? OR type LIKE ?','Wood','Model','Typology'], :order => 'type')
     end

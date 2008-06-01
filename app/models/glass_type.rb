@@ -7,7 +7,7 @@ class GlassType < ActiveRecord::Base
   
   def self.search(search)
     if search
-      find(:all, :conditions=>['name LIKE ?',"%#{search}%"])
+      find(:all, :conditions=>['name LIKE ? OR description LIKE ?',"%#{search}%","%#{search}%"])
     else
       find(:all)
     end
