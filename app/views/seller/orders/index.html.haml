@@ -2,13 +2,12 @@
 %p
   = link_to 'Create new Order', new_seller_order_path
   |
+  = link_to 'Show Requested Orders', seller_requested_path
+  |
   = link_to 'Back to tasks', seller_root_path
 %hr
-%hr
-%h2= "My Orders (#{@curent_user_orders.size rescue 0}):"
+%h2= "My Orders:"
 %p
+  = will_paginate @curent_user_orders
   = render :partial  => 'order', :collection => @curent_user_orders, :locals => { :view => 'index' }
-%hr
-%h2= "Requested Orders (#{@requested_orders.size}):"
-%p
-  = render :partial  => 'order', :collection => @requested_orders, :locals => { :view => 'index' }
+  = will_paginate @curent_user_orders

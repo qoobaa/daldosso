@@ -29,8 +29,8 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :seller do |seller|
     seller.root :controller => 'panel'
     seller.resources :events
+    seller.requested '/orders/requested_index', :controller => 'seller/orders', :action => 'requested_index'
     seller.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs]
-
     seller.resources :customers
     seller.resources :calls
   end

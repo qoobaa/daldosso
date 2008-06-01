@@ -1,6 +1,6 @@
 %p
   Part of order:
-  = @product_config.order.name rescue "[No Order]"
+  = @order.name rescue "[No Order]"
 %br
 %p
   = f.label :name
@@ -9,8 +9,8 @@
   = f.label :product_id
   = f.select :product_id, select_options_for(Product)
 %p
-  = f.label :window_config_id
-  = f.select :window_config_id, select_options_for(WindowConfig), :include_blank => :true
+  Chose associated window configuration from the same order:
+  = f.select :window_config_id, @order.window_configs.uniq.map{|w| [w.name, w.id]}, :include_blank => :true
 %p
   = f.label :description
   = f.text_area :description

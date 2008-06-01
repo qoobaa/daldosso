@@ -2,13 +2,19 @@ class Seller::OrdersController < ApplicationController
        before_filter :seller_required
 
   def index
-    @orders = Order.find(:all)
+    @curent_user_orders = []
     if current_user.kind_of?(Admin) || current_user.kind_of?(ProductionManager)
-      @curent_user_orders = []
+      flash[:error] = "You don't have any orders assigned !"
     else
-      @curent_user_orders = current_user.orders.find(:all)
+      @curent_user_orders = current_user.orders.paginate :page => params[:page]
     end
-    @requested_orders = Order.find_requested
+  end
+
+  def requested_index
+    @requested_orders = []
+    if current_user.kind_of?(Seller)
+      @requested_orders = Order.find_requested.paginate :page => params[:page]
+    end
   end
 
   def new

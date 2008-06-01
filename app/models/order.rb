@@ -36,4 +36,8 @@ class Order < ActiveRecord::Base
   def same_type_orders
     OrderStatus.find_by_name(order_status.name || "").orders || []
   end
+
+  def self.per_page
+    10
+  end
 end

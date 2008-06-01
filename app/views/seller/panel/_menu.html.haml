@@ -1,0 +1,8 @@
+%h1
+  = link_to 'Seller Panel', seller_root_path
+%hr
+%h4
+  = h current_user.name rescue "Seller not logged in !"
+  |
+  = link_to 'Edit Profile', user_path
+%br

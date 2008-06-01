@@ -1,0 +1,27 @@
+%br
+%p
+  %strong Name
+  =h customer.name
+%p
+  %strong Login
+  =h customer.login
+%p
+  %strong E-mail
+  = mail_to customer.email
+%p
+  %strong Phone number
+  =h customer.phone_number
+%p
+  %strong Address
+  =h customer.address
+%p
+  %strong Type
+  =h customer.type
+%p
+  %strong Description
+  =h customer.description
+%p
+  = link_to 'Edit', edit_seller_customer_path(customer)
+  |
+  = link_to 'Destroy', seller_customer_path(customer), :confirm => 'Are you sure?', :method => :delete
+%br

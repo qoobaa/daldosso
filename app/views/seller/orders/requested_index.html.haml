@@ -1,0 +1,13 @@
+%h1 Listing Orders
+%p
+  = link_to 'Create new Order', new_seller_order_path
+  |
+  = link_to 'Show My Orders', seller_orders_path
+  |
+  = link_to 'Back to tasks', seller_root_path
+%hr
+%h2= "Requested Orders:"
+%p
+  = will_paginate @requested_orders
+  = render :partial  => 'order', :collection => @requested_orders, :locals => { :view => 'index' }
+  = will_paginate @requested_orders

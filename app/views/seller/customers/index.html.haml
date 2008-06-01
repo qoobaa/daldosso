@@ -1,0 +1,12 @@
+%h1= "Listing Customers"
+%br
+%p
+  = link_to 'Create new Customer', new_seller_customer_path
+  |
+  = link_to 'Back to Panel', seller_root_path
+%hr
+%br
+%p
+  = will_paginate @customers
+  = render :partial => 'customer', :collection => @customers
+  = will_paginate @customers
