@@ -4,7 +4,7 @@
   = events_calendar(@date, @month_events)
 
 %p
-  - if (@due_events + @added_events).empty?
+  - if @due_events.empty? and @added_events.empty?
     %h2 No events
   - else
     - unless @added_events.empty?
@@ -13,5 +13,8 @@
     - unless @due_events.empty?
       %h2 Due events
       = render :partial => 'event', :collection => @due_events
-%br
+
+%p
+  = link_to 'New', new_seller_event_path
+%p
   = link_to 'Back to tasks', seller_root_path
