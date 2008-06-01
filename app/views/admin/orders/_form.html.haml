@@ -4,10 +4,10 @@
   |
   = link_to 'Create new Customer', new_admin_user_path
 %p
-  %strong Employee:
-  = f.select :employee_id, select_options_for(User)
+  %strong Seller:
+  = f.select :seller_id, select_options_for(User)
   |
-  = link_to 'Create new Employee', new_admin_user_path
+  = link_to 'Create new Seller', new_admin_user_path
 %p
   %strong Order status:
   = f.select :order_status_id, select_options_for(OrderStatus)

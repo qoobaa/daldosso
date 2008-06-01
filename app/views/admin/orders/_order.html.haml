@@ -2,8 +2,12 @@
   %strong Customer:
   = order.customer.name if order.customer
 %p
-  %strong Employee:
-  = order.employee.name if order.employee
+  %strong Seller:
+  = order.seller.name if order.seller
 %p
   %strong Status:
   = order.order_status.name if order.order_status
+%p
+  = link_to 'Edit', edit_admin_order_path(order)
+  |
+  = link_to 'Destroy', admin_order_path(order), :confirm => 'Are you sure?', :method => :delete

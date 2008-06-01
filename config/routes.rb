@@ -30,21 +30,15 @@ ActionController::Routing::Routes.draw do |map|
     seller.root :controller => 'panel'
     seller.resources :events
     seller.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs]
-
     seller.resources :customers
     seller.resources :calls
   end
 
-  map.namespace :manager do |manager|
-    manager.root :controller => 'panel'
-    manager.resources :events
-    manager.resources :orders
-    manager.resources :order_items
-    manager.resources :customers
-    manager.resources :window_configs
-    manager.resources :product_configs
-    manager.resources :shutter_configs
-    manager.resources :calls
+  map.namespace :production_manager do |production_manager|
+    production_manager.root :controller => 'panel'
+    production_manager.resources :events
+    production_manager.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs]
+    production_manager.resources :customers
   end
 
   map.namespace :admin do |admin|

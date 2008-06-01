@@ -10,7 +10,7 @@ module ApplicationHelper
     when "Seller"
       link_to "Seller Panel", seller_root_path
     when "ProductionManager"
-      link_to "Manager Panel", manager_root_path
+      link_to "Manager Panel", production_manager_root_path
     when "Admin"
       link_to "Admin Panel", admin_root_path
     when "Customer"
