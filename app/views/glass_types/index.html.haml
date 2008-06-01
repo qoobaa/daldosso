@@ -10,5 +10,7 @@
   %th Description
   = render :partial => 'short_glass_type', :collection => @short_glass_types
 
+= will_paginate @short_glass_types
+
 %p
   = link_to "Back to Materials Page", materials_path

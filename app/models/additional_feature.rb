@@ -5,11 +5,15 @@ class AdditionalFeature < ActiveRecord::Base
   validates_presence_of :name
   validates_numericality_of :unit_price, :meter_price, :greater_or_equal_than => 0, :allow_nil => true
   
-  def self.search(search)
+  def self.search(search, page)
     if search
-      find(:all, :conditions=>['name LIKE ? OR description LIKE ?',"%#{search}%","%#{search}%"])
+      paginate(:all, :conditions=>['name LIKE ? OR description LIKE ?',"%#{search}%","%#{search}%"], :page => page)
     else
-      find(:all)
+      paginate :all, :page => page
     end
+  end
+  
+  def self.per_page
+    6
   end
 end

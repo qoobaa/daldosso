@@ -43,17 +43,21 @@ class WindowFeature < ActiveRecord::Base
         end
       end
     end
-  end
-
-  def self.search(search)
-    if search
-      find(:all, :conditions=>['( name LIKE ?  OR description LIKE ? ) AND ( type LIKE ? OR type LIKE ? OR type LIKE ? )',"%#{search}%","%#{search}%",'Wood','Model','Typology'])
-    else
-      find(:all, :conditions=>['type LIKE ? OR type LIKE ? OR type LIKE ?','Wood','Model','Typology'], :order => 'type')
-    end
-
     stat = stat.sort{|a,b| b[1] <=> a[1]} # sort descending
     stat.collect!{|f| f[0]} # array of recommended features
     return stat.slice(0..2) # 3 most chosen
   end
+
+  def self.search(search, page)
+    if search
+      paginate(:all, :conditions=>['( name LIKE ?  OR description LIKE ? ) AND ( type LIKE ? OR type LIKE ? OR type LIKE ? )',"%#{search}%","%#{search}%",'Wood','Model','Typology'], :page => page)
+    else
+      paginate(:all, :conditions=>['type LIKE ? OR type LIKE ? OR type LIKE ?','Wood','Model','Typology'], :order => 'type', :page => page)
+    end
+  end
+  
+  def self.per_page
+    6
+  end
+  
 end

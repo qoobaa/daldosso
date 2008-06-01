@@ -11,5 +11,7 @@
   %th Description
   = render :partial => 'short_additional_feature', :collection => @short_additional_features
 
+= will_paginate @short_additional_features
+
 %p
   = link_to "Back to Materials Page", materials_path
