@@ -1,7 +1,7 @@
 class Seller::CustomersController < ApplicationController
        before_filter :seller_required
   def index
-    @customers = Customer.paginate :page => params[:page], :per_page => 10
+    @customers = Customer.search(params[:search], params[:page])
   end
 
   def new

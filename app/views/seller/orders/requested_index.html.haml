@@ -9,5 +9,5 @@
 %h2= "Requested Orders:"
 %p
   = will_paginate @requested_orders
-  = render :partial  => 'order', :collection => @requested_orders, :locals => { :view => 'index' }
+  = render :partial  => 'order', :collection => @requested_orders, :locals => { :view => 'requested' }
   = will_paginate @requested_orders

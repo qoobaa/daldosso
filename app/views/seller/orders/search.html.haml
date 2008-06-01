@@ -1,0 +1,7 @@
+%h2= "Search Results:"
+%p
+  - if !@orders.nil?
+    = will_paginate @orders
+    = render :partial  => 'order', :collection => @orders, :locals => { :view => 'search' }
+  - else
+    No results ! Sorry !

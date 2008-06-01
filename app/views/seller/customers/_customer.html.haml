@@ -20,7 +20,19 @@
 %p
   %strong Description
   =h customer.description
+- if view == 'show'
+  %br
+  %p
+    Orders:
+    %br
+    - customer.orders.each do |order|
+      %small= link_to order.name, seller_order_path(order)
+      %br
+  %br
 %p
+  - if view == 'index'
+    = link_to 'Show', seller_customer_path(customer)
+    |
   = link_to 'Edit', edit_seller_customer_path(customer)
   |
   = link_to 'Destroy', seller_customer_path(customer), :confirm => 'Are you sure?', :method => :delete

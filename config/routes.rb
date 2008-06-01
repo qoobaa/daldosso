@@ -72,10 +72,6 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :shutter_configs
   end
 
-  map.namespace :seller do |seller|
-    seller.resources :events
-  end
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

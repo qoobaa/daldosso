@@ -44,7 +44,7 @@ class Seller::WindowConfigsController < ApplicationController
   end
 
   def show
-    @window_config = @order.window_configs.find(params[:id])
+    @window_config = @order.window_configs.find(params[:id]) rescue nil
   end
 
   def destroy
