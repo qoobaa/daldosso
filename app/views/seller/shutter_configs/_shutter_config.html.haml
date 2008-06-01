@@ -1,12 +1,12 @@
 %p
   %strong Name of this configuration:
-  = h shutter_config.name rescue "No name"
+  = h shutter_config.name rescue "[No name]"
 %p
   %strong Window Config:
-  = h shutter_config.window_config.name rescue "No window config assigned yet"
+  = h shutter_config.window_config.name rescue "[No window config assigned]"
 %p
   %strong Shutter Type:
-  = h shutter_config.shutter_type.name rescue "No type selected yet"
+  = h shutter_config.shutter_type.name rescue "[No type chosen]"
 %p
   %strong Width:
   = h shutter_config.width
@@ -22,7 +22,7 @@
 %p
   %strong Description:
   = h shutter_config.description
-= link_to 'Edit', edit_seller_shutter_config_path(shutter_config)
-|
-= link_to 'Destroy', seller_shutter_config_path(shutter_config), :confirm => 'Are you sure?', :method => :delete
+%br
+%p
+  = link_to_if !shutter_config.order.nil? , 'Back to Order', seller_order_path(shutter_config.order)
 %br

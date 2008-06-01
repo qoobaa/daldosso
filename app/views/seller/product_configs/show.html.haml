@@ -1,5 +1,3 @@
 %h1= "Details of Product Config"
 = error_messages_for :product_config
-= render :partial => 'seller/product_configs/product_config', :object => @product_config
-|
-= link_to 'Back', seller_product_configs_path
+= render :partial => 'product_config', :object => @product_config

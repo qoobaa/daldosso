@@ -13,4 +13,5 @@
     - unless @due_events.empty?
       %h2 Due events
       = render :partial => 'event', :collection => @due_events
-
+%br
+  = link_to 'Back to tasks', seller_root_path

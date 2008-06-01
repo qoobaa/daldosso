@@ -1,5 +1,4 @@
 class AdditionalFeaturesController < ApplicationController
-  
 
   def index
     @short_additional_features = AdditionalFeature.search(params[:search])

@@ -5,4 +5,16 @@ class SashStructure < ActiveRecord::Base
   def name
     "#{structure.name} with #{sashes_number} sashes"
   end
+
+  def code
+    structure.name
+  end
+
+  def self.code_f
+    "F"
+  end
+
+  def self.code_pf
+    "PF"
+  end
 end

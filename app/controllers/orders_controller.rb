@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    unless current_user
+    unless current_user || !current_user.type.kind_of?(Customer)
       flash[:notice] = "You need to be logged in to create order"
       redirect_to orders_url
     end
@@ -24,15 +24,17 @@ class OrdersController < ApplicationController
     @order = Order.new(params[:order])
     configs = params[:winconf]
     quantities = params[:quantities]
-    configs[:ids].each do |id|
-      o = OrderItem.new
-      o.quantity = quantities[:ids][id]
-      c = WindowConfig.find(id).copy_constructor
-      c.save
-      o.item = c
-      @order.order_items << o
+    if (configs)
+      configs[:ids].each do |id|
+        o = OrderItem.new
+        o.quantity = quantities[:ids][id]
+        c = WindowConfig.find(id).copy_constructor
+        o.cost = c.estimated_price
+        o.item = c
+        @order.order_items << o
+      end
     end
-    @order.order_status = OrderStatus.find(:first)
+    @order.order_status = OrderStatus.saved
     @order.customer = current_user
     isSaved = @order.save if current_user
     if (isSaved)
@@ -61,19 +63,21 @@ class OrdersController < ApplicationController
     configs = params[:winconf] # winconfigs checked on form
     quantities2 = params[:quantities2] # quantities of winconfigs
 
-    order_items_to_delete = []
-
     #deleting unchecked items
-    if (items) # if any checked
-      order_items_to_delete = @order.order_items #items to delete
-      item_ids = items[:ids] #ids of all checked
-      order_items_to_delete.delete_if {|item| item_ids.include?(item.id.to_s)}
-      #if checked remove from list to delete
-    end
+    unless (params[:show])
+      order_items_to_delete = @order.order_items
 
-    order_items_to_delete.each do |item|
-      item.item.destroy #destroy configuration
-      item.destroy #destroy item
+      #deleting unchecked items
+      if (items)
+        item_ids = items[:ids] #ids of all checked
+        order_items_to_delete.delete_if {|item| item_ids.include?(item.id.to_s)}
+      #if checked remove from list to delete
+      end
+
+      order_items_to_delete.each do |item|
+        item.item.destroy #destroy configuration
+        item.destroy #destroy item
+        end
     end
 
     @order = Order.find(params[:id])
@@ -114,7 +118,6 @@ class OrdersController < ApplicationController
       flash[:notice] = "Error during update"
       redirect_to :action => 'index'
     end
-
   end
 
   def destroy

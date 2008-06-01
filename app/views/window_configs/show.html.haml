@@ -1,4 +1,4 @@
-= @msg
+= error_messages_for :window_config, :object => @winconfig
 %h3 Created configuration of window
 %h4 Window Features:
 - @winconfig.window_features.each do |fc|
@@ -20,11 +20,15 @@
 %p
   %strong Handle Type:
   = @winconfig.handle_type.name
-
+- if @winconfig.with_medium_rail?
+  %p
+    %strong Medium rail:
+    = @winconfig.height_medium_rail
 %p
   %strong Cost approximation:
-  = @winconfig.cost
-= link_to 'New',new_window_config_path
+  = @winconfig.estimated_price rescue 0
+= link_to 'Edit',edit_window_config_path(@winconfig) unless @order
+= link_to 'Edit',edit_order_window_config_path(@order.id,@winconfig.id) if (@order && @order.is_saved?)
 |
-= link_to 'Back',order_window_configs_path(@order) if @order
+= link_to 'Back',@order if @order
 = link_to 'Back',window_configs_path unless @order

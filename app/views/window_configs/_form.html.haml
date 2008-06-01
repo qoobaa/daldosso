@@ -1,5 +1,8 @@
 %h4 Configuration:
 %p
+  = ff.label :name
+  = ff.text_field :name
+%p
   = ff.label :sash_structure
   = ff.select :sash_structure_id,select_options_for(SashStructure)
 %p
@@ -17,3 +20,7 @@
 %p
   = ff.label :glass_color
   = ff.select :glass_color_id,select_options_for(GlassColor)
+%p
+  Medium rail height
+  = ff.text_field :height_medium_rail
+  (0 == without rail)

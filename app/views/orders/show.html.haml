@@ -1,3 +1,4 @@
+= session[:msg]
 = render :partial => 'order', :locals => { :o => @order}
 %hr
 - if (@order.is_saved?)
@@ -9,13 +10,14 @@
     %strong Check if you want to send this order
     = check_box_tag("send","send",false)
     %br
+    Remember that after sending this order to us you cannot edit order any more
+    %br
     %strong Order description:
     %br
     = text_area_tag("description",@order.description,:rows => 10, :cols=> 50)
+    = hidden_field_tag("show")
     %br
     = f.submit 'Update'
-    %br
-    Remember that after sending this order to us you cannot edit order any more
-%hr
+    %hr
 = link_to 'Back',orders_path
 = link_to 'New',new_order_path
