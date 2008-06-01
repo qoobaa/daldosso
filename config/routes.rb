@@ -30,8 +30,7 @@ ActionController::Routing::Routes.draw do |map|
     seller.root :controller => 'panel'
     seller.resources :events
     seller.requested '/orders/requested_index', :controller => 'seller/orders', :action => 'requested_index'
-    seller.orders_search '/orders/search', :controller => 'seller/orders', :actions => 'search'
-    seller.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs]
+    seller.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs, :events]
     seller.resources :customers
     seller.resources :calls
   end
