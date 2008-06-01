@@ -6,7 +6,7 @@ class Seller::OrdersController < ApplicationController
     if current_user.kind_of?(Admin) || current_user.kind_of?(ProductionManager)
       flash[:error] = "You don't have any orders assigned !"
     else
-      @curent_user_orders = current_user.orders.paginate :page => params[:page]
+      @curent_user_orders = Order.search(params[:search], params[:page], current_user)
     end
   end
 

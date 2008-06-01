@@ -18,6 +18,10 @@
 %p
   %strong Status:
   = h order.order_status.name rescue "[No Status selected]"
+%p
+  %strong Description:
+  = h order.description rescue "[No Description]"
+
 %br
 %p
   Add new item to this order:

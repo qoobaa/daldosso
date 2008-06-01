@@ -8,6 +8,11 @@
 %hr
 %h2= "My Orders:"
 %p
+  - form_tag seller_orders_path, :method=>'get' do
+    = text_field_tag :search, params[:search]
+    = submit_tag :search, :name => nil
+%br
+%p
   = will_paginate @curent_user_orders
   = render :partial  => 'order', :collection => @curent_user_orders, :locals => { :view => 'index' }
   = will_paginate @curent_user_orders

@@ -1,7 +1,7 @@
 %h1= "Create new Product Config"
 = error_messages_for :product_config
 
-- form_for([@order, @product_config], :url => seller_order_shutter_config_path(@order, @shutter_config)) do |f|
+- form_for([@order, @product_config], :url => seller_order_product_config_path(@order, @shutter_config)) do |f|
   = render :partial => 'form', :locals => { :f => f }
   = submit_tag 'Create Product Config'
 %br

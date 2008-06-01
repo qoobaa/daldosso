@@ -299,6 +299,7 @@
                                            DELETE /seller/events/:id                                        {:action=>"destroy", :controller=>"seller/events"}
                                            DELETE /seller/events/:id.:format                                {:action=>"destroy", :controller=>"seller/events"}
                           seller_requested        /seller/orders/requested_index                            {:action=>"requested_index", :controller=>"seller/seller/orders"}
+                      seller_orders_search        /seller/orders/search                                     {:actions=>"search", :action=>"index", :controller=>"seller/seller/orders"}
                              seller_orders GET    /seller/orders                                            {:action=>"index", :controller=>"seller/orders"}
                    formatted_seller_orders GET    /seller/orders.:format                                    {:action=>"index", :controller=>"seller/orders"}
                                            POST   /seller/orders                                            {:action=>"create", :controller=>"seller/orders"}

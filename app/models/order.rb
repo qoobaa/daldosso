@@ -40,4 +40,22 @@ class Order < ActiveRecord::Base
   def self.per_page
     10
   end
+
+  def self.search(search, page, current_user = nil)
+    if search
+      customer_id = Customer.find_by_name(search.to_s).id rescue -1
+      if current_user
+        current_user.orders.paginate :all,
+                                     :conditions => ['customer_id LIKE ? OR description LIKE ?', customer_id,"%#{search}%"],
+                                     :page => page
+      else
+        Order.paginate :all,
+                       :conditions => ['description LIKE ?',"%#{search}%"],
+                       :page => page
+      end
+    else
+      paginate :all, :page => page
+    end
+  end
+
 end
