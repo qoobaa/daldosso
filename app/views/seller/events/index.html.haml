@@ -15,7 +15,10 @@
       = render :partial => 'event', :collection => @due_events
 
 %p
-  = link_to 'New', new_seller_event_path
+  - if @order.nil?
+    = link_to 'New', new_seller_event_path
+  - else
+    = link_to 'New', new_seller_order_event_path(@order)
 %p
 %br
   = link_to 'Back to tasks', seller_root_path

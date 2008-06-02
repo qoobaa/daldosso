@@ -5,6 +5,4 @@
 %p
   = render :partial => 'order', :object => @order, :locals => { :view => 'show' }
 %p
-  = link_to 'Show Events', seller_order_events_path(@order)
-%p
   = link_to 'Back to list', seller_orders_path

@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :product_configs
   map.resources :call_statuses
   map.resources :calls
-  map.resources :orders
+  map.resources :orders, :has_many => :window_configs
   map.resources :contact, :controller => 'contact'
   map.resources :order_statuses
   map.resources :events

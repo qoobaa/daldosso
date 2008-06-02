@@ -1,7 +1,11 @@
 %h1 Creating new event
 
 = error_messages_for :event
-
-- form_for :event, :url => seller_events_path do |f|
-  = render :partial => 'form', :locals => { :f => f }
-  = submit_tag 'Create'
+- if @order.nil?
+  - form_for :event, :url => seller_events_path do |f|
+    = render :partial => 'form', :locals => { :f => f }
+    = submit_tag 'Create'
+- else
+  - form_for :event, :url => seller_order_events_path(@order) do |f|
+    = render :partial => 'form', :locals => { :f => f }
+    = submit_tag 'Create'

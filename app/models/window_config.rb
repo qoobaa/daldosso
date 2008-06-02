@@ -66,7 +66,7 @@ class WindowConfig < ActiveRecord::Base
     h = height
     w = width
     min_area =  500000
-
+    area = 0
     case code
         when SashStructure.code_f
           case sashes
@@ -200,7 +200,7 @@ class WindowConfig < ActiveRecord::Base
                 area1 = area1 > min_area ? area1 : min_area
                 area2 = area2 > min_area ? area2 : min_area
                 area = (area1 + area2) * 4
-               else
+              else
                 hg1234 = h - ( ( 2 * frame_sash_width ) - added_bottom_rail_width)
                 wg1234 = ( w - ( ( 2 * frame_sash_width ) + ( 3 * central_stiles ) )) / 4.0
                 area = hg1234 * wg1234
@@ -209,7 +209,7 @@ class WindowConfig < ActiveRecord::Base
               end
           end
     end
-    return area / 1000000.0
+    return area / 1000000.0 rescue 0
   end
 
   def without_sashes?

@@ -21,7 +21,8 @@
 %p
   %strong Description:
   = h order.description rescue "[No Description]"
-
+%p
+  = link_to 'Show events', seller_order_events_path(order)
 %br
 %p
   Add new item to this order:
