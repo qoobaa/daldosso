@@ -1,7 +1,7 @@
 class WindowFeaturesController < ApplicationController
 
   def index
-    @short_window_features = WindowFeature.search(params[:search])
+    @short_window_features = WindowFeature.search(params[:search], params[:page])
   end
 
   def show
