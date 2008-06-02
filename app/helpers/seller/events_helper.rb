@@ -30,13 +30,24 @@ module Seller::EventsHelper
     end
   end
 
+  # generates link for event(s) under different conditions
   def event_link(str, action, event = nil, order = nil)
-    link = "events/#{event.id}/edit" if action == 'edit'
+    link = "#{event.id}/edit" if action == 'edit'
     link = "events/#{event.id}" if action == 'show' || action == 'delete'
     link = "events/new" if action == 'new'
-    link = "events/" if action == 'index'
+    link = seller_order_events_path(order) if !order.nil? && action == 'index'
+    link = seller_events_path if order.nil? && action == 'index'
     confirm = { 'delete' => "Are you sure?", 'show' => false, 'edit' => false, 'new' => false, 'index' => false}
     method = { 'delete' => :delete, 'show' => :get, 'edit' => :get, 'new' => :get, 'index' => :get}
     link_to str, link, :confirm => confirm[action], :method => method[action]
+  end
+
+  # generates url for form, event can be nested in order or not
+  def url_for_order_event(order, event)
+    if order.nil?
+      seller_event_path(event)
+    else
+      seller_order_event_path(order, event)
+    end
   end
 end
