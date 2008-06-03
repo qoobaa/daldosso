@@ -29,26 +29,14 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :seller do |seller|
     seller.root :controller => 'panel'
     seller.resources :events
-<<<<<<< HEAD:config/routes.rb
-    seller.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs]
-=======
     seller.requested '/orders/requested_index', :controller => 'seller/orders', :action => 'requested_index'
     seller.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs, :events]
->>>>>>> a826b33cd75a6d27af879ae842e11688857a1d65:config/routes.rb
     seller.resources :customers
   end
 
-<<<<<<< HEAD:config/routes.rb
-  map.namespace :production_manager do |production_manager|
-    production_manager.root :controller => 'panel'
-    production_manager.resources :events
-    production_manager.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs]
-    production_manager.resources :customers
-=======
   map.namespace :manager do |manager|
     manager.root :controller => 'panel'
     manager.resources :orders, :has_many => :events
->>>>>>> a826b33cd75a6d27af879ae842e11688857a1d65:config/routes.rb
   end
 
   map.namespace :admin do |admin|
