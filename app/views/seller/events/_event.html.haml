@@ -6,10 +6,10 @@
   = h event.description
 %p
   %strong Added by
-  = h event.user.name
+  = h event.user.name rescue "[No User]"
 %p
   %strong Order
-  = event.order.name
+  = h event.order.name rescue "[No Order]"
 %p
   %strong Added on
   = event.added_date

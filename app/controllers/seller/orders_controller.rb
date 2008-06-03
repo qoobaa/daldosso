@@ -56,9 +56,6 @@ class Seller::OrdersController < ApplicationController
   end
 
   def destroy
-    @order.order_items.each do |order_item|
-      order_item.destroy
-    end
     @order = Order.find(params[:id])
     @order.destroy
     redirect_to(seller_orders_url)

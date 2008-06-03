@@ -32,19 +32,11 @@ ActionController::Routing::Routes.draw do |map|
     seller.requested '/orders/requested_index', :controller => 'seller/orders', :action => 'requested_index'
     seller.resources :orders, :has_many => [:window_configs, :shutter_configs, :product_configs, :events]
     seller.resources :customers
-    seller.resources :calls
   end
 
   map.namespace :manager do |manager|
     manager.root :controller => 'panel'
-    manager.resources :events
-    manager.resources :orders
-    manager.resources :order_items
-    manager.resources :customers
-    manager.resources :window_configs
-    manager.resources :product_configs
-    manager.resources :shutter_configs
-    manager.resources :calls
+    manager.resources :orders, :has_many => :events
   end
 
   map.namespace :admin do |admin|

@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  before_destroy :delete_items
   has_many :order_items, :dependent => :destroy
   has_many :window_configs, :through => :order_items, :foreign_key => 'item_id'
   has_many :product_configs, :through => :order_items, :foreign_key => 'item_id'
@@ -57,4 +58,10 @@ class Order < ActiveRecord::Base
     end
   end
 
+  private
+  def delete_items
+    self.order_items.each do |order_item|
+      order_item.destroy
+    end
+  end
 end
