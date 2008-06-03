@@ -1,7 +1,7 @@
 class Seller::EventsController < ApplicationController
-       before_filter :seller_required
+  before_filter :seller_required
+
   def index
-    @events = Event.find(:all)
     month = params[:m] || Date.today.month
     year = params[:y] || Date.today.year
     day = params[:d] || Date.today.day
