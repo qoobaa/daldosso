@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  before_destroy :delete_items
   has_many :order_items, :dependent => :destroy
   has_many :window_configs, :through => :order_items, :foreign_key => 'item_id'
   has_many :product_configs, :through => :order_items, :foreign_key => 'item_id'
@@ -35,5 +36,32 @@ class Order < ActiveRecord::Base
 
   def same_type_orders
     OrderStatus.find_by_name(order_status.name || "").orders || []
+  end
+
+  def self.per_page
+    10
+  end
+
+  def self.search(search, page, current_user = nil)
+    if search
+      #customer_id = Customer.find_by_name(search.to_s).id rescue -1
+      customer_ids = Customer.paginate(:all, :conditions => ['name LIKE ?', "%#{search}%"], :page => page)
+      if current_user
+        current_user.orders.paginate :all, :conditions => ['customer_id IN (?) OR description LIKE ?', customer_ids, "%#{search}%"], :page => page
+      else
+        Order.paginate :all,
+                       :conditions => ['description LIKE ?',"%#{search}%"],
+                       :page => page
+      end
+    else
+      paginate :all, :page => page
+    end
+  end
+
+  private
+  def delete_items
+    self.order_items.each do |order_item|
+      order_item.destroy
+    end
   end
 end

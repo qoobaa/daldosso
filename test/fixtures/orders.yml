@@ -7,6 +7,7 @@ order_1:
   percentual_discount: 12
   total_cost: 23000
   order_status_id: 2
+  description: desc nr 1
 
 order_2:
   id: 2
@@ -15,6 +16,7 @@ order_2:
   percentual_discount: 2
   total_cost: 3000
   order_status_id: 1
+  description: desc nr 2
 
 order_3:
   id: 3
@@ -23,6 +25,7 @@ order_3:
   percentual_discount: 20
   total_cost: 6000
   order_status_id: 2
+  description: desc nr 3
 
 <% for i in 4..50 %>order_<%= i %>:
   id: <%= i %>
@@ -31,4 +34,5 @@ order_3:
   percentual_discount: <%= (i*23) % 7 %>
   total_cost: <%= rand(5500) %>
   order_status_id: <%= rand(10) + 1 %>
+  description: desc nr <%= i %>
 <% end %>

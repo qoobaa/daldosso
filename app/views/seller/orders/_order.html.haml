@@ -18,6 +18,11 @@
 %p
   %strong Status:
   = h order.order_status.name rescue "[No Status selected]"
+%p
+  %strong Description:
+  = h order.description rescue "[No Description]"
+%p
+  = link_to 'Show events', seller_order_events_path(order)
 %br
 %p
   Add new item to this order:
@@ -31,5 +36,7 @@
 = link_to 'Show', seller_order_path(order)
 |
 = link_to 'Edit', edit_seller_order_path(order)
+|
+= link_to 'Delete', seller_order_path(order), :method => :delete, :confirm => 'Are you sure?' if view =='show'
 %br
 %br

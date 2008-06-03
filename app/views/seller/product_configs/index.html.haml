@@ -1,6 +1,9 @@
 %h1 Listing Product Configurations
 %p
   = link_to 'Create new Product Configuration', new_seller_product_config_path
+  |
+  = link_to 'Back to Panel', seller_root_path
+%hr
 %hr
 %br
 = render :partial => 'product_config', :collection => @product_configs

@@ -1,5 +1,5 @@
 %h1 Viewing event
 
-= render :partial => 'event', :object => @event
-
-%p= link_to 'Back to list', seller_events_path
+= render :partial => 'event', :object => @event, :locals => { :view => 'show' }
+%br
+= event_link('Back to list', 'index', @event, @order)

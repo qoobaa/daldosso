@@ -1,0 +1,7 @@
+%h1 Creating new Customer
+
+= error_messages_for :customer
+
+- form_for :customer, :url => seller_customers_path do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = submit_tag 'Create'

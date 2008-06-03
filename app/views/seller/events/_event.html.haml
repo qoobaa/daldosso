@@ -1,17 +1,23 @@
 %p
+  %strong Type
+  = h event.event_type.name
+%p
   %strong Description
   = h event.description
 %p
   %strong Added by
-  = h event.user.name
+  = h event.user.name rescue "[No User]"
 %p
-  %strong Order number
-  = event.order_id
+  %strong Order
+  = h event.order.name rescue "[No Order]"
 %p
   %strong Added on
   = event.added_date
 %p
   %strong Due on
   = event.due_date
+
 %p
-  = link_to 'Edit', edit_seller_event_path(event)
+  = event_link('Edit', 'edit', event, @order) if view == 'show'
+  = event_link('Show', 'show', event, @order) if view == 'index'
+%br

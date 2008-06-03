@@ -1,0 +1,5 @@
+%h1 Viewing Customer
+
+= render :partial => 'customer', :object => @customer, :locals => { :view => 'show' }
+
+%p= link_to 'Back to list', seller_customers_path

@@ -1,7 +1,7 @@
 class GlassTypesController < ApplicationController
 
   def index
-    @short_glass_types = GlassType.search(params[:search])
+    @short_glass_types = GlassType.search(params[:search],params[:page])
   end
 
 

@@ -1,0 +1,18 @@
+%h1= "Listing Customers"
+%br
+%p
+  = link_to 'Create new Customer', new_seller_customer_path
+  |
+  = link_to 'Back to Panel', seller_root_path
+%hr
+%br
+%p
+  - form_tag seller_customers_path, :method=>'get' do
+    Search:
+    = text_field_tag :search, params[:search]
+    = submit_tag :search, :name => nil
+%br
+%p
+  = will_paginate @customers
+  = render :partial => 'customer', :collection => @customers, :locals => { :view => 'index' }
+  = will_paginate @customers

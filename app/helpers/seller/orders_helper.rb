@@ -1,7 +1,10 @@
 module Seller::OrdersHelper
-
+  # generates link tag for polymorphic OrderItem model, based on:
+  # - what type of item is it
+  # - what action should this link generate
+  # - in which view it is generated
   def order_item_link(item, action, view)
-    prefix = "#{item.order.id}/" if view.to_s == 'show'
+    prefix = "#{item.order.id}/" if (view.to_s == 'show') || (view.to_s == 'requested')
     prefix = "orders/#{item.order.id}/" if view.to_s == 'index'
     sufix = "/edit" if action.to_s == 'edit'
     link = "#{prefix}#{item.path_part}s/#{item.item_id}#{sufix}"

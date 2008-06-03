@@ -1,5 +1,7 @@
 %h1= "Listing events on #{@date.to_formatted_s(:long)}"
-
+%br
+= "Events from order: #{@order.name}" if @order
+%hr
 %p
   = events_calendar(@date, @month_events)
 
@@ -9,12 +11,13 @@
   - else
     - unless @added_events.empty?
       %h2 Added events
-      = render :partial => 'event', :collection => @added_events
+      = render :partial => 'event', :collection => @added_events, :locals => { :view => 'index' }
     - unless @due_events.empty?
       %h2 Due events
-      = render :partial => 'event', :collection => @due_events
+      = render :partial => 'event', :collection => @due_events, :locals => { :view => 'index' }
 
 %p
-  = link_to 'New', new_seller_event_path
+  = event_link('New', 'new', nil, @order)
 %p
+%br
   = link_to 'Back to tasks', seller_root_path

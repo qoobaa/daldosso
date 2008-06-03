@@ -1,6 +1,9 @@
 %h1 Listing Shutter Configurations
 %p
   = link_to 'Create new Shutter Configuration', new_seller_shutter_config_path
+  |
+  = link_to 'Back to Panel', seller_root_path
+%hr
 %hr
 %br
 = render :partial => 'shutter_config', :collection => @shutter_configs
