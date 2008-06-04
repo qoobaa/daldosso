@@ -8,11 +8,7 @@ class Event < ActiveRecord::Base
     datetime = date.to_datetime
     from = datetime.beginning_of_month
     to = datetime.end_of_month
-    find(:all, :conditions => ["added_date BETWEEN ? AND ? OR due_date BETWEEN ? AND ?",
-                               from,
-                               to,
-                               from,
-                               to])
+    find(:all, :conditions => ["added_date BETWEEN ? AND ? OR due_date BETWEEN ? AND ?", from, to, from, to])
   end
 
   def self.find_due_in_month(date)
